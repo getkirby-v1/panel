@@ -1,0 +1,12 @@
+DirectoryIndex index.htm index.php
+
+# rewrite rules
+<IfModule mod_rewrite.c>
+
+RewriteEngine on
+RewriteBase /panel
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) index.php [L]
+ 
+</IfModule>
