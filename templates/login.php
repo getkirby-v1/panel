@@ -1,5 +1,7 @@
 <?php 
 
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
 $login = false;
 
 if(get('login')) {
@@ -36,15 +38,15 @@ if(get('login')) {
 
   <form action="<?php echo thisURL() ?>" method="post">
     <div class="field text">
-      <label>Username</label>
+      <label><?php echo l::get('login.username') ?></label>
       <input type="text" name="username" />
     </div>
     <div class="field text">
-      <label>Password</label>
+      <label><?php echo l::get('login.password') ?></label>
       <input type="password" name="password" />
     </div>
     <div class="field buttons">
-      <input type="submit" name="login" value="Login" />
+      <input type="submit" name="login" value="<?php echo l::get('login.button') ?>" />
     </div>
   </form>
   

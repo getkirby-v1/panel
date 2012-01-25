@@ -1,13 +1,10 @@
 <?php
 
-if(get('update-info')) {
-  $result = data::updateInfo();
-  if(success($result)) go();
-  growl($result);
-}
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
+$action = action::updateSiteinfo();
 
 ?>
-
 <div class="form full">		
   
   <form method="post" class="<?php echo $page->template() ?>">
@@ -15,7 +12,7 @@ if(get('update-info')) {
 
     <fieldset class="bottom">
       <div class="buttons">
-        <input type="submit" name="update-info" value="Save" />
+        <input type="submit" name="update-info" value="<?php echo l::get('siteinfo.button') ?>" />
       </div>
     </fieldset>
 

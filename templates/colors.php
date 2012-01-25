@@ -1,3 +1,4 @@
+<?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 <?php $color = c::get('panel.color', '#9818b8') ?>
 <style>
   

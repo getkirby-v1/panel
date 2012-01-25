@@ -1,13 +1,14 @@
+<?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 <?php if($settings->files): ?>
 <div class="files">		
 
-  <h3>Files <span class="options"><a class="upload" href="<?php echo dourl('files', 'upload-file') ?>">Upload a new file</a></span></h3>
+  <h3><?php echo l::get('files.title') ?> <span class="options"><a class="upload" href="<?php echo dourl('files', 'upload-file') ?>"><?php echo l::get('files.upload') ?></a></span></h3>
   
   <ul>
     <?php $n=0; foreach($page->files() as $file): ?>
     <?php if($file->type() == 'content') continue ?>
     <li>
-      <a target="_blank" rel="files" title="<?php echo html($file->filename()) ?>" href="<?php echo ourl($file->url()) ?>">
+      <a target="_blank"<?php if($file->type() == 'image') echo ' rel="image"' ?> title="<?php echo html($file->filename()) ?>" href="<?php echo ourl($file->url()) ?>">
         <span class="preview">
           <span>
             <?php if($file->type() == 'image'): ?>
@@ -32,15 +33,15 @@
       </a>
 
       <div class="filemenu">
-        <a href="<?php echo dourl('files', 'edit-file') ?>/?file=<?php echo $file->filename() ?>">Edit</a>
-        <a href="<?php echo dourl('files', 'replace-file') ?>/?file=<?php echo $file->filename() ?>">Replace</a>
-        <a href="<?php echo dourl('files', 'delete-file') ?>/?file=<?php echo $file->filename() ?>">Delete</a>
+        <a href="<?php echo dourl('files', 'edit-file') ?>/?file=<?php echo $file->filename() ?>"><?php echo l::get('files.edit') ?></a>
+        <a href="<?php echo dourl('files', 'replace-file') ?>/?file=<?php echo $file->filename() ?>"><?php echo l::get('files.replace') ?></a>
+        <a href="<?php echo dourl('files', 'delete-file') ?>/?file=<?php echo $file->filename() ?>"><?php echo l::get('files.delete') ?></a>
       </div>
     </li>
     <?php $n++; endforeach ?>
     
     <?php if($n==0): ?>
-    <li class="empty"><em>No files so far</em></li>
+    <li class="empty"><em><?php echo l::get('files.empty') ?></em></li>
     <?php endif ?>
     
   </ul>
@@ -54,9 +55,9 @@
 
 <?php else: ?>
 <div class="files">
-<h3>Files</h3>
+<h3><?php echo l::get('nofiles.title') ?></h3>
 <ul>
-  <li class="empty"><em>This page is not supposed to have files</em></li>
+  <li class="empty"><em><?php echo l::get('nofiles.text') ?></em></li>
 </ul>
 </div>
 <?php endif ?>

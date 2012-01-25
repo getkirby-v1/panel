@@ -1,10 +1,10 @@
-<?php if(!$page->isHomePage()): ?>
-<?php
+<?php 
 
-if(get('options')) {
-  $result = data::changeDirname();
-  growl($result);
-}
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
+if(!$page->isHomePage()):
+
+$action = action::updateURL();
 
 ?>
 <div class="options form">
@@ -13,13 +13,13 @@ if(get('options')) {
     
     <fieldset>    
       <div class="field url">
-        <label>URL</label>
+        <label><?php echo l::get('options.url') ?></label>
         <span class="url"><em><?php echo dirname(ourl($page->url())) ?>/</em><strong><input type="url" name="uid" value="<?php echo $page->uid() ?>" /></strong></span>
       </div>
     </fieldset>
     <fieldset class="bottom">
       <div class="buttons">
-        <input type="submit" name="options" value="Save">
+        <input type="submit" name="options" value="<?php echo l::get('options.button') ?>">
       </div>
     </fieldset>
     
@@ -28,7 +28,7 @@ if(get('options')) {
 </div>
 <?php else: ?>
 <div class="options form">
-  <h3>URL</h3>
-  <em class="empty">You cannot change the URL of the homepage</em>
+  <h3><?php echo l::get('options.home.url') ?></h3>
+  <em class="empty"><?php echo l::get('options.home.text') ?></em>
 </div>
 <?php endif ?>

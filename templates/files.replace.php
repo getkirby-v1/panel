@@ -1,5 +1,7 @@
 <?php
 
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
 if($panel->action != 'replace-file') return;
 
 $action = action::replaceFile();
@@ -15,21 +17,21 @@ if(!$file) go(showurl('files'));
     <?php growl($action) ?>
 
     <fieldset>
-      <h3>Replace this file</h3>
+      <h3><?php echo l::get('files.replace.title') ?></h3>
 
       <div class="field">
-        <label>File: <strong><?php echo $file->filename() ?></strong></label>
+        <label><?php echo l::get('files.replace.file') ?>: <strong><?php echo $file->filename() ?></strong></label>
       </div>
       
       <div class="field">
-        <label>Please choose a new file from your computer…</label>
+        <label><?php echo l::get('files.replace.choose') ?></label>
         <input type="file" name="file" />
       </div>
 
       <div class="buttons">
         <input type="hidden" name="filename" value="<?php echo $file->filename() ?>" />
-        <input type="submit" name="replace-file" value="Upload" />
-        <input class="cancel" type="submit" name="cancel-replace-file" value="Cancel" />
+        <input type="submit" name="replace-file" value="<?php echo l::get('files.replace.button') ?>" />
+        <input class="cancel" type="submit" name="cancel-replace-file" value="<?php echo l::get('cancel') ?>" />
       </div>
                   
     </fieldset>  

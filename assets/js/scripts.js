@@ -51,7 +51,7 @@ $(function() {
   }
 
   if($('.files').length) {
-    $('.files a[rel=files]').fancybox({
+    $('.files a[rel=image]').fancybox({
       padding: 20,
       cyclic: true,
       overlayOpacity: 0.9,

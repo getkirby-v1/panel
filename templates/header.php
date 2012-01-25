@@ -1,3 +1,4 @@
+<?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
 <script src="<?php echo c::get('panel.url') ?>/assets/fancybox/jquery.fancybox.js"></script>
 <?php endif ?>
 
-<?php if(c::get('panel.color')) require_once('colors.php') ?>
+<?php if(c::get('panel.color') && c::get('panel.color') != 'red') require_once('colors.php') ?>
 
 </head>
 
@@ -40,7 +41,7 @@
 
 <div class="header">
 
-  <a class="logo" href="<?php echo url() ?>">Kirby CMS</a>
+  <a class="logo" href="<?php echo url() ?>"><?php echo l::get('kirby.title') ?></a>
   
   <?php if(c::get('lang.support')): ?>
   <select class="lang" onchange="window.location = this.value">
@@ -51,7 +52,7 @@
   </select>
   <?php endif ?>
     
-  <a class="logout" href="<?php echo showurl('logout') ?>">Logout</a>
+  <a class="logout" href="<?php echo showurl('logout') ?>"><?php echo l::get('header.logout') ?></a>
 
 </div>
 
@@ -60,10 +61,10 @@
   <?php if($panel->isHome): ?>
   <h1>
     <?php if($panel->show == 'info'): ?>
-    <a class="home" href="<?php echo u() ?>"><strong>Home</strong> <span>&rsaquo;</span> Your Site <span>&rsaquo;</span></a>
-    <a href="<?php echo showurl('info') ?>">Info</a>
+    <a class="home" href="<?php echo u() ?>"><strong><?php echo l::get('subheader.home') ?></strong> <span>&rsaquo;</span> <?php echo l::get('subheader.site') ?> <span>&rsaquo;</span></a>
+    <a href="<?php echo showurl('info') ?>"><?php echo l::get('subheader.info') ?></a>
     <?php else: ?>
-    <a class="home" href="<?php echo u() ?>"><strong>Home</strong> <span>&lsaquo;</span> Your Site</a>    
+    <a class="home" href="<?php echo u() ?>"><strong><?php echo l::get('subheader.home') ?></strong> <span>&lsaquo;</span> <?php echo l::get('subheader.site') ?></a>    
     <?php endif ?>
   </h1>
   <h2>
@@ -71,7 +72,7 @@
   </h2>
   <?php else: ?>
   <h1>
-    <a class="home" href="<?php echo u() ?>"><strong>Home</strong> <span>&rsaquo;</span></a>
+    <a class="home" href="<?php echo u() ?>"><strong><?php echo l::get('subheader.home') ?></strong> <span>&rsaquo;</span></a>
     <?php foreach($site->breadcrumb() as $l): ?>
     <a<?php if($l->isActive()) echo ' class="active"' ?> href="<?php echo $l->url() ?>"><?php echo $l->title() ?> <span>&rsaquo;</span></a>
     <?php endforeach ?> 
@@ -83,10 +84,10 @@
   
   <?php if(!$panel->isHome): ?>    
   <ul class="submenu">
-    <li><a<?php echo $panel->show == 'content' ?  ' class="active"' : '' ?> href="<?php echo showurl('content') ?>">Content</a></li>  
-    <li><a<?php echo $panel->show == 'pages' ?    ' class="active"' : '' ?> href="<?php echo showurl('pages') ?>">Pages <strong><?php echo $page->children()->count() ?></strong></a></li>  
-    <li><a<?php echo $panel->show == 'files'   ?  ' class="active"' : '' ?> href="<?php echo showurl('files') ?>">Files <strong><?php echo $page->files()->count()-1 ?></strong></a></li>  
-    <li><a<?php echo $panel->show == 'options' ?  ' class="active"' : '' ?> href="<?php echo showurl('options') ?>">URL</a></li>  
+    <li><a<?php echo $panel->show == 'content' ?  ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>  
+    <li><a<?php echo $panel->show == 'pages' ?    ' class="active"' : '' ?> href="<?php echo showurl('pages') ?>"><?php echo l::get('tabs.pages') ?> <strong><?php echo $page->children()->count() ?></strong></a></li>  
+    <li><a<?php echo $panel->show == 'files'   ?  ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?> <strong><?php echo $page->files()->count()-1 ?></strong></a></li>  
+    <li><a<?php echo $panel->show == 'options' ?  ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>  
   </ul>
   <?php endif ?>
   

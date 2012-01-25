@@ -1,5 +1,8 @@
 <?php
 
+// direct access protection
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
 class me {
 
 	function loggedIn() {
@@ -10,7 +13,8 @@ class me {
 			
 		s::set('logged_in', false);		
 
-    $accounts = spyc_load_file(c::get('root.site') . '/admin/accounts.php');
+    $accounts = c::get('panel.accounts', array());
+            
 		$password = get('password');
 		$username = get('username');
 
@@ -22,7 +26,7 @@ class me {
     // get the user data
     $user = $accounts[$username];
 
-		if($password != a::get($user, 'pw')) return array(
+		if($password != a::get($user, 'password')) return array(
 			'status' => 'error',
 			'msg'    => 'Invalid username or password'
 		);

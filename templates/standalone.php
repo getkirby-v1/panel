@@ -1,3 +1,4 @@
+<?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 <script>
 // https://gist.github.com/1042026
 (function(document,navigator,standalone) {

@@ -1,5 +1,8 @@
 <?php
 
+// direct access protection
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
 function ourl($url=false) {
   if(!$url) $url = c::get('url');
   return str_replace('/' . c::get('panel.folder'), '', $url);

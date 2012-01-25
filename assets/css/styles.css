@@ -528,6 +528,7 @@ p {
 }
 .files li.empty {
   height: auto;
+  width: 100%;
 }
 .files li a {
   color: #777;
@@ -788,9 +789,7 @@ body.login .field {
   margin-right: 12px !important;
 }
 body.login .growl {
-  position: absolute;
-  left: 0;
-  right: 0;
+  width: 260px;
   margin-bottom: 20px;
 }
 
@@ -823,6 +822,7 @@ body.login .growl {
   }
   .subheader h2 {
     margin-bottom: 12px;
+    margin-right: 0;
     padding-bottom: 12px;
     border-bottom: 1px solid #ddd;
   }

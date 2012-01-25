@@ -1,5 +1,8 @@
 <?php
 
+// direct access protection
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
 class action {
 
   function addContent() {
@@ -50,6 +53,50 @@ class action {
     
     return $result;
   
+  }
+
+  function sortPages() {
+  
+    if(get('sort-action') == 'cancel') {
+      go(showurl('pages'));
+      return false;
+    }
+    
+    if(get('sort-action') == 'ok') {
+    
+      $result = data::sort();
+    
+      if(success($result)) go(showurl('pages'));
+      growl($result);
+    
+    }
+    
+  }
+
+  function updateURL() {
+    
+    $result = false;
+
+    if(get('options')) {
+      $result = data::changeDirname();
+      if(success($result)) return $result;
+      growl($result);
+    }
+  
+  }
+  
+  function updateSiteinfo() {
+
+    $result = false;
+
+    if(get('update-info')) {
+      $result = data::updateInfo();
+      if(success($result)) go();
+      growl($result);
+    }
+
+    return $result;
+      
   }
 
   function uploadFile() {

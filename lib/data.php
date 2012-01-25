@@ -1,5 +1,8 @@
 <?php
 
+// direct access protection
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
 class data {
 
   static function childByUID($uid) {
@@ -26,12 +29,12 @@ class data {
 
     if($page->isHomePage()) return array(
       'status' => 'error',
-      'msg'    => 'You can\'t change the name of the homepage'
+      'msg'    => l::get('options.errors.homepage')
     );
 
     if($page->isErrorPage()) return array(
       'status' => 'error',
-      'msg'    => 'You can\'t change the name of the error page'
+      'msg'    => l::get('options.errors.errorpage')
     );
 
     $uid  = get('uid');
@@ -39,12 +42,12 @@ class data {
 
     if($name == $page->dirname()) return array(
       'status' => 'success',
-      'msg'    => 'Nothing has changed'
+      'msg'    => l::get('nochanges')
     );
 
     if(!preg_match('!^[a-z0-9-_]+$!i', $name)) return array(
       'status' => 'error',
-      'msg'    => 'Please only use the following characters a-z, 0-9, _, -'
+      'msg'    => l::get('options.errors.characters')
     );
     
     $oldRoot = $page->root();
@@ -52,12 +55,12 @@ class data {
 
     if(!is_writable($oldRoot)) return array(
       'status' => 'error',
-      'msg'    => 'The directory name can not be changed'
+      'msg'    => l::get('options.errors.permissions')
     );
     
     if(is_dir($newRoot)) return array(
       'status' => 'error',
-      'msg'    => 'The new url name already exists'
+      'msg'    => l::get('options.errors.exists')
     );
     
     $siblings = $page->siblings();
@@ -65,14 +68,14 @@ class data {
     
     if($check) return array(    
       'status' => 'error',
-      'msg'    => 'The new url already exists'
+      'msg'    => l::get('options.errors.exists')
     );
     
     $move = dir::move($oldRoot, $newRoot);
     
     if(!$move) return array(
       'status' => 'error',
-      'msg'    => 'The directory could not be moved'
+      'msg'    => l::get('options.errors.move')
     );
     
     $url = str_replace('/' . $page->uid() . '/', '/' . $uid . '/', thisURL());
@@ -89,19 +92,19 @@ class data {
     
     if(!$p) return array(
       'status' => 'error',
-      'msg'    => 'The page could not be found'
+      'msg'    => l::get('pages.errors.notfound')
     );
 
     $dirname = dirname($p->root()) . '/' . $p->uid();
         
     if(!dir::move($p->root(), $dirname)) return array(
       'status' => 'error',
-      'msg'    => 'The page could not be moved'    
+      'msg'    => l::get('pages.errors.move')
     );
     
     return array(
       'status' => 'success',
-      'msg'    => 'The page has been moved'
+      'msg'    => l::get('pages.moved')
     );
     
   }
@@ -112,24 +115,24 @@ class data {
         
     if(!$p) return array(
       'status' => 'error',
-      'msg'    => 'The page could not be found'
+      'msg'    => l::get('pages.errors.notfound')
     );
 
     if($num == $p->num()) return array(
       'status' => 'success',
-      'msg'    => 'Nothing has changed'
+      'msg'    => l::get('nochanges')
     );
 
     $dirname = dirname($p->root()) . '/' . $num . '-' . $p->uid();
         
     if(!dir::move($p->root(), $dirname)) return array(
       'status' => 'error',
-      'msg'    => 'The page could not be moved'    
+      'msg'    => l::get('pages.errors.move')
     );
     
     return array(
       'status' => 'success',
-      'msg'    => 'The page has been moved'
+      'msg'    => l::get('pages.moved')
     );
 
   }
@@ -142,7 +145,7 @@ class data {
     
     if(empty($visible) && empty($invisible)) return array(
       'status' => 'error',
-      'msg'    => 'Nothing to sort'
+      'msg'    => l::get('pages.errors.nosort')
     );
 
     if(!empty($visible)) {
@@ -167,16 +170,14 @@ class data {
 
       foreach($invisible as $uid) {
         $sort = self::removeNum($uid);
-        
         if(error($sort)) $errors[] = $sort;      
-              
       }
           
     }
         
     if(!empty($errors)) return array(
       'status' => 'error',
-      'msg'    => 'Not all pages could be sorted',
+      'msg'    => l::get('pages.errors.sort'),
       'error'  =>  $errors
     );
 
@@ -184,7 +185,7 @@ class data {
     
     return array(
       'status' => 'success',
-      'msg'    => 'The pages have been sorted'
+      'msg'    => l::get('pages.sorted')
     );    
         
   }
@@ -195,34 +196,34 @@ class data {
         
     if(!$delete) return array(
       'status' => 'error',
-      'msg'    => 'The page could not be found'
+      'msg'    => l::get('pages.errors.notfound')
     );
 
     if($delete->isHomePage()) return array(
       'status' => 'error',
-      'msg'    => 'You can\'t delete the homepage'
+      'msg'    => l::get('pages.delete.errors.homepage')
     );
 
     if($delete->isErrorPage()) return array(
       'status' => 'error',
-      'msg'    => 'You can\'t delete the error page'
+      'msg'    => l::get('pages.delete.errors.errorpage')
     );
 
     if($delete->hasChildren()) return array(
       'status' => 'error',
-      'msg'    => 'This page has subpages. Please delete them first.'
+      'msg'    => l::get('pages.delete.errors.subpages')
     );
     
     if(!dir::remove($delete->root())) return array(
       'status' => 'error',
-      'msg'    => 'The page could not be removed'
+      'msg'    => l::get('pages.delete.errors.permissions')
     );
 
     self::killCache();
     
     return array(
       'status' => 'success',
-      'msg'    => 'The page has been removed'
+      'msg'    => l::get('pages.delete.success')
     );        
         
   }
@@ -238,7 +239,7 @@ class data {
     
     if(empty($title)) return array(
       'status' => 'error',
-      'msg'    => 'Please add a Title'
+      'msg'    => l::get('pages.add.errors.title')
     );
     
     // build a urlified uid
@@ -246,19 +247,19 @@ class data {
     
     if(empty($uid)) return array(
       'status' => 'error',
-      'msg'    => 'Please add a URL for your page'
+      'msg'    => l::get('pages.add.errors.url')
     );
     
     if(!preg_match('!^[a-z0-9-_]+$!i', $uid)) return array(
       'status' => 'error',
-      'msg'    => 'Please only use the following characters a-z, 0-9, _, - for the URL'
+      'msg'    => l::get('pages.add.errors.characters')
     );
 
     $check = self::childByUID($uid);
         
     if($check) return array(    
       'status' => 'error',
-      'msg'    => 'A page with that url already exists ' . $uid
+      'msg'    => l::get('pages.add.errors.exists') . ': ' . $uid
     );
 
     if(!$site->uri->path(1)) {
@@ -271,7 +272,7 @@ class data {
         
     if(!dir::make($dir)) return array(
       'status' => 'error',
-      'msg'    => 'The directory could not be created'
+      'msg'    => l::get('pages.add.errors.permissions')
     );
 
     if(c::get('lang.support')) {
@@ -296,7 +297,7 @@ class data {
     
     return array(
       'status' => 'success',
-      'msg'    => 'The new page has been created',
+      'msg'    => l::get('pages.add.success'),
       'url'    => $url    
     );
               
@@ -311,7 +312,7 @@ class data {
     
     if(empty($data['title'])) return array(
       'status' => 'error',
-      'msg' => 'Please add a title'
+      'msg' => l::get('pages.update.errors.title')
     );
   
     // remove the file without language code    
@@ -343,7 +344,7 @@ class data {
     
     if(empty($data['title'])) return array(
       'status' => 'error',
-      'msg' => 'Please add a title'
+      'msg' => l::get('siteinfo.errors.title')
     );
   
     // remove the file without language code    
@@ -389,12 +390,9 @@ class data {
     if(error($upload)) return $upload;
 
     self::killCache();
-
-    return array(
-      'status' => 'success',
-      'msg'    => 'The file has been uploaded'
-    );
-  
+    
+    return $upload;
+      
   }  
   
   static function replaceFile() {
@@ -406,7 +404,7 @@ class data {
 
     if(!$file) return array(
       'status' => 'error',
-      'msg' => 'The file could not be found'
+      'msg' => l::get('files.replace.errors.notfound')
     );
     
     $upload = upload::file('file', $page->root() . '/' . $filename);
@@ -416,7 +414,7 @@ class data {
 
     return array(
       'status' => 'success',
-      'msg'    => 'The file has been uploaded'
+      'msg'    => l::get('files.replace.success')
     );
   
   }  
@@ -431,33 +429,33 @@ class data {
 
     if(!$file) return array(
       'status' => 'error',
-      'msg' => 'The file could not be found'
+      'msg' => l::get('files.edit.errors.notfound')
     );
     
     $newfilename = $newname . '.' . $file->extension();
     
     if($newfilename == $file->filename()) return array(
       'status' => 'success',
-      'msg'    => 'Nothing has changed'
+      'msg'    => l::get('nochanges')
     );
     
     $newroot = dirname($file->root()) . '/' . $newfilename;
 
     if(file_exists($newroot)) return array(
       'status' => 'error',
-      'msg'    => 'The the new name already exists'
+      'msg'    => l::get('files.edit.errors.exists')
     );
     
     if(!f::move($file->root(), $newroot)) return array(
       'status' => 'error',
-      'msg'    => 'The file could not be renamed'
+      'msg'    => l::get('files.edit.errors.permissions')
     );
 
     self::killCache();
             
     return array(
       'status' => 'success',
-      'msg'    => 'The file has been uploaded'
+      'msg'    => l::get('files.edit.success')
     );
   
   }  
@@ -471,19 +469,19 @@ class data {
 
     if(!$file) return array(
       'status' => 'error',
-      'msg' => 'The file could not be found'
+      'msg' => l::get('files.delete.errors.notfound')
     );
             
     if(!f::remove($file->root())) return array(
       'status' => 'error',
-      'msg'    => 'The file could not be delete'
+      'msg'    => l::get('files.delete.errors.permissions')
     );
             
     self::killCache();
 
     return array(
       'status' => 'success',
-      'msg'    => 'The file has been deleted'
+      'msg'    => l::get('files.delete.success') 
     );
   
   }  
@@ -515,7 +513,7 @@ class data {
         
     if(file_exists($file) && !is_writable($file)) return array(
       'status' => 'error',
-      'msg'    => 'The file is not writable'
+      'msg'    => l::get('writer.errors.permissions')
     );
 
     $break  = false;
@@ -534,12 +532,12 @@ class data {
       
     if(!$write || !file_exists($file)) return array(
       'status' => 'error',
-      'msg'    => 'The data could not be added'
+      'msg'    => l::get('writer.errors.write')
     );
     
     return array(
       'status' => 'success',
-      'msg'    => 'The file has been saved'
+      'msg'    => l::get('writer.success')
     );
     
   }

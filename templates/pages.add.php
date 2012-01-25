@@ -1,5 +1,7 @@
 <?php
 
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
 if($panel->action != 'add-page') return;
 
 $action    = action::addContent();
@@ -13,24 +15,24 @@ $templates = data::findTemplates();
     <?php growl($action) ?>
 
     <fieldset>
-      <h3>Add a new page</h3>
+      <h3><?php echo l::get('pages.add.title') ?></h3>
       
       <div class="field">
-        <label>Title</label>
+        <label><?php echo l::get('pages.add.label.title') ?></label>
         <input type="text" name="title" value="<?php echo html(get('title')) ?>" />
       </div>
       
       <div class="field hide">
-        <label>URL</label>
+        <label><?php echo l::get('pages.add.label.url') ?></label>
         <input type="text" name="uid" value="<?php echo html(get('uid')) ?>" />
       </div>
 
       <div class="field">
         <?php if(count($templates) == 1): ?>
-        <label>Template: <em><?php echo html(a::first($templates)) ?></em></label>
+        <label><?php echo l::get('pages.add.label.template') ?>: <em><?php echo html(a::first($templates)) ?></em></label>
         <input type="hidden" name="template" value="<?php echo a::first($templates) ?>" />
         <?php else: ?>
-        <label>Template</label>
+        <label><?php echo l::get('pages.add.label.template') ?></label>
         <select name="template">
           <?php foreach($templates as $value): ?>
           <option value="<?php echo html($value) ?>"<?php if(get('template', 'default') == $value) echo ' selected="selected"' ?>><?php echo html($value) ?></option>
@@ -40,8 +42,8 @@ $templates = data::findTemplates();
       </div>
 
       <div class="buttons">
-        <input type="submit" name="add-page" value="Save" />
-        <input class="cancel" type="submit" name="cancel-add-page" value="Cancel" />
+        <input type="submit" name="add-page" value="<?php echo l::get('pages.add.button') ?>" />
+        <input class="cancel" type="submit" name="cancel-add-page" value="<?php echo l::get('cancel') ?>" />
       </div>
                   
     </fieldset>  

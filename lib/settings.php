@@ -1,5 +1,8 @@
 <?php
 
+// direct access protection
+if(!defined('KIRBY')) die('Direct access is not allowed');
+
 class settings extends obj {
 
   function __construct() {
@@ -18,11 +21,11 @@ class settings extends obj {
 
   static function load($template) {
 
-    $blueprint = c::get('root.site') . '/admin/blueprints/' . $template . '.php';
+    $blueprint = c::get('root.site') . '/' . c::get('panel.folder') . '/blueprints/' . $template . '.php';
     
     // default fallback
     if(!file_exists($blueprint)) {
-      $blueprint = c::get('root.admin') . '/admin/blueprints/default.php';
+      $blueprint = c::get('root.panel') . '/blueprints/default.php';
     }
 
     $params = spyc_load_file($blueprint);
