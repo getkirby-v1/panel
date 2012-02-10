@@ -526,7 +526,7 @@ class data {
       if(in_array($k, $keys) || empty($k)) continue;
       $keys[] = $k;     
       $result .= $break . $k . ': ' . trim($v);
-      $break = "\n\r\n\r----\n\r\n\r";    
+      $break = "\n\n----\n\n";    
     }
     @chmod(basename($file), 0666);
     $write = f::write($file, $result);
@@ -580,6 +580,15 @@ class data {
             
     return $templates;  
   
+  }
+
+  static function countFiles() {
+    
+    global $page;
+    $count = $page->files()->count()-1;
+    if($count < 0) $count = 0;
+    return $count;
+    
   }
 
 }

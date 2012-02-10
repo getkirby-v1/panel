@@ -56,6 +56,10 @@ class panel extends site {
     $pages    = $this->pages;
     $page     = $this->pages->active();
 
+    if($page->isErrorPage() && $this->uri()->path() != c::get('404')) {
+      go(url(c::get('404')));
+    }
+
     g::set('site',  $this);
     g::set('panel', $this);
     g::set('pages', $pages);
@@ -105,18 +109,39 @@ class panel extends site {
         break;
       // more available views
       case 'info': case 'home': case 'pages': case 'options':
+        
+        if(($panel->show == 'home' || $panel->show == 'info') && !$panel->isHome) {
+          go(url() . '/show:' . $panel->show);
+        }
+        
         break;
       default:
-        if(!$panel->show && $panel->nocontent) go(showurl('files'));
-        if(!$panel->show && $settings->tab)    go(showurl($settings->tab));
+
+        $show = false;
+
+        if(!$panel->show) {
+          $show = s::get($page->uri() . ':show');
+          $valid = array('files', 'options', 'pages');
+          if(in_array($show, $valid)) go(showurl($show));
+        } 
+        
+        if(!$show && !$panel->show && $settings->tab) {
+          go(showurl($settings->tab));
+        }
+      
+        // last fallback        
         $panel->show = 'content';
+                
         break;
     }
+
+    // save the last tab in the session
+    s::set($page->uri() . ':show', $panel->show);
 
     // set the template file;
     $panel->templateFile = $panel->show . '.php';
     $panel->templateRoot = c::get('root.panel') . '/templates';
-
+    
     content::start();
 
     if($panel->user->isLoggedIn()) {

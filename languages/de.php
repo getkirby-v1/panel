@@ -39,6 +39,7 @@ l::set(array(
   'content.save' => 'Speichern',
   'content.previous' => 'zurück',
   'content.next' => 'weiter',
+  'content.invisible' => 'unsichtbar',
   
   // no content available
   'nocontent.title' => 'Kein Inhalt',
@@ -94,6 +95,7 @@ l::set(array(
   'options.button' => 'Speichern',
   'options.home.url' => 'URL',
   'options.home.text' => 'Sie können die URL der Homepage nicht ändern',
+  'options.error.text' => 'Sie können die URL der Fehlerseite nicht ändern',
   'options.errors.homepage' => 'Sie können die URL der Homepage nicht ändern',
   'options.errors.errorpage' => 'Sie können die URL der Fehlerseite nicht ändern',
   'options.errors.characters' => 'Bitte nutzen Sie nur folgende Zeichen: a-z, 0-9, _, -',

@@ -20,7 +20,7 @@ $children = ($panel->isHome) ? $pages : $page->children();
   <?php else: ?>
   <h3><?php echo $headline ?> 
     <span class="options">
-      <?php if($page->hasChildren()): ?>
+      <?php if($children->count()): ?>
       <a class="sort" href="<?php echo dourl('pages', 'edit-pages') ?>"><?php echo l::get('pages.sort') ?></a>
       <?php endif ?>
       <a class="add" href="<?php echo dourl('pages', 'add-page') ?>"><?php echo l::get('pages.add') ?></a>
@@ -38,7 +38,7 @@ $children = ($panel->isHome) ? $pages : $page->children();
       <a href="<?php echo dourl('pages', 'delete-page') ?>/?uid=<?php echo $child->uid() ?>" class="remove"><?php echo l::get('pages.delete') ?></a>
       <?php endif ?>
 
-      <a href="<?php echo $child->url() ?>" class="title"><?php echo html($child->title()) ?></a>
+      <a href="<?php echo $child->url() ?>" class="title"><span class="num"><?php echo $child->num() ?></span><?php echo html($child->title()) ?></a>
     </li>
     <?php $n++; endforeach ?>
     <li class="empty<?php echo ($n>0) ? ' hide' : '' ?>"><em><?php echo l::get('pages.no.visible') ?></em></li>

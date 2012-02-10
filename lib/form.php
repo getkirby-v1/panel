@@ -54,6 +54,7 @@ class form {
   function radio($page, $var, $options, $default=false) {
     $selected = get($var, a::get($page, $var, $default));
     $html = '<ul class="radio">';
+    
     foreach($options AS $key => $value) {
       $sel   = ($key == $selected) ? ' checked="checked"' : '';
       $html .= '<li><label class="inline"><input type="radio" name="' . $var . '" ' . $sel . ' value="' . $key . '" />' . $value . '</label></li>';
@@ -113,7 +114,7 @@ class form {
       
       if($setup['type'] == 'textarea') {
         $class = ' textarea';
-        if(!empty($setup['height'])) $class .= ' ' . $setup['height'];
+        if(!empty($setup['size'])) $class .= ' ' . $setup['size'];
       } else if($setup['type'] == 'checkbox') {
         $class = ' checkbox';
       }
@@ -139,8 +140,8 @@ class form {
           break;
       }
 
-      if(!empty($setup['descr'])) {
-        $output[] = self::description($setup['descr']);
+      if(!empty($setup['help'])) {
+        $output[] = self::description($setup['help']);
       }
       $output[] = '</div>';
 

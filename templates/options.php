@@ -2,7 +2,7 @@
 
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
-if(!$page->isHomePage()):
+if(!$page->isHomePage() && !$page->isErrorPage()):
 
 $action = action::updateURL();
 
@@ -29,6 +29,10 @@ $action = action::updateURL();
 <?php else: ?>
 <div class="options form">
   <h3><?php echo l::get('options.home.url') ?></h3>
+  <?php if($page->isHomePage()): ?>
   <em class="empty"><?php echo l::get('options.home.text') ?></em>
+  <?php else: ?>
+  <em class="empty"><?php echo l::get('options.error.text') ?></em>  
+  <?php endif ?>
 </div>
 <?php endif ?>

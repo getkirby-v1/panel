@@ -40,6 +40,7 @@ l::set(array(
   'content.save' => 'Save',
   'content.previous' => 'Previous',
   'content.next' => 'Next',
+  'content.invisible' => 'invisible',
   
   // no content available
   'nocontent.title' => 'No Content',
@@ -95,6 +96,7 @@ l::set(array(
   'options.button' => 'Save',
   'options.home.url' => 'URL',
   'options.home.text' => 'You cannot change the URL of the homepage',
+  'options.error.text' => 'You cannot change the URL of the error page',
   'options.errors.homepage' => 'You cannot change the URL of the homepage',
   'options.errors.errorpage' => 'You cannot change the URL of the error page',
   'options.errors.characters' => 'Please only use the following characters a-z, 0-9, _, -',

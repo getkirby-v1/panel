@@ -86,7 +86,7 @@
   <ul class="submenu">
     <li><a<?php echo $panel->show == 'content' ?  ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>  
     <li><a<?php echo $panel->show == 'pages' ?    ' class="active"' : '' ?> href="<?php echo showurl('pages') ?>"><?php echo l::get('tabs.pages') ?> <strong><?php echo $page->children()->count() ?></strong></a></li>  
-    <li><a<?php echo $panel->show == 'files'   ?  ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?> <strong><?php echo $page->files()->count()-1 ?></strong></a></li>  
+    <li><a<?php echo $panel->show == 'files'   ?  ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?> <strong><?php echo data::countFiles() ?></strong></a></li>  
     <li><a<?php echo $panel->show == 'options' ?  ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>  
   </ul>
   <?php endif ?>

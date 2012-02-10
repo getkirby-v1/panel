@@ -8,9 +8,10 @@ class settings extends obj {
   function __construct() {
 
     global $page;
-        
-    $params = self::load($page->template()); 
-        
+
+    $name   = (!$page->content || !$page->content->name) ? c::get('tpl.default') : $page->content->name;
+    $params = self::load($name); 
+
     // handle defaults
     if(!isset($params['pages'])) $params['pages'] = true;
     if(!isset($params['files'])) $params['files']  = true;
@@ -23,9 +24,14 @@ class settings extends obj {
 
     $blueprint = c::get('root.site') . '/' . c::get('panel.folder') . '/blueprints/' . $template . '.php';
     
+    // custom default
+    if($template != 'default' && !file_exists($blueprint)) {
+      $blueprint = c::get('root.site') . '/' . c::get('panel.folder') . '/blueprints/default.php';    
+    }
+    
     // default fallback
     if(!file_exists($blueprint)) {
-      $blueprint = c::get('root.panel') . '/blueprints/default.php';
+      $blueprint = c::get('root.panel') . '/defaults/blueprints/default.php';
     }
 
     $params = spyc_load_file($blueprint);

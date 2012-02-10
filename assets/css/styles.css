@@ -151,15 +151,14 @@ p {
 }
 .subheader a {
   color: #222;
-  font-weight: normal;
 }
 .subheader h1 a span {
   font-weight: normal;
   color: #aaa;
 }
 .subheader h1 {
-  font-size: 28px;
-  line-height: 40px;
+  font-size: 20px;
+  line-height: 30px;
   color: #222;
   margin-bottom: 20px;
   white-space: nowrap;
@@ -180,7 +179,7 @@ p {
 .subheader a.home strong {
   margin-right: 10px;
   position: absolute;
-  top: 5px;
+  top: 0px;
   left: 0;
   width: 23px;
   height: 22px;
@@ -189,7 +188,7 @@ p {
 }
 .opera .subheader a.home strong,
 .fx .subheader a.home strong {
-  top: 1px;
+  top: -3px;
 }
 .subheader h2 {
   font-size: 17px;
@@ -343,6 +342,17 @@ p {
 .subpages li:hover .remove:hover {
   opacity: 1;
 }
+.subpages .num {
+  position: relative;
+  top: 2px;
+  font-weight: bold;
+  float: right;
+  font-size: 11px;
+  color: #ccc;
+}
+.subpages li:hover .num {
+  color: #777;
+}
 
 
 /* home page */
@@ -403,6 +413,21 @@ p {
   position: relative;
   margin-right: 20px;
   padding-bottom: 200px;
+}
+.form .invisible {
+  position: absolute;
+  right: -20px;
+  top: 0px;
+  font-size: 13px;
+  background: #ddd;
+  color: #222;
+  padding: 0 10px;
+  height: 20px;
+  line-height: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 .form em.empty {
   display: block;
@@ -478,6 +503,43 @@ p {
 .form .field.url input:focus {
   outline: 0;
 }
+.form .field.radio ul {
+  overflow: hidden;
+}
+.form .field.radio li {
+  float: left;
+  list-style: none;
+  margin-right: 20px;
+} 
+.form .field.radio input {
+  margin-right: 10px;
+  margin-left: 2px;
+}
+.form .field.radio li label {
+  border: 1px solid #ddd;
+  padding: 3px 5px;
+  font-size: 15px;
+  width: 100%;
+  margin-bottom: 5px;
+  background: #f9f9f9;
+  box-shadow: rgba(0,0,0, .05) 0px 2px 4px inset;
+  color: #222;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  font-size: 15px;
+  cursor: pointer;    
+}
+.form .field.select {
+  margin-right: -20px;
+}
+.form .field.select select {
+  display: block;
+  margin-top: -2px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+
 .form .description {
   font-size: 13px;
   font-style: italic;
@@ -486,6 +548,9 @@ p {
 } 
 .form .buttons {
   text-align: center;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-right: -20px;
 } 
 .form input[type=submit],
 .form input[type=reset] {
@@ -891,9 +956,6 @@ p {
     font-size: 20px;
     line-height: 30px;
   }
-  .subheader a.home strong {
-    top: 0px;
-  }
   .subheader h2 {
     margin-bottom: 12px;
     margin-right: 0;
@@ -974,10 +1036,12 @@ p {
   .form .field.url em {
     display: none;
   }
-  .form .pagination {
-    margin-right: 0;
+  .form .pagination,
+  .form .field.select,
+  .form .buttons {
+    margin-right: 0 !important;
   }
-  
+
   .overlay form {
     width: 300px;
     margin-left: -150px;

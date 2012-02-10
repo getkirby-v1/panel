@@ -33,7 +33,7 @@ class paneload extends load {
     parent::config();
 
     // load the default panel config file 
-    self::file(c::get('root.panel') . '/config/config.php');
+    self::file(c::get('root.panel') . '/defaults/config/config.php');
     
     $root = c::get('root.site') . '/' . c::get('panel.folder') . '/config';
 

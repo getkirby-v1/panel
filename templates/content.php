@@ -1,13 +1,19 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
-<?php if(!$settings->nocontent): ?>
+<?php if(!$panel->nocontent): ?>
 <?php action::updateContent() ?>
 <div class="form">		
   
   <form action="<?php echo showurl('content') ?>" method="post">
+    
+    <?php if(!$page->isVisible()): ?>
+    <span class="invisible"><?php echo l::get('content.invisible') ?></span>
+    <?php endif ?>
+
     <?php echo form::load($settings->fields); ?>		
 
     <fieldset class="bottom">
       <div class="buttons">
+        <input class="cancel" type="reset" onclick="window.history.back()" name="cancel-update-content" value="<?php echo l::get('cancel') ?>" />
         <input type="submit" name="update-content" value="<?php echo l::get('content.save') ?>" />
       </div>
     </fieldset>
