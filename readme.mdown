@@ -19,4 +19,4 @@ Add the panel folder to the root directory of your Kirby-flavoured site. Open ht
 
 ## Docs
 
-<http://getkirby.com/docs/panel>  
+<http://getkirby.com/panel>  
