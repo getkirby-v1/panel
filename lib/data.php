@@ -387,6 +387,7 @@ class data {
     global $page;
     
     $upload = upload::file('file', $page->root() . '/{name}.{extension}');
+
     if(error($upload)) return $upload;
 
     self::killCache();
@@ -580,7 +581,6 @@ class data {
     return $templates;  
   
   }
-
 
 }
 

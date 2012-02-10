@@ -1,5 +1,31 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
+<?php $check = check::all() ?>
 <div class="home">
+
+  <?php if(!empty($check)): ?>
+  
+  <div class="warning">
+
+    <h3><?php echo l::get('home.warning.title') ?></h3>
+
+    <?php foreach($check as $key => $warnings): ?>
+      
+      <p>
+        <strong><?php echo l::get('home.warning.' . $key . '.title', $key) ?></strong><br />
+        <?php echo l::get('home.warning.' . $key . '.text') ?>
+      </p>
+      
+      <ul>  
+        <?php foreach($warnings as $warning): ?>
+        <li><?php echo $warning ?></li>
+        <?php endforeach ?>
+      </ul>
+
+    <?php endforeach ?>
+    
+  </div>
+  
+  <?php endif ?>
 
   <div class="left">
     <?php require_once('pages.php') ?>

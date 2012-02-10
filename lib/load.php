@@ -16,10 +16,12 @@ class paneload extends load {
     
     require_once($root . '/lib/spyc.php');
     require_once($root . '/lib/data.php');
+    require_once($root . '/lib/check.php');
     require_once($root . '/lib/actions.php');
-    require_once($root . '/lib/me.php');
+    require_once($root . '/lib/user.php');
     require_once($root . '/lib/helpers.php');
     require_once($root . '/lib/settings.php');
+    require_once($root . '/lib/thumb.php');
     require_once($root . '/lib/form.php');
     require_once($root . '/lib/panel.php');
     require_once($root . '/lib/upload.php');
@@ -30,6 +32,9 @@ class paneload extends load {
 
     parent::config();
 
+    // load the default panel config file 
+    self::file(c::get('root.panel') . '/config/config.php');
+    
     $root = c::get('root.site') . '/' . c::get('panel.folder') . '/config';
 
     self::file($root . '/config.php');
@@ -39,10 +44,13 @@ class paneload extends load {
   
   static function language() {
 
-    $lang = c::get('panel.language');
+    global $panel;
+        
+    $lang = ($panel->user->language) ? $panel->user->language : c::get('panel.language');
     $root = c::get('root.panel');
     $file = $root . '/languages/' . $lang . '.php';
 
+    // load the fallback language
     require_once($root . '/languages/en.php');
 
     if($lang && $lang != 'en' && file_exists($file)) require_once($file);

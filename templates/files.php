@@ -13,7 +13,7 @@
           <span>
             <?php if($file->type() == 'image'): ?>
             
-            <?php if($file->width() <= 2000 && $settings->thumbs): ?>
+            <?php if($file->width() <= 2000 && $panel->thumbs): ?>
             <?php echo thumb($file, array('width' => 150, 'height' => 150)) ?>
             <?php else: ?>
             <?php $file = $file->fit(150) ?>

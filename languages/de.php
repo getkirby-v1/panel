@@ -25,6 +25,11 @@ l::set(array(
   // home
   'home.siteinfo' => 'Seiten Info',
   'home.edit' => 'Bearbeiten',
+  'home.warning.title' => 'Achtung',
+  'home.warning.permissions.title' => 'Zugriffsrechte',
+  'home.warning.permissions.text' => 'Die Zugriffsrechte in ihrem Inhaltsverzeichnis sind nicht richtig gesetzt. Bitte ändern sie die Rechte für folgende Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
+  'home.warning.blueprints.title' => 'Blueprints',
+  'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt.',
 
   // siteinfo
   'siteinfo.button' => 'Speichern',
@@ -140,6 +145,8 @@ l::set(array(
   'login.button' => 'Anmelden',
   'login.username' => 'Benutzername',
   'login.password' => 'Passwort',
+  'login.error' => 'Zugang ungültig',
+  'login.success' => 'Sie sind jetzt angemeldet',
   
   // upload
   'upload.errors.missing-file' => 'Die Datei wurde nicht gefunden',

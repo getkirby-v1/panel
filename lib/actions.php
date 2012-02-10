@@ -5,6 +5,21 @@ if(!defined('KIRBY')) die('Direct access is not allowed');
 
 class action {
 
+  function login() {
+    
+    global $panel;
+    
+    $result = false;
+    
+    if(get('login')) {
+      $result = $panel->user->login();
+      if(success($result)) go(thisURL());
+    }
+    
+    return $result;
+    
+  }
+
   function addContent() {
 
     $result = false;
@@ -26,6 +41,11 @@ class action {
   function updateContent() {
 
     $result = false;
+
+    if(get('cancel-update-content')) {
+      go(showurl('content'));
+      return false;
+    }
     
     if(get('update-content')) {
       $result = data::updateContent();

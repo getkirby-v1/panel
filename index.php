@@ -80,10 +80,8 @@ c::set('panel.folder', $folder);
 
 paneload::lib();
 paneload::config();
-paneload::language();
 paneload::parsers();
 paneload::plugins();
-
 
 /*
 // switch on errors

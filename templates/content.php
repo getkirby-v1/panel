@@ -15,11 +15,11 @@
 
   <div class="pagination">
     <?php if($page->hasPrev()): ?>
-    <a class="prev" href="<?php echo $page->prev()->url() ?>/show:content">&lsaquo; <?php echo l::get('content.previous') ?></a>
+    <a class="prev" href="<?php echo $page->prev()->url() ?>/show:content">&larr; <?php echo l::get('content.previous') ?></a>
     <?php endif ?>
   
     <?php if($page->hasNext()): ?>
-    <a class="next" href="<?php echo $page->next()->url() ?>/show:content"><?php echo l::get('content.next') ?> &rsaquo;</a>
+    <a class="next" href="<?php echo $page->next()->url() ?>/show:content"><?php echo l::get('content.next') ?> &rarr;</a>
     <?php endif ?>
   </div>
       

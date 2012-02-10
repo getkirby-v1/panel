@@ -7,11 +7,6 @@ $(function() {
   $('form').submit(function() {
     $(this).addClass('loading');
   });
-
-  $('.overlay input.cancel').click(function() {
-    $('.overlay').remove();
-    return false;
-  });
   
   $('.overlay').not('.hide').find('input').first().focus();
   

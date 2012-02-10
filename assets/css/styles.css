@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 html {
   height: 101%;
@@ -72,6 +71,10 @@ h3 button {
   border: 0;
   cursor: pointer;
 }
+.opera h3 a,
+.opera h3 button {
+  line-height: 24px
+}
 .fx h3 a,
 .fx h3 button {
   line-height: 23px;
@@ -93,7 +96,7 @@ h3 button:last-child {
 }
 h3 a:hover {
   color: #fff;
-  background: #444;
+  background: #333;
 }
 h4 {
   color: red;
@@ -178,11 +181,13 @@ p {
   margin-right: 10px;
   position: absolute;
   top: 5px;
+  left: 0;
   width: 23px;
   height: 22px;
   background: url(../images/home.png) no-repeat center 0;
   text-indent: -6000px;
 }
+.opera .subheader a.home strong,
 .fx .subheader a.home strong {
   top: 1px;
 }
@@ -238,6 +243,9 @@ p {
   height: 21px;
   line-height: 21px;
 }
+.opera .submenu a {
+  line-height: 23px;
+}
 .submenu a strong {
   padding-left: 5px;
 }
@@ -255,6 +263,9 @@ p {
 .submenu a.active { 
   color: #fff;
   background: #222;
+}
+.submenu a.active:hover {
+  background: #333;
 }
 
 
@@ -335,6 +346,28 @@ p {
 
 
 /* home page */
+.home .warning {
+  margin-bottom: 60px;
+  font-size: 15px;
+}
+.home .warning strong {
+  color: #222;
+}
+.home .warning p {
+  margin-bottom: 0;
+  padding: 10px 0;
+  line-height: 22px;
+}
+.home .warning ul {
+  border-top: 1px solid #ddd;
+}
+.home .warning li {
+  padding: 5px 0;
+  color: red;
+  list-style: none;
+  border-bottom: 1px solid #ddd;
+}
+
 .home .left, .home .right {
   width: 50%;
   float: left;
@@ -451,7 +484,11 @@ p {
   margin-bottom: 0;
   line-height: 20px;
 } 
-.form input[type=submit] {
+.form .buttons {
+  text-align: center;
+} 
+.form input[type=submit],
+.form input[type=reset] {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   background: #222 url(../images/loader.black.gif) no-repeat -1000px center;
@@ -465,7 +502,25 @@ p {
   cursor: pointer;
   border-radius: 3px;
   font-weight: bold;
+  -webkit-transition: background-color .2s;
+  -moz-transition: background-color .2s;
+  -o-transition: background-color .2s;
+  transition: background-color .2s;
 }
+.form input[type=submit]:hover,
+.form input[type=reset]:hover {
+  background: #333;
+}
+.form .buttons input.cancel {
+  background: #ddd;
+  color: #222;
+  font-weight: normal;
+}
+.form .buttons input.cancel:hover {
+  background: #aaa;
+}
+
+
 .form form.loading input[type=submit] {
   background-position: center center;
   text-indent: -6000px;
@@ -571,6 +626,7 @@ p {
   position: absolute;
   left: 170px;
   right: 0px;
+  margin-left: 0;
 }
 .files .name {
   font-weight: bold;
@@ -623,6 +679,9 @@ p {
   margin-top: 1px;
   border-radius: 3px;
 }
+.opera .files li .filemenu a {
+  line-height: 24px;
+}
 
 
 /* options form */
@@ -660,7 +719,6 @@ p {
 /* overlay forms */
 .overlay {
   position: fixed;
-  content: "";
   top: 0;
   bottom: 0;
   left: 0;
@@ -735,12 +793,14 @@ p {
   margin: 0 !important;
   border-radius: 0;
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .overlay .buttons {
   text-align: center;
   border-top: 1px dashed #444;
-  padding-top: 20px;
-  
+  padding-top: 20px;  
 }
 .overlay .buttons input {
   font-family: Helvetica, Arial, sans-serif;
@@ -774,23 +834,37 @@ p {
 
 
 /* login form */
-body.login {
-  max-width: auto;
+.login {
+  height: 100%;
+  background: #222;
+  background: -webkit-radial-gradient(center, circle, #333, #111);
+  background: -moz-radial-gradient(center, circle, #333, #111);
+  background: -o-radial-gradient(center, circle, #333, #111);
+  background: radial-gradient(center, circle, #333, #111);
 }
-body.login .form {
+.login body {
+  max-width: auto;
+  background: none;
+}
+.login body .form {
   position: relative;
   left: auto;
   right: auto;
-  width: 300px;
-  margin: 0px auto;
-  padding: 50px 0;
+  width: 200px;
+  margin: 50px auto;
+  padding: 20px 50px 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: rgba(0,0,0, .3) 0px 3px 3px, #fff 0px 1px 0px inset;
 }
-body.login .field {
+.login body .field {
   margin-right: 12px !important;
 }
-body.login .growl {
+.login body .growl {
   width: 260px;
   margin-bottom: 20px;
+  margin-left: -50px;
+  box-shadow: rgba(0,0,0, .3) 0px 3px 3px;
 }
 
 

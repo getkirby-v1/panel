@@ -2,16 +2,11 @@
 
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
-$login = false;
-
-if(get('login')) {
-	$login = me::login();
-	if(success($login)) go(thisURL());
-}
+$action = action::login();
 
 ?>
 <!DOCTYPE html>
-<html>
+<html class="login">
 <head>
 
 <title><?php echo html($site->title()) ?></title>
@@ -30,16 +25,16 @@ if(get('login')) {
 
 </head>
 
-<body class="login">
+<body>
 
 <div class="form">
 
-	<?php growl($login) ?>
+	<?php growl($action) ?>
 
   <form action="<?php echo thisURL() ?>" method="post">
     <div class="field text">
       <label><?php echo l::get('login.username') ?></label>
-      <input type="text" name="username" />
+      <input type="text" name="username" value="<?php echo html(get('username')) ?>" />
     </div>
     <div class="field text">
       <label><?php echo l::get('login.password') ?></label>

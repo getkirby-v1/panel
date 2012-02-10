@@ -11,9 +11,21 @@ $children = ($panel->isHome) ? $pages : $page->children();
 
   <?php if($panel->action == 'edit-pages'): ?>
   <form method="post">
-  <h3><?php echo $headline ?> <span class="options"><button name="sort-action" value="ok"><?php echo l::get('ok') ?></button><button name="sort-action" value="cancel"><?php echo l::get('cancel') ?></button></span></h3>
+  <h3><?php echo $headline ?> 
+    <span class="options">
+      <button name="sort-action" value="ok"><?php echo l::get('ok') ?></button>
+      <button name="sort-action" value="cancel"><?php echo l::get('cancel') ?></button>
+    </span>
+  </h3>
   <?php else: ?>
-  <h3><?php echo $headline ?> <span class="options"><a class="edit" href="<?php echo dourl('pages', 'edit-pages') ?>"><?php echo l::get('pages.sort') ?></a><a class="add" href="<?php echo dourl('pages', 'add-page') ?>"><?php echo l::get('pages.add') ?></a></span></h3>  
+  <h3><?php echo $headline ?> 
+    <span class="options">
+      <?php if($page->hasChildren()): ?>
+      <a class="sort" href="<?php echo dourl('pages', 'edit-pages') ?>"><?php echo l::get('pages.sort') ?></a>
+      <?php endif ?>
+      <a class="add" href="<?php echo dourl('pages', 'add-page') ?>"><?php echo l::get('pages.add') ?></a>
+    </span>
+  </h3>  
   <?php endif ?>
 
   <ul class="visible">

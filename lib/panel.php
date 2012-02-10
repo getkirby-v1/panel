@@ -57,13 +57,27 @@ class panel extends site {
     $page     = $this->pages->active();
 
     g::set('site',  $this);
+    g::set('panel', $this);
     g::set('pages', $pages);
     g::set('page',  $page);
     
     // initiate the user settings
     $settings = new settings();
     g::set('settings', $settings);
-  
+
+    // add a user
+    $panel->user = new user;
+    
+    // load the language
+    paneload::language();
+
+    // check for a valid array of user accounts and other correct setups
+    if(!check::installed() || !check::hasAccounts() || check::stillHasDefaultAccount()) {
+      require(c::get('root.panel') . '/modals/installation.php');    
+      return;
+    }
+
+    // add all panel info  
     $panel->isHome    = (!$panel->uri->path(1)) ? true : false;
     $panel->show      = $panel->uri->param('show');
     $panel->action    = $panel->uri->param('do');
@@ -76,15 +90,18 @@ class panel extends site {
         $panel->sortable = true;
         break;
     }
+
+    if($panel->isHome) $settings->pages = true;
     
     switch($panel->show) {
       case 'logout':
-        me::logout();
+        $panel->user->logout();
         exit();
         break;
       case 'files':
+        $thumbDir = c::get('root') . '/thumbs';
         $panel->fancybox = true;
-        $panel->thumbs   = true;
+        $panel->thumbs   = (is_dir($thumbDir) && is_writable($thumbDir)) ? true : false;
         break;
       // more available views
       case 'info': case 'home': case 'pages': case 'options':
@@ -102,7 +119,7 @@ class panel extends site {
 
     content::start();
 
-    if(me::loggedIn()) {
+    if($panel->user->isLoggedIn()) {
       require($panel->templateRoot . '/header.php');
       require($panel->templateRoot . '/' . $panel->templateFile);
       require($panel->templateRoot . '/footer.php');

@@ -25,6 +25,12 @@ l::set(array(
   // home
   'home.siteinfo' => 'Site info',
   'home.edit' => 'Edit',
+  'home.warning.title' => 'Warning',
+  'home.warning.permissions.title' => 'Permissions',
+  'home.warning.permissions.text' => 'The permissions in your content directory are not set properly. Please change the permissions for the following folders to <strong>0755</strong> and for all files within those folders to <strong>0666</strong>',
+  'home.warning.blueprints.title' => 'Blueprints',
+  'home.warning.blueprints.text' => 'For the following templates are no blueprints setup yet.',
+  
 
   // siteinfo
   'siteinfo.button' => 'Save',
@@ -140,6 +146,8 @@ l::set(array(
   'login.button' => 'Login',
   'login.username' => 'Username',
   'login.password' => 'Password',
+  'login.error' => 'Invalid username or password',
+  'login.success' => 'You have been logged in',
   
   // upload
   'upload.errors.missing-file' => 'The file has not been found',

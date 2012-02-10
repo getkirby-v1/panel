@@ -8,6 +8,7 @@ h4,
 .subheader h1 a:hover,
 .subheader h2 a,
 .home .info dt,
+.home .warning li,
 .files .url {
   color: <?php echo $color ?>
 }  

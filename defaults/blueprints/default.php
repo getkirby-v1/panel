@@ -1,3 +1,7 @@
+<?php if(!defined('KIRBY')) exit ?>
+
+# default blueprint
+
 title: Page
 pages: true
 fields:
