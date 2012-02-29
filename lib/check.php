@@ -11,7 +11,7 @@ class check {
     $permissions = self::permissions();
     $blueprints  = self::blueprints();
 
-    if(!empty($permissions)) $result['permissions'] = $permissions;
+    if(!empty($permissions)) $result['permissions'] = array();
     if(!empty($blueprints))  $result['blueprints']  = $blueprints;
     
     return $result;
@@ -34,6 +34,10 @@ class check {
         
     return $errors;  
 
+  }
+  
+  static function missingBlueprint($page) {
+    
   }
   
   static function infoIsWritable() {

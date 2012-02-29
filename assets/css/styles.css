@@ -290,6 +290,23 @@ p {
   padding: 5px 0;
   font-size: 15px;
 }
+.subpages a.more {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  margin: -20px 0 20px;
+  padding: 5px 0;
+  text-align: center;
+  background: #f7f7f7;
+  color: #777;
+  font-size: 15px;
+}
+.subpages a.more:hover {
+  color: #222;
+  background: #f0f0f0;
+}
+.subpages li.more {
+  display: none;
+}
 .subpages li a {
   display: block;
   color: #777;
@@ -357,7 +374,7 @@ p {
 
 /* home page */
 .home .warning {
-  margin-bottom: 60px;
+  padding-bottom: 100px;
   font-size: 15px;
 }
 .home .warning strong {
@@ -481,6 +498,9 @@ p {
 }
 .form .textarea.large textarea {
   height: 300px;
+}
+.form .textarea.huge textarea {
+  height: 450px;
 }
 .form .field.url .url {
   overflow: hidden;

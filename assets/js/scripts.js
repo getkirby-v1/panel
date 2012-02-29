@@ -57,5 +57,32 @@ $(function() {
       speedOut : 200
     });
   }
+  
+  $('.subpages a.more').click(function() {
+
+    var a = $(this);
+
+    switch(a.attr('href')) {
+      case '#more-visible':
+        $('.subpages ul.visible li.more').show();
+        a.text(a.attr('data-less')).attr('href', '#less-visible');
+        break;
+      case '#more-invisible':
+        $('.subpages ul.invisible li.more').show();
+        a.text(a.attr('data-less')).attr('href', '#less-invisible');
+        break;
+      case '#less-visible':
+        $('.subpages ul.visible li.more').hide();
+        a.text(a.attr('data-more')).attr('href', '#more-visible');
+        break;
+      case '#less-invisible':
+        $('.subpages ul.invisible li.more').hide();
+        a.text(a.attr('data-more')).attr('href', '#more-invisible');
+        break;
+    }
+        
+    return false;
+    
+  });
     
 });

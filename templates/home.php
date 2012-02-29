@@ -1,5 +1,5 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
-<?php $check = array(); //check::all() ?>
+<?php $check = check::all() ?>
 <div class="home">
 
   <?php if(!empty($check)): ?>
@@ -24,8 +24,8 @@
     <?php endforeach ?>
     
   </div>
-  
-  <?php endif ?>
+
+  <?php else: ?>  
 
   <div class="left">
     <?php require_once('pages.php') ?>
@@ -42,5 +42,7 @@
       </dl>
     </div>
   </div>       
+
+  <?php endif ?>
 
 </div>

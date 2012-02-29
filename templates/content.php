@@ -13,7 +13,6 @@
 
     <fieldset class="bottom">
       <div class="buttons">
-        <input class="cancel" type="reset" onclick="window.history.back()" name="cancel-update-content" value="<?php echo l::get('cancel') ?>" />
         <input type="submit" name="update-content" value="<?php echo l::get('content.save') ?>" />
       </div>
     </fieldset>

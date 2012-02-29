@@ -2,9 +2,33 @@
 <?php if($settings->pages): ?>
 <?php
 
-$action   = action::sortPages();
-$headline = ($panel->isHome) ? l::get('pages.title.home') : l::get('pages.title');
-$children = ($panel->isHome) ? $pages : $page->children();
+$headline  = ($panel->isHome) ? l::get('pages.title.home') : l::get('pages.title');
+$children  = ($panel->isHome) ? $pages : $page->children();
+$sortable  = true;
+$flip      = false;
+$limit     = false;
+$visible   = $children->visible();
+$invisible = $children->invisible();
+
+if(isset($settings->pages['sort'])) {
+
+  switch($settings->pages['sort']) {
+    case 'no':
+      $sortable = false;    
+      break;
+    case 'flip':
+      $visible = $visible->flip();
+      $flip = true;
+      break;
+  }
+
+}
+
+if(isset($settings->pages['limit'])) {
+  $limit = intval($settings->pages['limit']);
+}
+
+$action = action::sortPages($flip);
 
 ?>
 <div class="subpages<?php echo ($panel->action == 'edit-pages') ? ' sortable' : '' ?>">
@@ -20,7 +44,7 @@ $children = ($panel->isHome) ? $pages : $page->children();
   <?php else: ?>
   <h3><?php echo $headline ?> 
     <span class="options">
-      <?php if($children->count()): ?>
+      <?php if($children->count() && $sortable): ?>
       <a class="sort" href="<?php echo dourl('pages', 'edit-pages') ?>"><?php echo l::get('pages.sort') ?></a>
       <?php endif ?>
       <a class="add" href="<?php echo dourl('pages', 'add-page') ?>"><?php echo l::get('pages.add') ?></a>
@@ -29,8 +53,8 @@ $children = ($panel->isHome) ? $pages : $page->children();
   <?php endif ?>
 
   <ul class="visible">
-    <?php $n=0; foreach($children->visible() AS $child): ?>
-    <li id="<?php echo $child->uid() ?>">
+    <?php $n=0; foreach($visible AS $child): ?>
+    <li<?php if($limit && $n>=$limit) echo ' class="more"' ?> id="<?php echo $child->uid() ?>">
       <?php if($panel->action == 'edit-pages'): ?>
       <div class="handle"></div>
       <input type="hidden" name="visible[]" value="<?php echo $child->uid() ?>" />
@@ -44,11 +68,15 @@ $children = ($panel->isHome) ? $pages : $page->children();
     <li class="empty<?php echo ($n>0) ? ' hide' : '' ?>"><em><?php echo l::get('pages.no.visible') ?></em></li>
   </ul>
 
+  <?php if($limit && $visible->count() > $limit): ?>
+  <a class="more" href="#more-visible" data-more="<?php echo l::get('pages.show.more') ?>…" data-less="<?php echo l::get('pages.show.less') ?>…"><?php echo l::get('pages.show.more') ?>…</a>  
+  <?php endif ?>
+
   <h3><?php echo l::get('pages.invisible') ?></h3>
   
   <ul class="invisible">
-    <?php $n=0; foreach($children->invisible() AS $child): ?>
-    <li id="<?php echo $child->uid() ?>">
+    <?php $n=0; foreach($invisible AS $child): ?>
+    <li<?php if($limit && $n>=$limit) echo ' class="more"' ?> id="<?php echo $child->uid() ?>">
       <?php if($panel->action == 'edit-pages'): ?>
       <div class="handle"></div>
       <input type="hidden" name="invisible[]" value="<?php echo $child->uid() ?>" />
@@ -61,6 +89,10 @@ $children = ($panel->isHome) ? $pages : $page->children();
     <?php $n++; endforeach ?>
     <li class="empty<?php echo ($n>0) ? ' hide' : '' ?>"><em><?php echo l::get('pages.no.invisible') ?></em></li>
   </ul>
+
+  <?php if($limit && $invisible->count() > $limit): ?>
+  <a class="more" href="#more-invisible" data-more="<?php echo l::get('pages.show.more') ?>…" data-less="<?php echo l::get('pages.show.less') ?>…"><?php echo l::get('pages.show.more') ?>…</a>  
+  <?php endif ?>
 
   <?php if($panel->action == 'edit-pages'): ?>
   </form>

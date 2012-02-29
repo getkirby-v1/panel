@@ -25,11 +25,11 @@ l::set(array(
   // home
   'home.siteinfo' => 'Site info',
   'home.edit' => 'Edit',
-  'home.warning.title' => 'Warning',
+  'home.warning.title' => 'Please fix first!',
   'home.warning.permissions.title' => 'Permissions',
-  'home.warning.permissions.text' => 'The permissions in your content directory are not set properly. Please change the permissions for the following folders to <strong>0755</strong> and for all files within those folders to <strong>0666</strong>',
+  'home.warning.permissions.text' => 'The permissions in your content directory are not set properly. Please change the permissions for all folders to <strong>0755</strong> and for all files to <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
-  'home.warning.blueprints.text' => 'For the following templates are no blueprints setup yet.',
+  'home.warning.blueprints.text' => 'There are no blueprints available for the following templates<br /> Read more about <a href="http://getkirby.com/panel/blueprints">how to install blueprints for your templates</a>',
   
 
   // siteinfo
@@ -57,6 +57,8 @@ l::set(array(
   'pages.no.invisible' => 'No invisible pages so far',
   'pages.moved' => 'The page has been moved',
   'pages.sorted' => 'The pages have been sorted',
+  'pages.show.more' => 'show more',
+  'pages.show.less' => 'show less',
   'pages.errors.notfound' => 'The page could not be found',
   'pages.errors.move' => 'The page could not be moved',
   'pages.errors.sort' => 'Not all pages could be sorted',

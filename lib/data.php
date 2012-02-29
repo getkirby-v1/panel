@@ -137,7 +137,7 @@ class data {
 
   }
   
-  static function sort() {
+  static function sort($flip=true) {
     
     $visible   = get('visible');
     $invisible = get('invisible');
@@ -155,6 +155,8 @@ class data {
       $num = 0;
       
       if($len <= 1) $len = 2;
+
+      if($flip) $visible = array_reverse($visible);
             
       foreach($visible as $uid) {
         $num++;
@@ -165,7 +167,7 @@ class data {
       }
 
     } 
-    
+        
     if(!empty($invisible)) {
 
       foreach($invisible as $uid) {

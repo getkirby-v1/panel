@@ -25,11 +25,11 @@ l::set(array(
   // home
   'home.siteinfo' => 'Seiten Info',
   'home.edit' => 'Bearbeiten',
-  'home.warning.title' => 'Achtung',
+  'home.warning.title' => 'Bitte zuerst beheben!',
   'home.warning.permissions.title' => 'Zugriffsrechte',
-  'home.warning.permissions.text' => 'Die Zugriffsrechte in ihrem Inhaltsverzeichnis sind nicht richtig gesetzt. Bitte ändern sie die Rechte für folgende Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
+  'home.warning.permissions.text' => 'Die Zugriffsrechte in ihrem Inhaltsverzeichnis sind nicht richtig gesetzt. <br />Bitte ändern sie die Rechte für alle Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
-  'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt.',
+  'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt. <br /><a href="http://getkirby.com/panel/blueprints">Lesen sie mehr darüber, wie man Blueprints installiert…</a>',
 
   // siteinfo
   'siteinfo.button' => 'Speichern',
@@ -56,6 +56,8 @@ l::set(array(
   'pages.no.invisible' => 'Es gibt noch keine unsichtbaren Seiten',
   'pages.moved' => 'Die Seite wurde verschoben',
   'pages.sorted' => 'Die Seiten wurden sortiert',
+  'pages.show.more' => 'mehr anzeigen',
+  'pages.show.less' => 'weniger anzeigen',
   'pages.errors.notfound' => 'Die Seite wurde nicht gefunden',
   'pages.errors.move' => 'Die Seite konnte nicht verschoben werden',
   'pages.errors.sort' => 'Es konnte nicht alle Seiten sortiert werden',

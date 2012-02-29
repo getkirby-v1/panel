@@ -75,7 +75,7 @@ class action {
   
   }
 
-  function sortPages() {
+  function sortPages($flip=false) {
   
     if(get('sort-action') == 'cancel') {
       go(showurl('pages'));
@@ -84,7 +84,7 @@ class action {
     
     if(get('sort-action') == 'ok') {
     
-      $result = data::sort();
+      $result = data::sort($flip);
     
       if(success($result)) go(showurl('pages'));
       growl($result);
