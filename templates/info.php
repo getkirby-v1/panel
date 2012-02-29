@@ -3,9 +3,12 @@
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
 $action = action::updateSiteinfo();
+$check  = check::infoIsWritable();
 
 ?>
 <div class="form full">		
+  
+  <?php if($check): ?>
   
   <form method="post" class="<?php echo $page->template() ?>">
     <?php echo form::load(array(), true); ?>		
@@ -18,5 +21,11 @@ $action = action::updateSiteinfo();
     </fieldset>
 
   </form>
+
+  <?php else: ?>
+
+  <p><strong>content/site.txt</strong> is not writable. <br />Please change its permissions and try again.</p>
+
+  <?php endif ?>
     
 </div>

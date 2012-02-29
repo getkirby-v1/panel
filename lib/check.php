@@ -36,6 +36,11 @@ class check {
 
   }
   
+  static function infoIsWritable() {
+    $file = c::get('root.content') . '/site.txt';
+    return (is_writable($file)) ? true : false;
+  }
+  
   static function blueprints() {
     
     $templates  = dir::read(c::get('root.templates'));
