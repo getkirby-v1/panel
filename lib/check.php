@@ -95,6 +95,10 @@ class check {
     return false;
 
   }
+  
+  static function wrongKirbyVersion() {
+    return (c::get('version.number') < 1.06) ? true : false;
+  }
 
 }
 

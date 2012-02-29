@@ -3,8 +3,13 @@
 // direct access protection
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
-$step = 1;
-if(check::installed()) $step = 2; 
+if(check::wrongKirbyVersion()) {  
+  $step = 3;
+} else if(check::installed()) {
+  $step = 2; 
+} else {
+  $step = 1;
+}
 
 function relativePath($path) {
   return str_replace(server::get('DOCUMENT_ROOT'), '', $path);  
@@ -143,6 +148,13 @@ language: en
 <p>
   <input type="button" onclick="window.location.reload()" value="Login!" />
 </p>
+
+<?php elseif($step == 3): ?>
+
+<h2>Update Kirby</h2>
+
+You are running an old version of the Kirby core. 
+Please upgrade to the latest version to make the panel work. 
 
 <?php endif ?>
 
