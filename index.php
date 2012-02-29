@@ -81,7 +81,6 @@ c::set('panel.folder', $folder);
 paneload::lib();
 paneload::config();
 paneload::parsers();
-paneload::plugins();
 
 /*
 // switch on errors
