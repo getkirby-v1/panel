@@ -3,9 +3,15 @@
 // direct access protection
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
+function replace_once($needle, $replace, $haystack) {
+  $pos = strpos($haystack, $needle);
+  if ($pos === false) return $haystack;
+  return substr_replace($haystack, $replace, $pos, strlen($needle));
+}  
+
 function ourl($url=false) {
   if(!$url) $url = c::get('url');
-  return str_replace('/' . c::get('panel.folder'), '', $url);
+  return replace_once('/' . c::get('panel.folder'), '', $url);
 }
 
 function showurl($show) {

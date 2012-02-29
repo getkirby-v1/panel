@@ -122,7 +122,8 @@ class user extends obj {
     
     // overwrite the token      
     $token = str::random();
-    cookie::set('auth', $token);
+    // the cookie is valid for 24 hours
+    cookie::set('auth', $token, 60*60*24);
     
     // restart the session    
     s::restart();

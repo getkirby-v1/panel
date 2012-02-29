@@ -24,7 +24,7 @@ class panel extends site {
     c::set('subfolder', ltrim(c::get('subfolder') . '/' . c::get('panel.folder'), '/'));
 
     // attach the uri after caching
-    $this->uri = new uri();
+    $this->uri = new paneluri();
     
     if(c::get('lang.support')) {
             
