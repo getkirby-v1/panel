@@ -193,7 +193,7 @@ p {
 .subheader h2 {
   font-size: 17px;
   margin-bottom: 12px;
-  margin-right: 40px;
+  margin-right: 80px;
   overflow: hidden;
 }
 .subheader h2 a {
@@ -932,24 +932,45 @@ p {
   background: none;
 }
 .login body .form {
-  position: relative;
-  left: auto;
-  right: auto;
-  width: 200px;
-  margin: 50px auto;
-  padding: 20px 50px 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 340px;
+  height: 280px;
+  padding: 0;
+  margin-top: -140px;
+  margin-left: -170px;
   background: #f0f0f0;
   border-radius: 5px;
   box-shadow: rgba(0,0,0, .3) 0px 3px 3px, #fff 0px 1px 0px inset;
 }
+.login body .form form {
+  padding: 20px 50px 10px;
+} 
+.login body label {
+  font-size: 17px;
+  text-align: center;
+}
+.login .field.buttons {
+  border-top: none;
+  padding-top: 10px;
+}
 .login body .field {
-  margin-right: 12px !important;
+  margin-right: 0 !important;
+}
+.login body .field.text input {
+  text-align: center;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 .login body .growl {
-  width: 260px;
+  width: 340px;
+  padding: 0;
   margin-bottom: 20px;
-  margin-left: -50px;
   box-shadow: rgba(0,0,0, .3) 0px 3px 3px;
+  left: 50%;
+  margin-left: -170px;
+  right: auto;
 }
 
 
@@ -1010,6 +1031,12 @@ p {
     width: auto;
     left: 20px;
     right: 20px;    
+  }
+
+  .login body .growl {
+    width: 340px;
+    left: 50%;
+    right: auto;
   }
 
   .files li {

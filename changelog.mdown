@@ -1,4 +1,11 @@
 #Kirby Panel Changelog
 
+## 0.2
+
+- loads of bug fixes and style fixes
+- additional features
+- improved installation and system health checks
+
 ## 0.1
 
+First version

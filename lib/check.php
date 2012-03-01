@@ -10,9 +10,11 @@ class check {
     $result      = array();
     $permissions = self::permissions();
     $blueprints  = self::blueprints();
+    $thumbs      = self::thumbsAreWritable();
 
     if(!empty($permissions)) $result['permissions'] = array();
     if(!empty($blueprints))  $result['blueprints']  = $blueprints;
+    if(!$thumbs)             $result['thumbs']      = array();
     
     return $result;
             
@@ -36,8 +38,9 @@ class check {
 
   }
   
-  static function missingBlueprint($page) {
-    
+  static function thumbsAreWritable() {
+    $thumbs = c::get('root') . '/thumbs';
+    return (is_dir($thumbs) && is_writable($thumbs)) ? true : false;    
   }
   
   static function infoIsWritable() {

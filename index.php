@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 // used for direct access protection
 define('KIRBY', true);
 
@@ -45,7 +42,7 @@ The panel loads a bunch of system files
 from there, so this must be correct. 
 
 */
-$rootKirby   = $root . '/kirby';
+$rootKirby = $root . '/kirby';
 
 
 /*
@@ -78,11 +75,14 @@ c::set('root.panel',   $rootPanel);
 c::set('panel.url',    c::get('url') . '/' . $folder);
 c::set('panel.folder', $folder);
 
+// panel version
+c::set('panel.version.string', '0.2');
+c::set('panel.version.number', 0.2);
+
 paneload::lib();
 paneload::config();
 paneload::parsers();
 
-/*
 // switch on errors
 if(c::get('debug')) {
   error_reporting(E_ALL);
@@ -91,7 +91,6 @@ if(c::get('debug')) {
   error_reporting(0);
   ini_set('display_errors', 0);
 }
-*/
 
 // set the timezone to make sure we 
 // avoid errors in php 5.3

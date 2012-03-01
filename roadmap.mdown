@@ -1,0 +1,32 @@
+#Kirby Panel Roadmap
+
+First, making it stable!
+
+Then: 
+
+- better default form fields
+
+	- Date input
+	- URL input
+	- Tags/Categories
+	- Autocompletion based on siblings
+
+- kirbytag buttons for texareas
+- full custom form fields
+- the ability to move/copy files between pages
+- the ability to move/copy pages
+- search
+- full ajaxification 
+- custom admin stylesheet
+- more authentication methods to stop storing passwords
+
+	- twitter
+	- browserID
+
+- finish multi-language support
+- user groups and permissions
+- preview mode for edits
+- sorting for mobile devices without drag and drop
+- input validation per field and required fields
+- auto-save with configurable interval
+- full editor documentation
