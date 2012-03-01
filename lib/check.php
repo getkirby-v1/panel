@@ -107,6 +107,10 @@ class check {
     return (c::get('version.number') < 1.06) ? true : false;
   }
 
+  static function disabledRewrite() {
+    return (c::get('rewrite') == false) ? true : false;
+  }
+
 }
 
 ?>

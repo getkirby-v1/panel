@@ -3,7 +3,9 @@
 // direct access protection
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
-if(check::wrongKirbyVersion()) {  
+if(check::disabledRewrite()) {  
+  $step = 4;
+} else if(check::wrongKirbyVersion()) {  
   $step = 3;
 } else if(check::installed()) {
   $step = 2; 
@@ -155,6 +157,22 @@ language: en
 
 You are running an old version of the Kirby core. 
 Please upgrade to the latest version to make the panel work. 
+
+<?php elseif($step == 4): ?>
+
+<h2>Enable Rewrite</h2>
+
+The Kirby Panel requiers <strong>mod_rewrite</strong> to be enabled. 
+Make sure to setup your .htaccess correctly and to set…
+<br />
+<br />
+<code>
+<pre>
+c::set('rewrite', true);
+</pre>
+</code>
+
+…in site/config/config.php
 
 <?php endif ?>
 
