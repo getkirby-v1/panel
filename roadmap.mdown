@@ -30,3 +30,4 @@ Then:
 - input validation per field and required fields
 - auto-save with configurable interval
 - full editor documentation
+- enable editing of image meta data
