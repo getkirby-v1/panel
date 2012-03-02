@@ -3,6 +3,7 @@
 ## 0.3
 
 - entirely new navigation and bug fixes
+- implemented readable template/blueprint names in the add page dropdown 
 
 ## 0.2
 

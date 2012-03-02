@@ -71,16 +71,17 @@ c::set('root.site',    $rootSite);
 c::set('root.content', $rootContent);
 c::set('root.panel',   $rootPanel);
 
-// set the admin url
-c::set('panel.url',    c::get('url') . '/' . $folder);
-c::set('panel.folder', $folder);
-
 // panel version
 c::set('panel.version.string', '0.3');
 c::set('panel.version.number', 0.3);
 
 paneload::lib();
 paneload::config();
+
+// set the admin url
+c::set('panel.url',    c::get('url') . '/' . $folder);
+c::set('panel.folder', $folder);
+
 paneload::parsers();
 
 // switch on errors

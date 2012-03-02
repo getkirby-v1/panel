@@ -29,13 +29,14 @@ $templates = data::findTemplates();
 
       <div class="field">
         <?php if(count($templates) == 1): ?>
-        <label><?php echo l::get('pages.add.label.template') ?>: <em><?php echo html(a::first($templates)) ?></em></label>
-        <input type="hidden" name="template" value="<?php echo a::first($templates) ?>" />
+        <?php $template = a::first($templates) ?>
+        <label><?php echo l::get('pages.add.label.template') ?>: <em><?php echo html(data::templateName($template)) ?> (<?php echo html($template) ?>)</em></label>
+        <input type="hidden" name="template" value="<?php echo html($template) ?>" />
         <?php else: ?>
         <label><?php echo l::get('pages.add.label.template') ?></label>
         <select name="template">
           <?php foreach($templates as $value): ?>
-          <option value="<?php echo html($value) ?>"<?php if(get('template', 'default') == $value) echo ' selected="selected"' ?>><?php echo html($value) ?></option>
+          <option value="<?php echo html($value) ?>"<?php if(get('template', 'default') == $value) echo ' selected="selected"' ?>><?php echo html(data::templateName($value)) ?> (<?php echo html($value) ?>)</option>
           <?php endforeach ?>
         </select>
         <?php endif ?>

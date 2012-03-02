@@ -593,11 +593,11 @@ class data {
     
   }
 
-  static function templateName() {
+  static function templateName($name=false) {
     
     global $page;
 
-    $template = $page->template();
+    $template = ($name) ? $name : $page->template();
     $settings = settings::load($template);
     
     return ($settings) ? a::get($settings, 'title', str::ucfirst($template)) : str::ucfirst($template);

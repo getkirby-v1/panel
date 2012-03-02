@@ -4,7 +4,7 @@ DirectoryIndex index.htm index.php
 <IfModule mod_rewrite.c>
 
 RewriteEngine on
-RewriteBase /panel
+#RewriteBase /panel
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*) index.php [L]
