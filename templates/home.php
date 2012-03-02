@@ -1,6 +1,6 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 <?php $check = check::all() ?>
-<div class="home">
+<div class="dashboard">
 
   <?php if(!empty($check)): ?>
   

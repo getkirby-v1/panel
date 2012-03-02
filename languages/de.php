@@ -17,10 +17,23 @@ l::set(array(
   'subheader.info' => 'Info',
 
   // tabs
+  'tabs.dashboard' => 'Übersicht',
   'tabs.content' => 'Inhalt',
-  'tabs.pages' => 'Unterseiten',
   'tabs.files' => 'Dateien',
   'tabs.options' => 'URL',
+  'tabs.preview' => 'Vorschau',
+
+  // dashboard
+  'dashboard.edit' => 'Bearbeiten',
+  'dashboard.content' => 'Inhalt',
+  'dashboard.content.empty' => 'Diese Seite hat keinen Inhalt',
+  'dashboard.files' => 'Dateien',
+  'dashboard.template' => 'Vorlage',
+  'dashboard.stats.images' => 'Bilder', 
+  'dashboard.stats.videos' => 'Videos', 
+  'dashboard.stats.docs' => 'Docs', 
+  'dashboard.stats.sound' => 'Sound', 
+  'dashboard.stats.others' => 'Andere', 
 
   // home
   'home.siteinfo' => 'Seiten Info',
@@ -48,12 +61,15 @@ l::set(array(
   'nocontent.text' => 'Es ist kein Inhalt für diese Seite verfügbar',
     
   // pages
-  'pages.title' => 'Seiten',
-  'pages.title.home' => 'Hauptseiten',
+  'pages.title' => 'Sichtbare Unterseiten',
+  'pages.title.home' => 'Seiten',
+  'pages.parent' => 'Übergeordnete Seite',
+  'pages.home' => 'Startseite',
   'pages.sort' => 'Sortieren',
   'pages.add' => 'Neue Seite',
   'pages.delete' => 'Entfernen',
-  'pages.invisible' => 'Unsichtbare Seiten',
+  'pages.invisible' => 'Unsichtbare Unterseiten',
+  'pages.invisible.home' => 'Unsichtbare Seiten',
   'pages.no.visible' => 'Es gibt noch keine sichtbaren Seiten',
   'pages.no.invisible' => 'Es gibt noch keine unsichtbaren Seiten',
   'pages.moved' => 'Die Seite wurde verschoben',

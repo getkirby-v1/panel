@@ -18,6 +18,27 @@ class settings extends obj {
 
     parent::__construct($params);
     
+    $this->sortable = true;
+    $this->flip     = false;
+    $this->limit    = 10;
+    
+    if(isset($this->pages['sort'])) {
+    
+      switch($this->pages['sort']) {
+        case 'no':
+          $this->sortable = false;    
+          break;
+        case 'flip':
+          $this->flip = true;
+          break;
+      }
+    
+    }
+    
+    if(isset($settings->pages['limit'])) {
+      $this->limit = intval($settings->pages['limit']);
+    }
+    
   }
 
   static function load($template) {

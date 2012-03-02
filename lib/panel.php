@@ -116,27 +116,14 @@ class panel extends site {
         
         break;
       default:
-
-        $show = false;
-
-        if(!$panel->show) {
-          $show = s::get($page->uri() . ':show');
-          $valid = array('files', 'options', 'pages');
-          if(in_array($show, $valid)) go(showurl($show));
-        } 
         
-        if(!$show && !$panel->show && $settings->tab) {
-          go(showurl($settings->tab));
-        }
-      
-        // last fallback        
-        $panel->show = 'content';
-                
+        $valid = array('options', 'content', 'dashboard');
+        if(!in_array($panel->show, $valid)) {
+          $panel->show = 'dashboard';                
+        } 
+              
         break;
     }
-
-    // save the last tab in the session
-    s::set($page->uri() . ':show', $panel->show);
 
     // set the template file;
     $panel->templateFile = $panel->show . '.php';

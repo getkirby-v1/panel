@@ -13,6 +13,7 @@
 
     <fieldset class="bottom">
       <div class="buttons">
+        <input class="cancel" type="submit" name="cancel-update-content" value="<?php echo l::get('cancel') ?>" />
         <input type="submit" name="update-content" value="<?php echo l::get('content.save') ?>" />
       </div>
     </fieldset>

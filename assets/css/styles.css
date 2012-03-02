@@ -71,6 +71,11 @@ h3 button {
   border: 0;
   cursor: pointer;
 }
+h3 small {
+  color: #777;
+  font-size: 15px;
+  padding-left: 5px;
+}
 .opera h3 a,
 .opera h3 button {
   line-height: 24px
@@ -107,6 +112,12 @@ p {
 }
 .hide {
   display: none;
+}
+
+.empty {
+  font-style: italic;
+  padding: 5px 0px;
+  border-bottom: 1px solid #ddd;
 }
 
 /* main header */ 
@@ -166,7 +177,6 @@ p {
   text-overflow: ellipsis;
   margin-bottom: 10px;
   padding-bottom: 5px;
-  border-bottom: 1px solid #ddd;  
 }
 .subheader h1 a:hover {
   color: red;
@@ -190,81 +200,40 @@ p {
 .fx .subheader a.home strong {
   top: -3px;
 }
-.subheader h2 {
-  font-size: 17px;
-  margin-bottom: 12px;
-  margin-right: 80px;
-  overflow: hidden;
-}
-.subheader h2 a {
-  color: red;
-}
-.subheader h2 a:hover {
-  color: #222;
-}
 .subheader h1 a.active span {
   display: none;
 }
-.subheader .logout {
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  display: none;
-}
-.subheader .options {
-  display: none;
-  padding-left: 20px;
-  font-size: 12px;
-}
-.subheader .options a {
-  color: #999;
-}
-
 
 /* submenu (content|pages|files|url) */
 .submenu {
-  position: absolute;
+  border-top: 1px solid #ddd;
   overflow: hidden;
-  right: 0;
-  bottom: 14px;  
+  padding: 10px 0 10px 0;
 }
 .submenu li {
   float: left;
-  margin-left: 1px;
+  margin-right: 15px;
   list-style: none;
+  border-right: 1px dashed #ddd;
+  padding-right: 15px;
+}
+.submenu li:last-child {
+  margin-right: 0;
+  padding-right: 0;
+  border-right: 0;
 }
 .submenu a {
   display: block;
-  background: #ddd;
   color: #222;
-  padding: 0 10px;
-  font-size: 13px;
-  height: 21px;
-  line-height: 21px;
-}
-.opera .submenu a {
-  line-height: 23px;
+  font-size: 15px;
+  font-weight: bold;
 }
 .submenu a strong {
   padding-left: 5px;
 }
-.submenu li:first-child a {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.submenu li:last-child a {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.submenu a:hover {
-  background: #aaa;
-}
+.submenu a:hover,
 .submenu a.active { 
-  color: #fff;
-  background: #222;
-}
-.submenu a.active:hover {
-  background: #333;
+  color: red;
 }
 
 
@@ -290,19 +259,38 @@ p {
   padding: 5px 0;
   font-size: 15px;
 }
+.subpages a.parent b {
+  top: 0;
+  left: 0;
+  bottom: 0;  
+  position: absolute;
+  width: 20px;
+  text-indent: -6000px;
+  background: url(../images/parent.png) no-repeat left 12px;
+  opacity: .2;
+  -webkit-transition: opacity .3s;
+  -moz-transition: opacity .3s;
+  -o-transition: opacity .3s;
+  transition: opacity .3s;
+}
+.subpages a.parent:hover b {
+  opacity: 1;
+}
 .subpages a.more {
   display: block;
   border-bottom: 1px solid #ddd;
   margin: -20px 0 20px;
-  padding: 5px 0;
-  text-align: center;
-  background: #f7f7f7;
-  color: #777;
+  padding: 5px 25px;
+  color: #222;
+  font-weight: bold;
   font-size: 15px;
+  background: url(../images/arrow.down.png) no-repeat left center;
+}
+.subpages a.more.less {
+  background: url(../images/arrow.up.png) no-repeat left 12px;
 }
 .subpages a.more:hover {
-  color: #222;
-  background: #f0f0f0;
+  color: red;
 }
 .subpages li.more {
   display: none;
@@ -359,69 +347,93 @@ p {
 .subpages li:hover .remove:hover {
   opacity: 1;
 }
-.subpages .num {
-  position: relative;
-  top: 2px;
-  font-weight: bold;
-  float: right;
-  font-size: 11px;
-  color: #ccc;
-}
-.subpages li:hover .num {
-  color: #777;
-}
 
 
-/* home page */
-.home .warning {
+/* dashboard */
+.dashboard .warning {
   padding-bottom: 100px;
   font-size: 15px;
 }
-.home .warning strong {
+.dashboard .warning strong {
   color: #222;
 }
-.home .warning p {
+.dashboard .warning p {
   margin-bottom: 0;
   padding: 10px 0;
   line-height: 22px;
 }
-.home .warning ul {
+.dashboard .warning ul {
   border-top: 1px solid #ddd;
 }
-.home .warning li {
+.dashboard .warning li {
   padding: 5px 0;
   color: red;
   list-style: none;
   border-bottom: 1px solid #ddd;
 }
 
-.home .left, .home .right {
+.dashboard .left, .dashboard .right {
   width: 50%;
   float: left;
 }
-.home .subpages {
+.dashboard .subpages {
   width: auto;
   margin-right: 20px;
 }
-.home .info {
+.dashboard .info {
   margin-left: 20px;
   font-size: 15px;
   padding-bottom: 200px;
 }
-.home .info h3 {
+.dashboard .info h3 {
   margin-bottom: 0;
   border-bottom: 1px solid #ddd;
   padding-bottom: 5px;
 }
-.home .info dt {
+.dashboard dl {
+  margin-bottom: 40px;
+}
+.dashboard .info dt {
   padding: 5px 0;
   color: red;
   border-bottom: 1px dashed #ddd;
 }
-.home .info dd {
+.dashboard .info dd {
   padding: 5px 0;
   border-bottom: 1px solid #ddd;
   line-height: 26px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dashboard .stats {
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.dashboard .stats li {
+  list-style: none;
+  float: left;
+  width: 20%;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+.dashboard .stats li:first-child a {
+  border-left: 1px solid #ddd;
+}
+.dashboard .stats a {
+  color: #777;
+  display: block;
+  text-align: center;
+  margin-bottom: 0;
+  border-right: 1px solid #ddd;
+  padding: 5px 0;
+}
+.dashboard .stats a:hover {
+  color: red;
+}
+.dashboard .stats strong {
+  display: block;
+  color: #222;
 }
 
 
@@ -997,36 +1009,23 @@ p {
     font-size: 20px;
     line-height: 30px;
   }
-  .subheader h2 {
-    margin-bottom: 12px;
-    margin-right: 0;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #ddd;
-  }
-  .subheader h2 a {
-    margin-right: 0;
-  }
-  .subheader.home h2 {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
 
   .submenu {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    margin-bottom: 11px;
-    text-align: center;
-    font-size: 0;
-    padding-top: 5px;
-  }
-  .submenu li {
-    padding: 0;
-    float: none;
-    white-space: nowrap;
-    display: inline-block;
+    padding: 5px 0 5px;
   }
 
+  .submenu li {
+    margin-right: 10px;
+    padding-right: 10px;
+  }
+  .submenu a {
+    font-size: 13px;
+  }
+  
+  h3, .form label {
+    font-size: 15px;
+  }  
+      
   .growl {
     width: auto;
     left: 20px;
@@ -1097,17 +1096,17 @@ p {
     width: 250px;
   }
   
-  .home .left,
-  .home .right {
+  .dashboard .left,
+  .dashboard .right {
     width: 100%;
     float: none;
   }
-  .home .subpages {
+  .dashboard .subpages {
     margin-right: 0;
     border-bottom: 2px solid red;
     margin-bottom: 30px;
   }
-  .home .info {
+  .dashboard .info {
     margin-left: 0;
   }
 

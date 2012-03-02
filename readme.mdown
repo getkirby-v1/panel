@@ -2,7 +2,7 @@
 
 The Kirby Panel is a open-source interface for your Kirby installation.
 
-## What is Kirby?
+## What the heck is Kirby?
 
 Kirby is a file-based CMS.   
 Easy to setup, easy to use, flexible as hell.
@@ -13,9 +13,13 @@ Subscribe to the Kirby newsletter: <http://tinyletter.com/kirby>
 or follow @getkirby on Twitter for updates: <http://twitter.com/getkirby>
 Kirby even has a Facebook page: <http://facebook.com/getkirby>
 
+## Requirements
+
+The Kirby Panel requires Kirby CMS 1.0.6 or newer.  
+
 ## Installation
 
-Add the panel folder to the main directory of your Kirby-flavoured site. Open http://yourdomain.com/panel in your browser and follow the installation instructions. 
+Add the panel folder to the root directory of your Kirby-flavoured site. Open http://yourdomain.com/panel in your browser and follow the installation instructions. 
 
 ## Docs
 

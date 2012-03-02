@@ -46,7 +46,6 @@
   <?php if(c::get('lang.support')): ?>
   <select class="lang" onchange="window.location = this.value">
     <?php foreach(c::get('lang.available') as $lang): ?>  
-
     <option value="<?php echo str_replace(c::get('panel.folder') . '/' . c::get('lang.current') . '/', c::get('panel.folder') . '/' . $lang . '/', thisURL()) ?>"<?php if($lang == c::get('lang.current')) echo ' selected="selected"' ?>><?php echo str::upper($lang) ?></option>
     <?php endforeach ?>
   </select>
@@ -67,9 +66,6 @@
     <a class="home" href="<?php echo u() ?>"><strong><?php echo l::get('subheader.home') ?></strong> <span>&lsaquo;</span> <?php echo l::get('subheader.site') ?></a>    
     <?php endif ?>
   </h1>
-  <h2>
-    <a target="_blank" title="<?php echo ourl() ?>" href="<?php echo ourl() ?>"><?php echo ourl() ?></a>
-  </h2>
   <?php else: ?>
   <h1>
     <a class="home" href="<?php echo u() ?>"><strong><?php echo l::get('subheader.home') ?></strong> <span>&rsaquo;</span></a>
@@ -77,17 +73,15 @@
     <a<?php if($l->isActive()) echo ' class="active"' ?> href="<?php echo $l->url() ?>"><?php echo $l->title() ?> <span>&rsaquo;</span></a>
     <?php endforeach ?> 
   </h1>
-  <h2>
-    <a target="_blank" title="<?php echo ourl($page->url()) ?>" href="<?php echo ourl($page->url()) ?>"><?php echo ourl($page->url()) ?>/</a>
-  </h2>
   <?php endif ?>
   
   <?php if(!$panel->isHome): ?>    
   <ul class="submenu">
-    <li><a<?php echo $panel->show == 'content' ?  ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>  
-    <li><a<?php echo $panel->show == 'pages' ?    ' class="active"' : '' ?> href="<?php echo showurl('pages') ?>"><?php echo l::get('tabs.pages') ?> <strong><?php echo $page->children()->count() ?></strong></a></li>  
-    <li><a<?php echo $panel->show == 'files'   ?  ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?> <strong><?php echo data::countFiles() ?></strong></a></li>  
-    <li><a<?php echo $panel->show == 'options' ?  ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>  
+    <li><a<?php echo $panel->show == 'dashboard' ? ' class="active"' : '' ?> href="<?php echo showurl('dashboard') ?>"><?php echo l::get('tabs.dashboard') ?></a></li>  
+    <li><a<?php echo $panel->show == 'content' ?   ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>  
+    <li><a<?php echo $panel->show == 'files'   ?   ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?></a></li>  
+    <li><a<?php echo $panel->show == 'options' ?   ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>  
+    <li><a target="_blank" href="<?php echo ourl($page->url()) ?>"><?php echo l::get('tabs.preview') ?></a></li>  
   </ul>
   <?php endif ?>
   

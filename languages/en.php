@@ -17,10 +17,23 @@ l::set(array(
   'subheader.info' => 'Info',
 
   // tabs
+  'tabs.dashboard' => 'Overview',
   'tabs.content' => 'Content',
-  'tabs.pages' => 'Pages',
   'tabs.files' => 'Files',
   'tabs.options' => 'URL',
+  'tabs.preview' => 'Preview',
+  
+  // dashboard
+  'dashboard.edit' => 'Edit',
+  'dashboard.content' => 'Content',
+  'dashboard.content.empty' => 'This page has no content',
+  'dashboard.files' => 'Files',
+  'dashboard.template' => 'Template',
+  'dashboard.stats.images' => 'Images', 
+  'dashboard.stats.videos' => 'Videos', 
+  'dashboard.stats.docs' => 'Docs', 
+  'dashboard.stats.sound' => 'Sound', 
+  'dashboard.stats.others' => 'Others', 
 
   // home
   'home.siteinfo' => 'Site info',
@@ -48,12 +61,15 @@ l::set(array(
   'nocontent.text' => 'There\'s no content for this page available.',
     
   // pages
-  'pages.title' => 'Pages',
-  'pages.title.home' => 'Main pages',
+  'pages.title' => 'Visible pages',
+  'pages.title.home' => 'Pages',
+  'pages.parent' => 'Parent page',
+  'pages.home' => 'Home',
   'pages.sort' => 'Sort',
   'pages.add' => 'Add',
   'pages.delete' => 'Remove',
-  'pages.invisible' => 'Invisible pages',
+  'pages.invisible' => 'Invisible subpages',
+  'pages.invisible.home' => 'Invisible pages',
   'pages.no.visible' => 'No visible pages so far',
   'pages.no.invisible' => 'No invisible pages so far',
   'pages.moved' => 'The page has been moved',
@@ -66,7 +82,7 @@ l::set(array(
   'pages.errors.nosort' => 'There\'s nothing to sort',
 
   // no subpages allowed
-  'nopages.title' => 'Pages',
+  'nopages.title' => 'Subpages',
   'nopages.text' => 'This page is not supposed to have subpages',  
   
   // add page

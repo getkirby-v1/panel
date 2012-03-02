@@ -25,13 +25,13 @@ class action {
     $result = false;
     
     if(get('cancel-add-page')) {
-      go(showurl('pages'));
+      go(showurl('dashboard'));
       return false;
     }
     
     if(get('add-page')) {
       $result = data::addContent();
-      if(success($result)) go($result['url']);
+      if(success($result)) go($result['url'] . '/show:content');
     }
     
     return $result;
@@ -43,7 +43,7 @@ class action {
     $result = false;
 
     if(get('cancel-update-content')) {
-      go(showurl('content'));
+      go(showurl('dashboard'));
       return false;
     }
     
@@ -62,13 +62,13 @@ class action {
     $result = false;
     
     if(get('cancel-delete-page')) {
-      go(showurl('pages'));
+      go(showurl('dashboard'));
       return false;
     }
     
     if(get('delete-page')) {
       $result = data::deleteDir();
-      if(success($result)) go(showurl('pages'));
+      if(success($result)) go(showurl('dashboard'));
     }
     
     return $result;
@@ -78,7 +78,7 @@ class action {
   function sortPages($flip=false) {
   
     if(get('sort-action') == 'cancel') {
-      go(showurl('pages'));
+      go(showurl('dashboard'));
       return false;
     }
     
@@ -86,7 +86,7 @@ class action {
     
       $result = data::sort($flip);
     
-      if(success($result)) go(showurl('pages'));
+      if(success($result)) go(showurl('dashboard'));
       growl($result);
     
     }
@@ -108,6 +108,11 @@ class action {
   function updateSiteinfo() {
 
     $result = false;
+
+    if(get('cancel-update-info')) {
+      go(showurl('dashboard'));
+      return false;
+    }
 
     if(get('update-info')) {
       $result = data::updateInfo();
