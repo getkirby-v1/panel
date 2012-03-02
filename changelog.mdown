@@ -1,5 +1,9 @@
 #Kirby Panel Changelog
 
+## 0.3
+
+- entirely new navigation and bug fixes
+
 ## 0.2
 
 - loads of bug fixes and style fixes

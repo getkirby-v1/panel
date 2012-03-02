@@ -76,8 +76,8 @@ c::set('panel.url',    c::get('url') . '/' . $folder);
 c::set('panel.folder', $folder);
 
 // panel version
-c::set('panel.version.string', '0.2');
-c::set('panel.version.number', 0.2);
+c::set('panel.version.string', '0.3');
+c::set('panel.version.number', 0.3);
 
 paneload::lib();
 paneload::config();
