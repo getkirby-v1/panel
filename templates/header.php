@@ -16,9 +16,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <?php require_once('standalone.php') ?>
 
-<link rel="shortcut icon" href="<?= url('assets/images/favicon.png') ?>" type="image/png" />
-<link rel="icon" href="<?= url('assets/images/favicon.png') ?>" type="image/png" />
-<link rel="apple-touch-icon" href="<?= url('assets/images/apple-touch-icon.png') ?>" />
+<link rel="shortcut icon" href="<?php echo url('assets/images/favicon.png') ?>" type="image/png" />
+<link rel="icon" href="<?php echo url('assets/images/favicon.png') ?>" type="image/png" />
+<link rel="apple-touch-icon" href="<?php echo url('assets/images/apple-touch-icon.png') ?>" />
 
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/styles.css" />
 
