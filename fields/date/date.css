@@ -1,0 +1,79 @@
+.ui-datepicker:before {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  margin-left: -6px;
+  width: 12px;
+  height: 5px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAFCAMAAABGpP0dAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRFXl5eW1tb4uLi+vr6Ly8vU1NTxsbG/Pz8Nzc36urqJSUlu7u7hYWFkpKS////IiIiyr9N2wAAADNJREFUeNpi4AMCdl5uEMXHAMScjPz8PMwQDhsHPxCwMoE4vFz8YMDCzcfAwA8HPAABBgBeIALwblsAgwAAAABJRU5ErkJggg==) no-repeat center center;
+  content: "";  
+}
+.ui-datepicker { 
+  background: #222;
+  font-size: 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.ui-datepicker a {
+  color: #fff;
+}
+.ui-datepicker .ui-datepicker-header { 
+  position: relative; 
+  padding: 5px 0; 
+  text-align: center;
+  border-bottom: 2px solid #333;
+  font-weight: bold;
+  color: #999;
+}
+.ui-datepicker .ui-datepicker-prev, 
+.ui-datepicker .ui-datepicker-next { 
+  position: absolute; 
+  cursor: pointer;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAICAMAAAB9CwfFAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADxQTFRF7ujd3NbNMTEw8ergxcC4JycnX11aSEdFQUA+n5uVnZmS7OXbNDMywLuzmpaQJSQk4dvSXVtY+/TpIiIi1rQO6QAAAE9JREFUeNqkkUkSgDAQAiercY2B///V0R9IOHDrqi4wkuXi/6zdy8iYTaBxxpdeAiQaodFqgkhjHzN0qm5+T5iTh7Za/lbzxzblseL1CDAAHXciMM/yzf0AAAAASUVORK5CYII=) no-repeat left center;
+  text-indent: -6000px;
+  width: 20px;
+  height: 26px;
+}
+.ui-datepicker .ui-datepicker-prev { 
+  left: 10px; 
+}
+.ui-datepicker .ui-datepicker-next { 
+  right: 10px; 
+  background-position: right center;
+}
+.ui-datepicker table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ui-datepicker th {
+  padding: 2px;
+}
+.ui-datepicker th, 
+.ui-datepicker td { 
+  text-align: center; 
+  font-weight: normal; 
+  border: 0;  
+  border-bottom: 1px solid #333;
+}
+.ui-datepicker tr:last-child td {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.ui-datepicker td a {
+  display: block;
+  width: 35px;
+  color: #777;
+  padding: 2px;
+}
+.ui-datepicker td a:hover {
+  color: #fff;
+  background: #000;
+}
+.ui-datepicker .ui-state-highlight {
+  color: #fff;
+}
+.ui-datepicker .ui-state-active {
+  color: #fff;
+  background: #000;
+  font-weight: bold;
+}

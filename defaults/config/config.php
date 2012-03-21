@@ -13,7 +13,9 @@ c::set('panel.color', 'red');
 // allowed mime types for file uploads
 c::set('upload.allowed', array(
   'image/jpeg', 
-  'image/png', 
+  'image/pjpeg',
+  'image/png',
+  'image/x-png', 
   'image/gif',
   'application/pdf',
   'application/gzip',

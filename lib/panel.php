@@ -71,7 +71,7 @@ class panel extends site {
 
     // add a user
     $panel->user = new user;
-    
+        
     // load the language
     paneload::language();
 
@@ -123,6 +123,11 @@ class panel extends site {
         } 
               
         break;
+    }
+
+    // init the form
+    if($panel->show == 'info' || $panel->show == 'content') {
+      $panel->form = new form($settings);
     }
 
     // set the template file;

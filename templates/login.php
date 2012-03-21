@@ -14,14 +14,9 @@ $action = action::login();
 <meta charset="utf-8" />
 <meta name="viewport" id="viewport" content="width=device-width; initial-scale=1.0; user-scalable=1;" />
 <meta name="robots" content="noindex,nofollow,noarchive" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-<link rel="shortcut icon" href="<?= url('assets/images/favicon.png') ?>" type="image/png" />
-<link rel="icon" href="<?= url('assets/images/favicon.png') ?>" type="image/png" />
-<link rel="apple-touch-icon" href="<?= url('assets/images/apple-touch-icon.png') ?>" />
 
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/styles.css" media="all" type="text/css" />
+<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/login.css" media="all" type="text/css" />
 
 </head>
 
@@ -31,20 +26,31 @@ $action = action::login();
 
 	<?php growl($action) ?>
 
+  <!--[if lt IE 8]>
+  <div class="ie-error">
+    <h2><?php echo l::get('login.error.browser.title') ?></h2>
+    <p><?php echo l::get('login.error.browser.text') ?></p>
+  </div>
+  
+  <div class="hide">
+  <![endif]-->
   <form action="<?php echo thisURL() ?>" method="post">
     <div class="field text">
       <label><?php echo l::get('login.username') ?></label>
-      <input type="text" name="username" value="<?php echo html(get('username')) ?>" />
+      <input type="text" class="input" name="username" value="<?php echo html(get('username')) ?>" />
     </div>
     <div class="field text">
       <label><?php echo l::get('login.password') ?></label>
-      <input type="password" name="password" />
+      <input type="password" class="input" name="password" />
     </div>
     <div class="field buttons">
       <input type="submit" name="login" value="<?php echo l::get('login.button') ?>" />
     </div>
   </form>
-  
+  <!--[if lt IE 8]>
+  </div>
+  <![endif]-->
+
 </div>
 
 </body>

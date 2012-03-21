@@ -4,90 +4,25 @@
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
 class form {
+
+  var $fields = array();
+  var $css    = array();
+  var $js     = array();
+  var $data   = array();
   
-  function textarea($page, $var) {
-    $html = '<div class="textarea-wrapper"><textarea name="' . $var . '">' . get($var, a::get($page, $var)) . '</textarea></div>';
-    return $html;
-  }
+  function __construct($settings) {
 
-  function text($page, $var) {
-    return '<input type="text" name="' . $var . '" value="' . get($var, a::get($page, $var)) . '" />';
-  }
+    global $panel, $page;
 
-  function label($var) {
-    return '<label>' . str::ucfirst($var) . '</label>';   
-  }
+    $fields = (array)$settings->fields;
   
-  function value($page, $var) {
-    return get($var, a::get($page, $var));  
-  }
-  
-  function select($page, $var, $options, $default=false) {
-    $selected = get($var, a::get($page, $var, $default));
-    $html = '<select name="' . $var . '">';
-    foreach($options AS $key => $value) {
-      $sel   = ($key == $selected) ? ' selected="selected"' : '';
-      $html .= '<option' . $sel . ' value="' . $key . '">' . $value . '</option>';
-    } 
-    $html .= '</select>';
-    return $html; 
-  }
-
-  function checkbox($page, $var, $options, $default=false) {
-
-    $selected = get($var, a::get($page, $var, $default));
-
-    if(empty($selected)) $selected = array();
-    if(!is_array($selected)) $selected = str::split(str::lower($selected));
-    
-    $html = '<ul class="checkbox">';
-
-    foreach($options AS $key => $value) {
-      $sel   = (in_array($key, $selected)) ? ' checked="checked"' : '';
-      $html .= '<li><label class="inline"><input type="checkbox" name="' . $var . '[]" ' . $sel . ' value="' . $key . '" />' . $value . '</label></li>';
-    } 
-
-    $html .= '</ul>';
-    return $html; 
-  }
-
-  function radio($page, $var, $options, $default=false) {
-    $selected = get($var, a::get($page, $var, $default));
-    $html = '<ul class="radio">';
-    
-    foreach($options AS $key => $value) {
-      $sel   = ($key == $selected) ? ' checked="checked"' : '';
-      $html .= '<li><label class="inline"><input type="radio" name="' . $var . '" ' . $sel . ' value="' . $key . '" />' . $value . '</label></li>';
-    } 
-    $html .= '</ul>';
-    return $html; 
-  }
-
-  function yesno($page, $var, $default='yes') {
-    
-    $options = array(
-      'yes' => 'Yes',
-      'no'  => 'No',
-    );
-    
-    return self::radio($page, $var, $options, $default);
-    
-  }
-
-  function description($text) {
-    if(empty($text)) return false;
-    return '<p class="description"><span>' . htmlspecialchars($text) . '</span></p>';
-  }
-    
-  function load($fields, $siteinfo=false) {
-
-    if($siteinfo) {
+    // prepare the site info form
+    if($panel->show == 'info') {
       
-      global $site;
-
-      $data = data::siteData();
+      $this->data = data::siteData();
+      $fields = array();  
                   
-      foreach($data as $key => $value) {
+      foreach($this->data as $key => $value) {
         $fields[$key] = array(
           'label' => str::ucfirst($key),
           'type'  => ($key == 'description') ? 'textarea' : 'text',
@@ -95,62 +30,116 @@ class form {
       }      
       
     } else {
-
-      global $page;
-  
-      $data = $page->_;
-
+      $this->data = $page->_;
     }
+        
+    foreach($fields as $name => $field) {
 
+      $type = a::get($field, 'type', 'text');
+      // custom field root      
+      $root = c::get('root.site') . '/' . c::get('panel.folder') . '/fields/' . $type;
       
+      if(!file_exists($root)) {
+        // fallback root
+        $root = c::get('root.panel') . '/fields/' . $type;
+      }
+
+      // main file
+      $file = $root . '/' . $type . '.php';
+      // css file
+      $css = $root . '/' . $type . '.css';
+      // js file
+      $js = $root . '/' . $type . '.js';
+      
+      $field['root'] = $root;      
+      $field['file'] = $file;      
+      $field['name'] = $name;
+
+      // check for css
+      if(file_exists($css)) $this->css[$type] = $css;
+      // check for js
+      if(file_exists($js))  $this->js[$type]  = $js;
+    
+      $this->fields[$name] = $field;
+    
+    }
+    
+  }
+    
+  function field($field) {
+
+    global $panel;
+
+    extract($field);
+
+    // define a size selector  
+    $default = (isset($default)) ? $default : false;
+    $size    = (isset($size)) ? ' ' . $size : '';
+    $value   = get($name, a::get($this->data, $name, $default));
+    
+    $output = array();
+    $output[] = '<div class="field ' . $type . $size . '">';
+    $output[] = self::label($label);
+        
+    // load the field template
+    content::start();
+    require($file);
+    $output[] = content::end(true);
+
+    // add the help text if available
+    if(!empty($help)) $output[] = self::help($help);
+
+    $output[] = '</div>';
+    
+    return implode("\n", $output);    
+      
+  }
+  
+  function label($var) {
+    return '<label>' . str::ucfirst($var) . '</label>';   
+  }
+
+  function help($text) {
+    if(empty($text)) return false;
+    return '<p class="description"><span>' . htmlspecialchars($text) . '</span></p>';
+  }
+      
+  function load() {
+            
     $output[] = '<fieldset>';
-      
-    $fields['title']['type']  = 'text';
-    $fields['title']['label'] = a::get($fields['title'], 'label', 'Title');
-
-    foreach($fields AS $name => $setup) {
-                  
-      $class = '';
-      
-      if($setup['type'] == 'textarea') {
-        $class = ' textarea';
-        if(!empty($setup['size'])) $class .= ' ' . $setup['size'];
-      } else if($setup['type'] == 'checkbox') {
-        $class = ' checkbox';
-      }
-      
-      $output[] = '<div class="field ' . $setup['type'] . $class . '">';
-      $output[] = self::label($setup['label']);
-
-      switch($setup['type']) {
-        case 'textarea':
-          $output[] = self::textarea($data, $name);
-          break;
-        case 'text':
-          $output[] = self::text($data, $name);
-          break;
-        case 'select':
-          $output[] = self::select($data, $name, $setup['options'], @$setup['default']);
-          break;
-        case 'checkbox':
-          $output[] = self::checkbox($data, $name, $setup['options'], @$setup['default']);
-          break;
-        case 'radio':
-          $output[] = self::radio($data, $name, $setup['options'], @$setup['default']);
-          break;
-      }
-
-      if(!empty($setup['help'])) {
-        $output[] = self::description($setup['help']);
-      }
-      $output[] = '</div>';
-
+            
+    foreach($this->fields AS $field) {
+      $output[] = $this->field($field);
     }
     
     $output[] = '</fieldset>';
 
     return implode("\n", $output);
         
+  }
+
+  function css() {
+    
+    $output = array();
+        
+    $output[] = '<style type="text/css">';
+    foreach($this->css as $file) $output[] = content::load($file) . "\n";
+    $output[] = '</style>';
+
+    return implode("\n", $output);
+            
+  }
+  
+  function js() {
+    
+    $output = array();
+    
+    $output[] = '<script type="text/javascript">';
+    foreach($this->js as $file) $output[] = content::load($file) . "\n";
+    $output[] = '</script>';
+
+    return implode("\n", $output);
+            
   }
 
 }

@@ -12,26 +12,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" id="viewport" content="width=device-width; initial-scale=1.0; user-scalable=1;" />
 <meta name="robots" content="noindex,nofollow,noarchive" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<?php require_once('standalone.php') ?>
-
-<link rel="shortcut icon" href="<?php echo url('assets/images/favicon.png') ?>" type="image/png" />
-<link rel="icon" href="<?php echo url('assets/images/favicon.png') ?>" type="image/png" />
-<link rel="apple-touch-icon" href="<?php echo url('assets/images/apple-touch-icon.png') ?>" />
 
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/styles.css" />
 
 <script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.js"></script>
-<?php if($panel->sortable): ?>
-<script src="<?php echo c::get('panel.url') ?>/assets/js/jquery-ui.js"></script>
-<?php endif ?>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.ui.js"></script>
 <script src="<?php echo c::get('panel.url') ?>/assets/js/scripts.js"></script>
 
 <?php if($panel->fancybox): ?>
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/fancybox/jquery.fancybox.css" />
 <script src="<?php echo c::get('panel.url') ?>/assets/fancybox/jquery.fancybox.js"></script>
 <?php endif ?>
+
+<?php if($panel->form) echo $panel->form->css() ?>
 
 <?php if(c::get('panel.color') && c::get('panel.color') != 'red') require_once('colors.php') ?>
 

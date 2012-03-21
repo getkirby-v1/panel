@@ -15,7 +15,6 @@ class paneload extends load {
     $root = c::get('root.panel');
     
     require_once($root . '/lib/uri.php');
-    require_once($root . '/lib/spyc.php');
     require_once($root . '/lib/data.php');
     require_once($root . '/lib/check.php');
     require_once($root . '/lib/actions.php');

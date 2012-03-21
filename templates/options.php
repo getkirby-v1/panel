@@ -14,7 +14,7 @@ $action = action::updateURL();
     <fieldset>    
       <div class="field url">
         <label><?php echo l::get('options.url') ?></label>
-        <span class="url"><em><?php echo dirname(ourl($page->url())) ?>/</em><strong><input type="url" name="uid" value="<?php echo $page->uid() ?>" /></strong></span>
+        <span class="url input"><em><?php echo dirname(ourl($page->url())) ?>/</em><strong><input type="url" name="uid" value="<?php echo $page->uid() ?>" /></strong></span>
       </div>
     </fieldset>
     <fieldset class="bottom">

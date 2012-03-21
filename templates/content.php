@@ -1,6 +1,7 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 <?php if(!$panel->nocontent): ?>
 <?php action::updateContent() ?>
+
 <div class="form">		
   
   <form action="<?php echo showurl('content') ?>" method="post">
@@ -9,7 +10,7 @@
     <span class="invisible"><?php echo l::get('content.invisible') ?></span>
     <?php endif ?>
 
-    <?php echo form::load($settings->fields); ?>		
+    <?php echo $panel->form->load() ?>		
 
     <fieldset class="bottom">
       <div class="buttons">
@@ -30,6 +31,8 @@
   </div>
       
 </div>
+
+<?php echo $panel->form->js() ?>
 
 <?php else: ?>
 <div class="form">

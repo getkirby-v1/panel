@@ -169,6 +169,8 @@ l::set(array(
   'login.password' => 'Password',
   'login.error' => 'Invalid username or password',
   'login.success' => 'You have been logged in',
+  'login.error.browser.title' => 'You are using an old browser',
+  'login.error.browser.text' => 'Please upgrade to the latest version of Google Chrome, Firefox, Safari or Internet Explorer.',
   
   // upload
   'upload.errors.missing-file' => 'The file has not been found',

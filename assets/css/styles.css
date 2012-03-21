@@ -207,12 +207,11 @@ p {
 /* submenu (content|pages|files|url) */
 .submenu {
   border-top: 1px solid #ddd;
-  overflow: hidden;
   padding: 10px 0 10px 0;
 }
 .submenu li {
-  float: left;
-  margin-right: 15px;
+  display: inline-block;
+  margin-right: 11px;
   list-style: none;
   border-right: 1px dashed #ddd;
   padding-right: 15px;
@@ -223,6 +222,7 @@ p {
   border-right: 0;
 }
 .submenu a {
+  position: relative;
   display: block;
   color: #222;
   font-size: 15px;
@@ -234,6 +234,16 @@ p {
 .submenu a:hover,
 .submenu a.active { 
   color: red;
+}
+.submenu a.active:after {
+  position: absolute;
+  content: "";
+  bottom: -16px;
+  left: 50%;
+  margin-left: -4px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid red;
 }
 
 
@@ -268,6 +278,7 @@ p {
   text-indent: -6000px;
   background: url(../images/parent.png) no-repeat left 12px;
   opacity: .2;
+  filter: alpha(opacity=20);
   -webkit-transition: opacity .3s;
   -moz-transition: opacity .3s;
   -o-transition: opacity .3s;
@@ -275,6 +286,7 @@ p {
 }
 .subpages a.parent:hover b {
   opacity: 1;
+  filter: alpha(opacity=100);
 }
 .subpages a.more {
   display: block;
@@ -336,6 +348,7 @@ p {
   border: 0;
   text-indent: -6000px;
   opacity: .2;
+  filter: alpha(opacity=20);
   -webkit-transition: opacity .3s;
   -moz-transition: opacity .3s;
   -o-transition: opacity .3s;
@@ -343,9 +356,11 @@ p {
 }
 .subpages li:hover .remove {
   opacity: .2;
+  filter: alpha(opacity=20);
 }
 .subpages li:hover .remove:hover {
   opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 
@@ -482,13 +497,12 @@ p {
   padding-bottom: 5px;
 }
 .form .field.text,
+.form .field.date,
 .form .field.textarea,
 .form .field.url {
   margin-right: -7px;
 }
-.form .field.text input,
-.form textarea,
-.form .field.url .url {
+.form .input {
   border: 1px solid #ddd;
   padding: 9px 5px;
   font-size: 15px;
@@ -499,20 +513,6 @@ p {
   color: #222;
   border-radius: 2px;
   -webkit-appearance: none;
-}
-.form textarea {
-  line-height: 21px;
-  color: #222;
-  margin-bottom: -3px;
-}
-.form .textarea.medium textarea {
-  height: 150px;
-}
-.form .textarea.large textarea {
-  height: 300px;
-}
-.form .textarea.huge textarea {
-  height: 450px;
 }
 .form .field.url .url {
   overflow: hidden;
@@ -535,43 +535,6 @@ p {
 .form .field.url input:focus {
   outline: 0;
 }
-.form .field.radio ul {
-  overflow: hidden;
-}
-.form .field.radio li {
-  float: left;
-  list-style: none;
-  margin-right: 20px;
-} 
-.form .field.radio input {
-  margin-right: 10px;
-  margin-left: 2px;
-}
-.form .field.radio li label {
-  border: 1px solid #ddd;
-  padding: 3px 5px;
-  font-size: 15px;
-  width: 100%;
-  margin-bottom: 5px;
-  background: #f9f9f9;
-  box-shadow: rgba(0,0,0, .05) 0px 2px 4px inset;
-  color: #222;
-  border-radius: 2px;
-  -webkit-appearance: none;
-  font-size: 15px;
-  cursor: pointer;    
-}
-.form .field.select {
-  margin-right: -20px;
-}
-.form .field.select select {
-  display: block;
-  margin-top: -2px;
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-
 .form .description {
   font-size: 13px;
   font-style: italic;
@@ -821,7 +784,8 @@ p {
   left: 0;
   right: 0;
   z-index: 1000;  
-  background: rgba(255,255,255, .8); 
+  background: #fff;
+  background: rgba(255,255,255, .95); 
 }
 .overlay form {
   position: fixed;
@@ -831,6 +795,7 @@ p {
   margin-left: -200px;
   z-index: 10000;
   width: 400px;
+  background: #222;
   background: rgba(30,30,30, .97);
   box-shadow: rgba(0,0,0, .1) 0px 4px 10px;
   border-radius: 5px;
@@ -930,62 +895,6 @@ p {
 }
 
 
-/* login form */
-.login {
-  height: 100%;
-  background: #222;
-  background: -webkit-radial-gradient(center, circle, #333, #111);
-  background: -moz-radial-gradient(center, circle, #333, #111);
-  background: -o-radial-gradient(center, circle, #333, #111);
-  background: radial-gradient(center, circle, #333, #111);
-}
-.login body {
-  max-width: auto;
-  background: none;
-}
-.login body .form {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 340px;
-  height: 280px;
-  padding: 0;
-  margin-top: -140px;
-  margin-left: -170px;
-  background: #f0f0f0;
-  border-radius: 5px;
-  box-shadow: rgba(0,0,0, .3) 0px 3px 3px, #fff 0px 1px 0px inset;
-}
-.login body .form form {
-  padding: 20px 50px 10px;
-} 
-.login body label {
-  font-size: 17px;
-  text-align: center;
-}
-.login .field.buttons {
-  border-top: none;
-  padding-top: 10px;
-}
-.login body .field {
-  margin-right: 0 !important;
-}
-.login body .field.text input {
-  text-align: center;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-.login body .growl {
-  width: 340px;
-  padding: 0;
-  margin-bottom: 20px;
-  box-shadow: rgba(0,0,0, .3) 0px 3px 3px;
-  left: 50%;
-  margin-left: -170px;
-  right: auto;
-}
-
-
 /* media queries */
 @media screen and (max-width: 900px) {
 
@@ -1030,12 +939,6 @@ p {
     width: auto;
     left: 20px;
     right: 20px;    
-  }
-
-  .login body .growl {
-    width: 340px;
-    left: 50%;
-    right: auto;
   }
 
   .files li {

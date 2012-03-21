@@ -8,7 +8,7 @@ $invisible = $children->invisible();
 
 if($settings->flip) $visible = $visible->flip();
 
-$action = action::sortPages($this->flip);
+$action = action::sortPages($settings->flip);
 
 $visibleHeadline   = ($panel->isHome) ? l::get('pages.title.home') : l::get('pages.title');
 $invisibleHeadline = ($panel->isHome) ? l::get('pages.invisible.home') : l::get('pages.invisible');

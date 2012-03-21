@@ -1,0 +1,26 @@
+.form .field.radio ul {
+  overflow: hidden;
+}
+.form .field.radio li {
+  float: left;
+  list-style: none;
+  margin-right: 20px;
+} 
+.form .field.radio input {
+  margin-right: 10px;
+  margin-left: 2px;
+}
+.form .field.radio li label {
+  border: 1px solid #ddd;
+  padding: 3px 5px;
+  font-size: 15px;
+  width: 100%;
+  margin-bottom: 5px;
+  background: #f9f9f9;
+  box-shadow: rgba(0,0,0, .05) 0px 2px 4px inset;
+  color: #222;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  font-size: 15px;
+  cursor: pointer;    
+}

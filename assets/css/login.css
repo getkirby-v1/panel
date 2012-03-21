@@ -1,0 +1,74 @@
+/* login form */
+.login {
+  height: 100%;
+  background: #222;
+  background: -webkit-radial-gradient(center, circle, #333, #111);
+  background: -moz-radial-gradient(center, circle, #333, #111);
+  background: -o-radial-gradient(center, circle, #333, #111);
+  background: radial-gradient(center, circle, #333, #111);
+}
+.login body {
+  max-width: auto;
+  background: none;
+}
+.login body .form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 340px;
+  height: 280px;
+  padding: 0;
+  margin-top: -140px;
+  margin-left: -170px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: rgba(0,0,0, .3) 0px 3px 3px, #fff 0px 1px 0px inset;
+}
+.login body .form form {
+  padding: 20px 50px 10px;
+} 
+.login body label {
+  font-size: 17px;
+  text-align: center;
+}
+.login .field.buttons {
+  border-top: none;
+  padding-top: 10px;
+}
+.login body .field {
+  margin-right: 0 !important;
+}
+.login body .field.text input {
+  text-align: center;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.login body .growl {
+  width: 340px;
+  padding: 0;
+  margin-bottom: 20px;
+  box-shadow: rgba(0,0,0, .3) 0px 3px 3px;
+  left: 50%;
+  margin-left: -170px;
+  right: auto;
+}
+.login .ie-error h2 {
+  padding: 20px 20px 0 20px;
+  font-size: 18px;
+}
+.login .ie-error p {
+  padding: 0 20px 20px 20px;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .login body .growl {
+    width: 340px;
+    left: 50%;
+    right: auto;
+  }
+
+}

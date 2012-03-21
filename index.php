@@ -72,8 +72,9 @@ c::set('root.content', $rootContent);
 c::set('root.panel',   $rootPanel);
 
 // panel version
-c::set('panel.version.string', '0.3');
-c::set('panel.version.number', 0.3);
+c::set('panel.version.string', '0.4');
+c::set('panel.version.number', 0.4);
+c::set('panel.min.kirby.version', 1.08);
 
 paneload::lib();
 paneload::config();

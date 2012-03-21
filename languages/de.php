@@ -169,6 +169,8 @@ l::set(array(
   'login.password' => 'Passwort',
   'login.error' => 'Zugang ungültig',
   'login.success' => 'Sie sind jetzt angemeldet',
+  'login.error.browser.title' => 'Sie benutzen einen alten Browser',
+  'login.error.browser.text' => 'Bitte updaten Sie auf die neueste Version von Google Chrome, Firefox, Safari oder Internet Explorer.',
   
   // upload
   'upload.errors.missing-file' => 'Die Datei wurde nicht gefunden',

@@ -11,7 +11,7 @@ $check  = check::infoIsWritable();
   <?php if($check): ?>
   
   <form method="post" class="<?php echo $page->template() ?>">
-    <?php echo form::load(array(), true); ?>		
+    <?php echo $panel->form->load(); ?>		
 
     <fieldset class="bottom">
       <div class="buttons">

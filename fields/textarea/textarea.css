@@ -1,0 +1,14 @@
+.form textarea {
+  line-height: 21px;
+  color: #222;
+  margin-bottom: -3px;
+}
+.form .textarea.medium textarea {
+  height: 150px;
+}
+.form .textarea.large textarea {
+  height: 300px;
+}
+.form .textarea.huge textarea {
+  height: 450px;
+}

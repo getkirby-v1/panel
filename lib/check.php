@@ -104,7 +104,7 @@ class check {
   }
   
   static function wrongKirbyVersion() {
-    return (c::get('version.number') < 1.06) ? true : false;
+    return (c::get('version.number') < c::get('panel.min.kirby.version')) ? true : false;
   }
 
   static function disabledRewrite() {
