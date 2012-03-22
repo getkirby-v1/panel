@@ -1,12 +1,15 @@
 #Kirby Panel Changelog
 
+## 0.5
+
+- complete redesign
+
 ## 0.4
 
 - custom field implementation. 
 - new mime types for allowed uploads
 - removed the spyc class, because it's in the core now. 
 - min requirement for kirby core is no 1.0.8
-- browser compatibility with all modern browsers and IE 8 and newer.
 
 ## 0.3
 

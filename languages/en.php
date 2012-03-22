@@ -17,7 +17,8 @@ l::set(array(
   'subheader.info' => 'Info',
 
   // tabs
-  'tabs.dashboard' => 'Overview',
+  'tabs.overview' => 'Overview',
+  'tabs.info' => 'Edit Info',
   'tabs.content' => 'Content',
   'tabs.files' => 'Files',
   'tabs.options' => 'URL',
@@ -49,6 +50,7 @@ l::set(array(
   // siteinfo
   'siteinfo.button' => 'Save',
   'siteinfo.errors.title' => 'Please add a title',
+  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> is not writable. <br />Please change its permissions and try again.',
   
   // content form 
   'content.save' => 'Save',
@@ -63,7 +65,6 @@ l::set(array(
   // pages
   'pages.title' => 'Visible pages',
   'pages.title.home' => 'Pages',
-  'pages.parent' => 'Parent page',
   'pages.home' => 'Home',
   'pages.sort' => 'Sort',
   'pages.add' => 'Add',

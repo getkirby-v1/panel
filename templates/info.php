@@ -24,7 +24,7 @@ $check  = check::infoIsWritable();
 
   <?php else: ?>
 
-  <p><strong>content/site.txt</strong> is not writable. <br />Please change its permissions and try again.</p>
+  <p><?php echo l::get('siteinfo.errors.permissions') ?></p>
 
   <?php endif ?>
     

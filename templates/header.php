@@ -32,52 +32,46 @@
 
 <body class="<?php echo $panel->uri->path(1) ?> <?php echo browser::css() ?>">
 
-<div class="header">
-
-  <a class="logo" href="<?php echo url() ?>"><?php echo l::get('kirby.title') ?></a>
-  
-  <?php if(c::get('lang.support')): ?>
-  <select class="lang" onchange="window.location = this.value">
-    <?php foreach(c::get('lang.available') as $lang): ?>  
-    <option value="<?php echo str_replace(c::get('panel.folder') . '/' . c::get('lang.current') . '/', c::get('panel.folder') . '/' . $lang . '/', thisURL()) ?>"<?php if($lang == c::get('lang.current')) echo ' selected="selected"' ?>><?php echo str::upper($lang) ?></option>
-    <?php endforeach ?>
-  </select>
-  <?php endif ?>
-    
-  <a class="logout" href="<?php echo showurl('logout') ?>"><?php echo l::get('header.logout') ?></a>
-
-</div>
-
-<div class="subheader<?php if($panel->isHome) echo ' home' ?>">
-  
-  <?php if($panel->isHome): ?>
-  <h1>
-    <?php if($panel->show == 'info'): ?>
-    <a class="home" href="<?php echo u() ?>"><strong><?php echo l::get('subheader.home') ?></strong> <span>&rsaquo;</span> <?php echo l::get('subheader.site') ?> <span>&rsaquo;</span></a>
-    <a href="<?php echo showurl('info') ?>"><?php echo l::get('subheader.info') ?></a>
-    <?php else: ?>
-    <a class="home" href="<?php echo u() ?>"><strong><?php echo l::get('subheader.home') ?></strong> <span>&lsaquo;</span> <?php echo l::get('subheader.site') ?></a>    
-    <?php endif ?>
-  </h1>
-  <?php else: ?>
-  <h1>
-    <a class="home" href="<?php echo u() ?>"><strong><?php echo l::get('subheader.home') ?></strong> <span>&rsaquo;</span></a>
-    <?php foreach($site->breadcrumb() as $l): ?>
-    <a<?php if($l->isActive()) echo ' class="active"' ?> href="<?php echo $l->url() ?>"><?php echo $l->title() ?> <span>&rsaquo;</span></a>
-    <?php endforeach ?> 
-  </h1>
-  <?php endif ?>
-  
-  <?php if(!$panel->isHome): ?>    
-  <ul class="submenu">
-    <li><a<?php echo $panel->show == 'dashboard' ? ' class="active"' : '' ?> href="<?php echo showurl('dashboard') ?>"><?php echo l::get('tabs.dashboard') ?></a></li>  
-    <li><a<?php echo $panel->show == 'content' ?   ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>  
-    <li><a<?php echo $panel->show == 'files'   ?   ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?></a></li>  
-    <li><a<?php echo $panel->show == 'options' ?   ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>  
-    <li><a target="_blank" href="<?php echo ourl($page->url()) ?>"><?php echo l::get('tabs.preview') ?></a></li>  
-  </ul>
-  <?php endif ?>
-  
+<div class="menu">
+  <h1><a class="home" href="<?php echo u() ?>">Kirby Panel</a></h1>
+  <?php require('pages.php') ?>
 </div>
 
 <div class="content">
+
+  <div class="header<?php if($panel->isHome) echo ' home' ?>">
+    
+    <?php if($panel->isHome): ?>
+    <h2>
+      <?php if($panel->show == 'info'): ?>
+      <a href="<?php echo u() ?>"><?php echo l::get('subheader.site') ?></a> <small>&rarr;</small> <a href="<?php echo showurl('info') ?>"><?php echo l::get('subheader.info') ?></a>
+      <?php else: ?>
+      <a href="<?php echo u() ?>"><?php echo l::get('subheader.site') ?></a>    
+      <?php endif ?>
+    </h2>
+    <?php else: ?>
+    <h2>
+      <?php foreach($site->breadcrumb() as $l): ?>
+      <a<?php if($l->isActive()) echo ' class="active"' ?> href="<?php echo $l->url() ?>"><?php echo $l->title() ?></a> <small>&rarr;</small>
+      <?php endforeach ?> 
+    </h2>
+    <?php endif ?>
+
+    <a class="logout" href="<?php echo showurl('logout') ?>"><?php echo l::get('header.logout') ?></a>
+      
+  </div>
+
+  <?php if(!$panel->isHome): ?>    
+  <ul class="bar submenu">
+    <li><a<?php echo $panel->show == 'content' ?   ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>  
+    <li><a<?php echo $panel->show == 'files'   ?   ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?></a></li>  
+    <li><a<?php echo $panel->show == 'options' ?   ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>  
+    <li class="preview"><a target="_blank" href="<?php echo ourl($page->url()) ?>"><?php echo l::get('tabs.preview') ?></a></li>  
+  </ul>
+  <?php else: ?>
+  <ul class="bar submenu">
+    <li><a<?php echo $panel->show != 'info' ? ' class="active"' : '' ?> href="<?php echo u() ?>"><?php echo l::get('tabs.overview') ?></a></li>  
+    <li><a<?php echo $panel->show == 'info' ? ' class="active"' : '' ?> href="<?php echo showurl('info') ?>"><?php echo l::get('tabs.info') ?></a></li>  
+    <li class="preview"><a title="<?php echo l::get('tabs.preview') ?>" target="_blank" href="<?php echo ourl() ?>"><?php echo l::get('tabs.preview') ?></a></li>  
+  </ul>  
+  <?php endif ?>

@@ -64,6 +64,12 @@ class panel extends site {
     g::set('panel', $this);
     g::set('pages', $pages);
     g::set('page',  $page);
+
+    // set the global template vars
+    tpl::set('site',  $this);
+    tpl::set('panel', $this);
+    tpl::set('pages', $pages);
+    tpl::set('page',  $page);
     
     // initiate the user settings
     $settings = new settings();
@@ -117,9 +123,9 @@ class panel extends site {
         break;
       default:
         
-        $valid = array('options', 'content', 'dashboard');
+        $valid = array('options', 'content');
         if(!in_array($panel->show, $valid)) {
-          $panel->show = 'dashboard';                
+          $panel->show = 'content';                
         } 
               
         break;

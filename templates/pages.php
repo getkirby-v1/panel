@@ -16,32 +16,31 @@ $invisibleHeadline = ($panel->isHome) ? l::get('pages.invisible.home') : l::get(
 ?>
 <div class="subpages<?php echo ($panel->action == 'edit-pages') ? ' sortable' : '' ?>">
 
-  <?php if(!$panel->isHome): ?>
-  <h3><?php echo l::get('pages.parent') ?></h3>
-  <ul>
-    <li><a class="parent" href="<?php echo ($page->parent()) ? $page->parent()->url() : url() ?>"><b>&lsaquo;</b><?php echo ($page->parent()) ? html($page->parent()->title()) : l::get('pages.home') ?></a></li>
-  </ul>
-  <?php endif ?>
-  
-  <?php if($panel->action == 'edit-pages'): ?>
   <form method="post">
-  <h3><?php echo $visibleHeadline ?> 
-    <span class="options">
-      <button name="sort-action" value="ok"><?php echo l::get('ok') ?></button>
-      <button name="sort-action" value="cancel"><?php echo l::get('cancel') ?></button>
-    </span>
-  </h3>
-  <?php else: ?>
-  <h3><?php echo $visibleHeadline ?> 
-    <span class="options">
-      <?php if($children->count() && $settings->sortable): ?>
-      <a class="sort" href="<?php echo dourl('dashboard', 'edit-pages') ?>"><?php echo l::get('pages.sort') ?></a>
-      <?php endif ?>
-      <a class="add" href="<?php echo dourl('dashboard', 'add-page') ?>"><?php echo l::get('pages.add') ?></a>
-    </span>
-  </h3>  
-  <?php endif ?>
 
+  <div class="bar">
+
+    <?php if(!$panel->isHome): ?>
+    <a class="button back" href="<?php echo ($page->parent()) ? $page->parent()->url() : url() ?>"><span><?php echo ($page->parent()) ? html($page->parent()->title()) : l::get('pages.home') ?></span></a>
+    <?php endif ?>
+
+    <?php if($panel->action == 'edit-pages'): ?>
+    <span class="buttons">
+      <button class="button" name="sort-action" value="ok"><?php echo l::get('ok') ?></button>
+      <button class="button" name="sort-action" value="cancel"><?php echo l::get('cancel') ?></button>
+    </span>
+    <?php else: ?>
+    <span class="buttons">
+      <?php if($children->count() && $settings->sortable): ?>
+      <a class="button sort" href="<?php echo dourl('dashboard', 'edit-pages') ?>"><?php echo l::get('pages.sort') ?></a>
+      <?php endif ?>
+      <a class="button add" title="<?php echo l::get('pages.add') ?>" href="<?php echo dourl('dashboard', 'add-page') ?>"><?php echo l::get('pages.add') ?></a>
+    </span>
+    <?php endif ?>
+
+  </div>
+
+  <h3><?php echo $visibleHeadline ?></h3>
   <ul class="visible">
     <?php $n=0; foreach($visible AS $child): ?>
     <li<?php if($settings->limit && $n>=$settings->limit) echo ' class="more"' ?> id="<?php echo $child->uid() ?>">
@@ -84,9 +83,7 @@ $invisibleHeadline = ($panel->isHome) ? l::get('pages.invisible.home') : l::get(
   <a class="more" href="#more-invisible" data-more="<?php echo l::get('pages.show.more') ?>…" data-less="<?php echo l::get('pages.show.less') ?>…"><?php echo l::get('pages.show.more') ?>…</a>  
   <?php endif ?>
 
-  <?php if($panel->action == 'edit-pages'): ?>
   </form>
-  <?php endif ?>
   
 </div>
 
@@ -96,16 +93,16 @@ $invisibleHeadline = ($panel->isHome) ? l::get('pages.invisible.home') : l::get(
 <?php else: ?>
 <div class="subpages">
 
-<?php if(!$panel->isHome): ?>
-<h3><?php echo l::get('pages.parent') ?></h3>
-<ul>
-  <li><a class="parent" href="<?php echo ($page->parent()) ? $page->parent()->url() : url() ?>"><b>&lsaquo;</b><?php echo ($page->parent()) ? html($page->parent()->title()) : l::get('pages.home') ?></a></li>
-</ul>
-<?php endif ?>
+  <div class="bar">
+    <?php if(!$panel->isHome): ?>
+    <a class="button back" href="<?php echo ($page->parent()) ? $page->parent()->url() : url() ?>"><span><?php echo ($page->parent()) ? html($page->parent()->title()) : l::get('pages.home') ?></span></a>
+    <?php endif ?>
+  </div>
 
-<h3><?php echo l::get('nopages.title') ?></h3>
-<ul>
-  <li><em><?php echo l::get('nopages.text') ?></em></li>
-</ul>
+  <h3><?php echo l::get('nopages.title') ?></h3>
+  <ul>
+    <li class="empty"><em><?php echo l::get('nopages.text') ?></em></li>
+  </ul>
+
 </div>
 <?php endif ?>

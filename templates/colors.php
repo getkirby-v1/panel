@@ -1,22 +1,23 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
-<?php $color = c::get('panel.color', '#9818b8') ?>
+<?php $color = c::get('panel.color', 'red') ?>
 <style>
   
 a:hover,
 h2,
 h4,
-.subheader h1 a:hover,
-.subheader h2 a,
-.home .info dt,
-.home .warning li,
-.files .url {
-  color: <?php echo $color ?>
+.header h2 a:hover,
+.submenu a.active,
+.submenu a:hover,
+.dashboard .warning li {
+  color: <?php echo $color ?>;
 }  
 
-.subpages,
-.subheader,
-.home .subpages,
-.form .pagination {
+.growl.error,
+.login input.error {
+  background: <?php echo $color ?>;
+}
+
+.header {
   border-color: <?php echo $color ?>;
 }
     

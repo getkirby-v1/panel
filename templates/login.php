@@ -18,13 +18,13 @@ $action = action::login();
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/styles.css" media="all" type="text/css" />
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/login.css" media="all" type="text/css" />
 
+<?php if(c::get('panel.color') && c::get('panel.color') != 'red') require_once('colors.php') ?>
+
 </head>
 
 <body>
 
 <div class="form">
-
-	<?php growl($action) ?>
 
   <!--[if lt IE 8]>
   <div class="ie-error">
@@ -37,14 +37,14 @@ $action = action::login();
   <form action="<?php echo thisURL() ?>" method="post">
     <div class="field text">
       <label><?php echo l::get('login.username') ?></label>
-      <input type="text" class="input" name="username" value="<?php echo html(get('username')) ?>" />
+      <input type="text" class="input" id="username" name="username" />
     </div>
     <div class="field text">
       <label><?php echo l::get('login.password') ?></label>
       <input type="password" class="input" name="password" />
     </div>
     <div class="field buttons">
-      <input type="submit" name="login" value="<?php echo l::get('login.button') ?>" />
+      <input<?php if(error($action)) echo ' class="error"' ?> type="submit" name="login" value="<?php echo l::get('login.button') ?>" />
     </div>
   </form>
   <!--[if lt IE 8]>
@@ -52,6 +52,13 @@ $action = action::login();
   <![endif]-->
 
 </div>
+
+<script>
+
+var username = document.getElementById('username');
+if(username) username.focus();
+
+</script>
 
 </body>
 

@@ -6,13 +6,11 @@ Then:
 
 - better default form fields
 
-	- Date input
 	- URL input
 	- Tags/Categories
 	- Autocompletion based on siblings
 
 - kirbytag buttons for texareas
-- full custom form fields
 - the ability to move/copy files between pages
 - the ability to move/copy pages
 - search

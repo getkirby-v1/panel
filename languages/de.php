@@ -17,7 +17,8 @@ l::set(array(
   'subheader.info' => 'Info',
 
   // tabs
-  'tabs.dashboard' => 'Übersicht',
+  'tabs.overview' => 'Übersicht',
+  'tabs.info' => 'Info bearbeiten',
   'tabs.content' => 'Inhalt',
   'tabs.files' => 'Dateien',
   'tabs.options' => 'URL',
@@ -44,11 +45,12 @@ l::set(array(
   'home.warning.blueprints.title' => 'Blueprints',
   'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt. <br /><a href="http://getkirby.com/panel/blueprints">Lesen sie mehr darüber, wie man Blueprints installiert…</a>',
   'home.warning.thumbs.title' => 'Thumbnails für die Dateiverwaltung',
-  'home.warning.thumbs.text' => 'Bitte lege einen <strong>thumbs</strong> Ordner im Hauptordner deiner Seite an und setze die Zugriffsrechte auf <strong>0755</strong>',
+  'home.warning.thumbs.text' => 'Bitte legen sie einen <strong>thumbs</strong> Ordner im Hauptordner ihrer Seite an und setzen sie die Rechte auf <strong>0755</strong>',
 
   // siteinfo
   'siteinfo.button' => 'Speichern',
   'siteinfo.errors.title' => 'Bitte geben Sie einen Titel ein',
+  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> ist nicht beschreibbar. <br />Bitte ändern Sie die Zugriffsrechte und versuchen sie es erneut.',
 
   // content form 
   'content.save' => 'Speichern',
@@ -62,8 +64,7 @@ l::set(array(
     
   // pages
   'pages.title' => 'Sichtbare Unterseiten',
-  'pages.title.home' => 'Seiten',
-  'pages.parent' => 'Übergeordnete Seite',
+  'pages.title.home' => 'Sichtbare Seiten',
   'pages.home' => 'Startseite',
   'pages.sort' => 'Sortieren',
   'pages.add' => 'Neue Seite',

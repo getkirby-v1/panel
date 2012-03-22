@@ -10,21 +10,36 @@ class paneload extends load {
 
   static function lib() {
 
-    parent::lib();
-    
-    $root = c::get('root.panel');
-    
+    $root      = c::get('root.kirby');
+    $rootPanel = c::get('root.panel');
+      
+    require_once($root . '/defaults.php');
+
+    c::set('root.snippets', $rootPanel . '/snippets');
+
+    require_once($root . '/lib/cache.php');
+    require_once($root . '/lib/obj.php');
+    require_once($root . '/lib/pagination.php');
+    require_once($root . '/lib/files.php');
+    require_once($root . '/lib/variables.php');
+    require_once($root . '/lib/pages.php');
+    require_once($root . '/lib/site.php');
     require_once($root . '/lib/uri.php');
-    require_once($root . '/lib/data.php');
-    require_once($root . '/lib/check.php');
-    require_once($root . '/lib/actions.php');
-    require_once($root . '/lib/user.php');
     require_once($root . '/lib/helpers.php');
-    require_once($root . '/lib/settings.php');
-    require_once($root . '/lib/thumb.php');
-    require_once($root . '/lib/form.php');
-    require_once($root . '/lib/panel.php');
-    require_once($root . '/lib/upload.php');
+    require_once($root . '/lib/template.php');
+    
+    // load panel stuff    
+    require_once($rootPanel . '/lib/uri.php');
+    require_once($rootPanel . '/lib/data.php');
+    require_once($rootPanel . '/lib/check.php');
+    require_once($rootPanel . '/lib/actions.php');
+    require_once($rootPanel . '/lib/user.php');
+    require_once($rootPanel . '/lib/helpers.php');
+    require_once($rootPanel . '/lib/settings.php');
+    require_once($rootPanel . '/lib/thumb.php');
+    require_once($rootPanel . '/lib/form.php');
+    require_once($rootPanel . '/lib/panel.php');
+    require_once($rootPanel . '/lib/upload.php');
                     
   }
 

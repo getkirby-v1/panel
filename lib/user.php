@@ -74,7 +74,7 @@ class user extends obj {
     
     // store the token in the cookie
     // and the user data in the session    
-    cookie::set('auth', $token);    		
+    cookie::set('auth', $token, 60*60*24);    		
 		s::set($token, $account);
     
     // assign the user data to this obj

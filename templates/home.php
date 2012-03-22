@@ -1,5 +1,6 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 <?php $check = check::all() ?>
+
 <div class="dashboard">
 
   <?php if(!empty($check)): ?>
@@ -27,21 +28,14 @@
 
   <?php else: ?>  
 
-  <div class="left">
-    <?php require_once('pages.php') ?>
+  <div class="info">
+    <dl>
+      <?php foreach(data::siteData() as $key => $value): ?>
+      <dt><?php echo str::ucfirst($key) ?></dt>
+      <dd><?php echo (empty($value)) ? '&nbsp;' : html($value) ?></dd>
+      <?php endforeach ?>        
+    </dl>
   </div>
-
-  <div class="right">
-    <div class="info">
-      <h3><?php echo l::get('home.siteinfo') ?> <span class="options"><a href="<?php echo showurl('info') ?>"><?php echo l::get('home.edit') ?></a></span></h3>      
-      <dl>
-        <?php foreach(data::siteData() as $key => $value): ?>
-        <dt><?php echo str::ucfirst($key) ?></dt>
-        <dd><?php echo (empty($value)) ? '&nbsp;' : html($value) ?></dd>
-        <?php endforeach ?>        
-      </dl>
-    </div>
-  </div>       
 
   <?php endif ?>
 

@@ -65,23 +65,23 @@ require_once($rootKirby . '/lib/kirby.php');
 require_once($rootPanel . '/lib/load.php');
 
 // set the root
-c::set('root',         $root);
-c::set('root.kirby',   $rootKirby);
-c::set('root.site',    $rootSite);
-c::set('root.content', $rootContent);
-c::set('root.panel',   $rootPanel);
+c::set('root',          $root);
+c::set('root.kirby',    $rootKirby);
+c::set('root.site',     $rootSite);
+c::set('root.content',  $rootContent);
+c::set('root.panel',    $rootPanel);
 
 // panel version
-c::set('panel.version.string', '0.4');
-c::set('panel.version.number', 0.4);
+c::set('panel.version.string', '0.5');
+c::set('panel.version.number', 0.5);
 c::set('panel.min.kirby.version', 1.08);
+c::set('panel.folder', $folder);
 
 paneload::lib();
 paneload::config();
 
 // set the admin url
 c::set('panel.url',    c::get('url') . '/' . $folder);
-c::set('panel.folder', $folder);
 
 paneload::parsers();
 
