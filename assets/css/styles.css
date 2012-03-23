@@ -52,7 +52,7 @@ p {
   font-size: 13px;
   line-height: 20px;
   font-style: italic;
-  padding: 5px 0px;
+  padding: 5px 0;
   border-bottom: 1px solid #ddd;
 }
 
@@ -99,7 +99,7 @@ p {
 }
 .header .logout {
   position: absolute;
-  top: 0px;
+  top: 0;
   right: 0;
   font-weight: bold;
   background: #fff;
@@ -165,7 +165,7 @@ p {
 
 .menu {
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
   width: 300px;
   background: #222;
@@ -332,7 +332,7 @@ body:before {
 }
 .subpages li .handle {
   position: absolute;
-  left: 0px;
+  left: 0;
   top: -2px;
   cursor: move;
   width: 20px;
@@ -460,7 +460,7 @@ body:before {
 .form .invisible {
   position: absolute;
   right: -20px;
-  top: 0px;
+  top: 0;
   font-size: 13px;
   background: #ddd;
   color: #222;
@@ -507,9 +507,9 @@ body:before {
   width: 100%;
   margin-bottom: 5px;
   background: #f9f9f9;
-  -webkit-box-shadow: rgba(0,0,0, .05) 0px 2px 4px inset;
-  -moz-box-shadow: rgba(0,0,0, .05) 0px 2px 4px inset;
-  box-shadow: rgba(0,0,0, .05) 0px 2px 4px inset;
+  -webkit-box-shadow: rgba(0,0,0, .05) 0 2px 4px inset;
+  -moz-box-shadow: rgba(0,0,0, .05) 0 2px 4px inset;
+  box-shadow: rgba(0,0,0, .05) 0 2px 4px inset;
   color: #333;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -691,7 +691,7 @@ body:before {
 .files .info {
   position: absolute;
   left: 170px;
-  right: 0px;
+  right: 0;
   margin-left: 0;
 }
 .files .name {
@@ -764,7 +764,7 @@ body:before {
 /* global growl style */
 .growl {
   z-index: 1000;
-  top: 0px;
+  top: 0;
   background: #222;
   padding: 5px 20px;
   margin-bottom: 20px;
@@ -803,9 +803,9 @@ body:before {
   width: 400px;
   background: #222;
   background: rgba(30,30,30, .97);
-  -webkit-box-shadow: rgba(0,0,0, .1) 0px 4px 10px;
-  -moz-box-shadow: rgba(0,0,0, .1) 0px 4px 10px;
-  box-shadow: rgba(0,0,0, .1) 0px 4px 10px;
+  -webkit-box-shadow: rgba(0,0,0, .1) 0 4px 10px;
+  -moz-box-shadow: rgba(0,0,0, .1) 0 4px 10px;
+  box-shadow: rgba(0,0,0, .1) 0 4px 10px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -844,9 +844,9 @@ body:before {
   font-size: 15px;
   background: #444;
   color: #fff;
-  -webkit-box-shadow: rgba(0,0,0, .2) 0px 2px 10px inset;
-  -moz-box-shadow: rgba(0,0,0, .2) 0px 2px 10px inset;
-  box-shadow: rgba(0,0,0, .2) 0px 2px 10px inset;
+  -webkit-box-shadow: rgba(0,0,0, .2) 0 2px 10px inset;
+  -moz-box-shadow: rgba(0,0,0, .2) 0 2px 10px inset;
+  box-shadow: rgba(0,0,0, .2) 0 2px 10px inset;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;

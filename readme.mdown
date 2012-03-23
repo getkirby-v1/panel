@@ -15,7 +15,7 @@ Kirby even has a Facebook page: <http://facebook.com/getkirby>
 
 ## Requirements
 
-The Kirby Panel requires Kirby CMS 1.0.6 or newer.  
+The Kirby Panel requires Kirby CMS 1.0.8 or newer.  
 
 ## Installation
 

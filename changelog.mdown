@@ -1,5 +1,12 @@
 #Kirby Panel Changelog
 
+## 0.6
+
+- added dutch translation
+- fixed html bugs in form fields
+- fixed 0px values in css files
+- fixed the min kirby version in the readme
+
 ## 0.5
 
 - complete redesign

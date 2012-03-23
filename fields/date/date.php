@@ -4,4 +4,4 @@
 if(!isset($format)) $format = 'yy-mm-dd'; 
 
 ?>
-<input class="input" type="text" data-format="<?php echo $format ?>" data-language="<?php echo $panel->user->language ?>" name="<?php echo $name ?>" value="<?php echo $value ?>" />
+<input class="input" type="text" data-format="<?php echo html($format) ?>" data-language="<?php echo html($panel->user->language) ?>" name="<?php echo html($name) ?>" value="<?php echo html($value) ?>" />

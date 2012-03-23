@@ -21,9 +21,9 @@
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: rgba(0,0,0, .3) 0px 3px 3px, #fff 0px 1px 0px inset;
-  -moz-box-shadow: rgba(0,0,0, .3) 0px 3px 3px, #fff 0px 1px 0px inset;
-  box-shadow: rgba(0,0,0, .3) 0px 3px 3px, #fff 0px 1px 0px inset;
+  -webkit-box-shadow: rgba(0,0,0, .3) 0 3px 3px, #fff 0 1px 0 inset;
+  -moz-box-shadow: rgba(0,0,0, .3) 0 3px 3px, #fff 0 1px 0 inset;
+  box-shadow: rgba(0,0,0, .3) 0 3px 3px, #fff 0 1px 0 inset;
 }
 .login body .form form {
   padding: 20px 30px 10px;
@@ -43,8 +43,8 @@
 }
 .login body .field.text input {
   text-align: center;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 .login input.error {
   background: red;
