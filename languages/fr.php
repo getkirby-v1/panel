@@ -27,7 +27,7 @@ l::set(array(
   // dashboard
   'dashboard.edit' => 'Editer',
   'dashboard.content' => 'Contenu',
-  'dashboard.content.empty' => 'Cette page n\'a aucun contenu',
+  'dashboard.content.empty' => 'Cette page ne possède aucun contenu',
   'dashboard.files' => 'Fichiers',
   'dashboard.template' => 'Modèle',
   'dashboard.stats.images' => 'Images', 
@@ -41,16 +41,16 @@ l::set(array(
   'home.edit' => 'Editer',
   'home.warning.title' => 'Réglez le problème d\abord s\'il-vous-plaît!',
   'home.warning.permissions.title' => 'Permissions',
-  'home.warning.permissions.text' => 'Les permissions du dossier contenu ne sont pas correctement paramétrées. Veuillez s\'il-vous-plaît changer les permissions de tous les dossier en <strong>0755</strong> and et pour tous les fichiers en <strong>0666</strong>',
-  'home.warning.blueprints.title' => 'Blueprints',
+  'home.warning.permissions.text' => 'Les permissions du dossier de contenu ne sont pas correctement paramétrées. Veuillez s\'il-vous-plaît changer les permissions de tous les dossier pour <strong>0755</strong> et celles de tous les fichiers pour <strong>0666</strong>',
+  'home.warning.blueprints.title' => 'Fichiers de strucutre',
   'home.warning.blueprints.text' => 'Aucun fichier de structure n\'est disponible pour le modèle suivant<br /> En savoir plus à propos <a href="http://getkirby.com/panel/blueprints">de l\'installation de fichiers de strcture pour vos modèles</a>',
   'home.warning.thumbs.title' => 'Vignettes',
-  'home.warning.thumbs.text' => 'Ajoutez s\'il-vous-plaît un dossier <strong>vignettes</strong> dans le dossier principal de votre site et changer ses permissions en <strong>0755</strong>',
+  'home.warning.thumbs.text' => 'Ajoutez s\'il-vous-plaît un dossier <strong>vignettes</strong> dans le dossier principal de votre site et changer ses permissions pour <strong>0755</strong>',
 
   // siteinfo
   'siteinfo.button' => 'Enregistrer',
   'siteinfo.errors.title' => 'Ajoutez un titre s\'il-vous-plaît',
-  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> n\'est pas inscriptible. <br />Changez ses permissions puis essayez encore une fois.',
+  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> n\'est pas inscriptible. <br />Changez ses permissions puis essayez à nouveau.',
 
   // content form 
   'content.save' => 'Enregistrer',
@@ -80,7 +80,7 @@ l::set(array(
   'pages.errors.notfound' => 'Cette page n\'a pas pu être trouvée',
   'pages.errors.move' => 'Cette page n\'a pas pu être déplacée',
   'pages.errors.sort' => 'Toutes les pages n\'ont pas pu être triées',
-  'pages.errors.nosort' => 'Il n\' a rien à trier',
+  'pages.errors.nosort' => 'Il n\'y a rien à trier',
 
   // no subpages allowed
   'nopages.title' => 'Sous-pages',
@@ -107,7 +107,7 @@ l::set(array(
   'pages.delete.button' => 'Supprimer',
   'pages.delete.errors.homepage' => 'Vous ne pouvez pas supprimer la page d\'accueil',
   'pages.delete.errors.errorpage' => 'Vous ne pouvez pas supprimer la page d\'erreur',
-  'pages.delete.errors.subpages' => 'Cette page possède des sous-pages, supprimez les d\'abord.',
+  'pages.delete.errors.subpages' => 'Cette page possède des sous-pages, supprimez-les d\'abord.',
   'pages.delete.errors.permissions' => 'La page n\'a pas pu être supprimée',
   'pages.delete.success' => 'La page a été supprimée',
 
@@ -118,7 +118,7 @@ l::set(array(
   'options.home.text' => 'Vous ne pouvez pas changer l\'URL de la page d\'accueil',
   'options.error.text' => 'Vous ne pouvez pas changer l\'URL de la page d\'erreur',
   'options.errors.homepage' => 'Vous ne pouvez pas changer l\'URL de la page d\'acceuil',
-  'options.errors.errorpage' => 'YVous ne pouvez pas changer l\'URL de la page d\'erreur',
+  'options.errors.errorpage' => 'Vous ne pouvez pas changer l\'URL de la page d\'erreur',
   'options.errors.characters' => 'Utilisez seulement ce type de caractères a-z, 0-9, _, - s\'il-vous-plaît',
   'options.errors.permissions' => 'Le dossier de contenu ne peut être déplacé',
   'options.errors.exists' => 'La nouvelle URL existe déjà',
@@ -168,9 +168,9 @@ l::set(array(
   'login.button' => 'Connexion',
   'login.username' => 'Nom d\'utilisateur',
   'login.password' => 'Mot de passe',
-  'login.error' => 'Nom d\'utilisateur ou mot de passe invalide',
+  'login.error' => 'Nom d\'utilisateur ou mot de passe incorrects',
   'login.success' => 'Vous êtes maintenant connectés',
-  'login.error.browser.title' => 'Vous utilisez un navigateur ancien',
+  'login.error.browser.title' => 'Vous utilisez un navigateur trop ancien',
   'login.error.browser.text' => 'Veuillez s\'il-vous-plaît utiliser la dernière version de Google Chrome, Firefox, Safari ou Internet Explorer.',
 
   // upload
