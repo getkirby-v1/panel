@@ -120,9 +120,9 @@ l::set(array(
   'options.errors.homepage' => 'You cannot change the URL of the homepage',
   'options.errors.errorpage' => 'You cannot change the URL of the error page',
   'options.errors.characters' => 'Please only use the following characters a-z, 0-9, _, -',
-  'options.errors.permissions' => 'The the content directory cannot be moved',
+  'options.errors.permissions' => 'The content directory cannot be moved',
   'options.errors.exists' => 'The new URL already exists',
-  'options.errors.move' => 'The the content directory cannot be moved',
+  'options.errors.move' => 'The content directory cannot be moved',
 
   // files
   'files.title' => 'Files',
@@ -139,7 +139,7 @@ l::set(array(
   'files.delete.title' => 'Delete this file',
   'files.delete.button' => 'Delete',
   'files.delete.errors.notfound' => 'The file could not be found',
-  'files.delete.errors.permissions' => 'The file could not be delete',
+  'files.delete.errors.permissions' => 'The file could not be deleted',
   'files.delete.success' => 'The file has been deleted',
 
   // edit file
@@ -147,7 +147,7 @@ l::set(array(
   'files.edit.filename' => 'Filename (without extension)',
   'files.edit.button' => 'Save',
   'files.edit.errors.notfound' => 'The file could not be found',
-  'files.edit.errors.exists' => 'The the new name already exists',
+  'files.edit.errors.exists' => 'The new name already exists',
   'files.edit.errors.permissions' => 'The file could not be renamed',
   'files.edit.success' => 'The file has been saved',
 
