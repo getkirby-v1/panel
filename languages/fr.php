@@ -1,5 +1,9 @@
 <?php
 
+/* 
+ * author: Loubna Aggoun <http://www.laggoun.com>
+ */
+
 l::set(array(
 
   // global 
