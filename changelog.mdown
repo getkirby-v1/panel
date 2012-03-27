@@ -3,9 +3,13 @@
 ## 0.6
 
 - added dutch translation
+- added turkish translation 
+- added french translation
 - fixed html bugs in form fields
 - fixed 0px values in css files
 - fixed the min kirby version in the readme
+- fixed a bug in select and radio form fields
+- added format buttons for textareas
 
 ## 0.5
 

@@ -1,4 +1,7 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
+
+<?php snippet('header') ?>
+
 <?php $check = check::all() ?>
 
 <div class="dashboard">
@@ -40,3 +43,5 @@
   <?php endif ?>
 
 </div>
+
+<?php snippet('footer') ?>

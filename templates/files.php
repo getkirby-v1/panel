@@ -1,4 +1,7 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
+
+<?php snippet('header') ?>
+
 <?php if($settings->files): ?>
 <div class="files">		
 
@@ -48,10 +51,10 @@
     
 </div>
 
-<?php require('files.upload.php') ?>
-<?php require('files.edit.php') ?>
-<?php require('files.replace.php') ?>
-<?php require('files.delete.php') ?>
+<?php snippet('files.upload') ?>
+<?php snippet('files.edit') ?>
+<?php snippet('files.replace') ?>
+<?php snippet('files.delete') ?>
 
 <?php else: ?>
 <div class="files">
@@ -61,3 +64,5 @@
 </ul>
 </div>
 <?php endif ?>
+
+<?php snippet('footer') ?>

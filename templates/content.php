@@ -1,4 +1,7 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
+
+<?php snippet('header') ?>
+
 <?php if(!$panel->nocontent): ?>
 <?php action::updateContent() ?>
 
@@ -17,6 +20,7 @@
       
 </div>
 
+<?php echo $panel->form->overlays() ?>
 <?php echo $panel->form->js() ?>
 
 <?php else: ?>
@@ -25,3 +29,5 @@
   <em class="empty"><?php echo l::get('nocontent.text') ?></em>
 </div>
 <?php endif ?>
+
+<?php snippet('footer') ?>

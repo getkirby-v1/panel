@@ -74,6 +74,7 @@ class panel extends site {
     // initiate the user settings
     $settings = new settings();
     g::set('settings', $settings);
+    tpl::set('settings', $settings);
 
     // add a user
     $panel->user = new user;
@@ -143,9 +144,7 @@ class panel extends site {
     content::start();
 
     if($panel->user->isLoggedIn()) {
-      require($panel->templateRoot . '/header.php');
       require($panel->templateRoot . '/' . $panel->templateFile);
-      require($panel->templateRoot . '/footer.php');
     } else {
       require($panel->templateRoot . '/login.php');
     }

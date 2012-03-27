@@ -2,6 +2,8 @@
 
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
+snippet('header');
+
 $action = action::updateSiteinfo();
 $check  = check::infoIsWritable();
 
@@ -29,3 +31,5 @@ $check  = check::infoIsWritable();
   <?php endif ?>
     
 </div>
+
+<?php snippet('footer') ?>

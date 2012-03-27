@@ -17,6 +17,7 @@
 
 <script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.js"></script>
 <script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.ui.js"></script>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.modal.js"></script>
 <script src="<?php echo c::get('panel.url') ?>/assets/js/scripts.js"></script>
 
 <?php if($panel->fancybox): ?>
@@ -25,8 +26,7 @@
 <?php endif ?>
 
 <?php if($panel->form) echo $panel->form->css() ?>
-
-<?php if(c::get('panel.color') && c::get('panel.color') != 'red') require_once('colors.php') ?>
+<?php if(c::get('panel.color') && c::get('panel.color') != 'red') snippet('colors') ?>
 
 </head>
 
@@ -34,7 +34,7 @@
 
 <div class="menu">
   <h1><a class="home" href="<?php echo u() ?>">Kirby Panel</a></h1>
-  <?php require('pages.php') ?>
+  <?php snippet('pages') ?>
 </div>
 
 <div class="content">

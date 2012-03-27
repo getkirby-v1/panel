@@ -2,6 +2,8 @@
 
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
+snippet('header');
+
 if(!$page->isHomePage() && !$page->isErrorPage()):
 
 $action = action::updateURL();
@@ -36,3 +38,5 @@ $action = action::updateURL();
   <?php endif ?>
 </div>
 <?php endif ?>
+
+<?php snippet('footer') ?>

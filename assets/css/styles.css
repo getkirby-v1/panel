@@ -492,6 +492,9 @@ body:before {
   color: #222;
   padding-bottom: 5px;
 }
+.form label.inline {
+  font-weight: normal;
+}
 .form .field.text,
 .form .field.date,
 .form .field.textarea,
@@ -611,6 +614,33 @@ body:before {
 .form .pagination .next {
   float: right;
 }
+
+.form-buttons {
+  margin-bottom: 10px;
+}
+.form-buttons li {
+  display: inline-block;
+  margin-right: -3px;
+}
+.form-buttons a {
+  display: block;
+  background: #222;
+  color: #fff;
+  padding: 1px 10px;
+}
+.form-buttons a:hover {
+  color: #fff;
+  background: #333;
+}
+.form-buttons li:first-child a {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.form-buttons li:last-child a {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
 
 /* file manager */
 .files {
@@ -793,6 +823,16 @@ body:before {
   background: #fff;
   background: rgba(255,255,255, .90); 
 }
+.overlay.modal {
+  position: fixed;
+  display: none;
+  top: -5px;
+  left: 50%;
+  bottom: auto;
+  margin-left: -200px;
+  width: 400px;
+  background: none;
+}
 .overlay form {
   position: fixed;
   top: -5px;
@@ -834,6 +874,7 @@ body:before {
 .overlay .field {
   margin-bottom: 20px;
 }
+.overlay .input,
 .overlay input[type=text],
 .overlay input[type=file] {
   -webkit-font-smoothing: antialiased;

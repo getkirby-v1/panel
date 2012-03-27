@@ -18,7 +18,7 @@ $action = action::login();
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/styles.css" media="all" type="text/css" />
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/login.css" media="all" type="text/css" />
 
-<?php if(c::get('panel.color') && c::get('panel.color') != 'red') require_once('colors.php') ?>
+<?php if(c::get('panel.color') && c::get('panel.color') != 'red') snippet('colors') ?>
 
 </head>
 
