@@ -63,8 +63,8 @@ l::set(array(
   'nocontent.text' => 'There\'s no content for this page available.',
     
   // pages
-  'pages.title' => 'Visible pages',
-  'pages.title.home' => 'Pages',
+  'pages.title' => 'Visible subpages',
+  'pages.title.home' => 'Visible pages',
   'pages.home' => 'Home',
   'pages.sort' => 'Sort',
   'pages.add' => 'Add',
