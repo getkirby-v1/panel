@@ -10,8 +10,7 @@
 - fixed the min kirby version in the readme
 - fixed a bug in select and radio form fields
 - added format buttons for textareas
-- added rumanian translation
-- fixed the english translation for pages and subpages
+- added spanish translation
 
 ## 0.5
 

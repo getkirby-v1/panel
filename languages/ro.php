@@ -190,27 +190,6 @@ l::set(array(
   'writer.errors.permissions' => 'Fişierul nu poate fi scris',
   'writer.errors.write' => 'Datele nu au putut fi adăugate',
   'writer.success' => 'Fişierul a fost salvat',
-
-  // form buttons
-  'form.buttons.h1' => 'h1',
-  'form.buttons.h2' => 'h2',
-  'form.buttons.h3' => 'h3',
-  'form.buttons.bold' => 'bold',
-  'form.buttons.bold.sample' => 'bold text',
-  'form.buttons.italic' => 'italic',
-  'form.buttons.italic.sample' => 'italic text',
-  'form.buttons.link' => 'link',
-  'form.buttons.email' => 'email',
-
-  'form.overlay.link.title' => 'Insert Link',
-  'form.overlay.link.link' => 'Link',
-  'form.overlay.link.text' => 'Link Text (optional)',
-  'form.overlay.link.button' => 'Inser Link',
-
-  'form.overlay.email.title' => 'Insert Email',
-  'form.overlay.email.link' => 'Email Address',
-  'form.overlay.email.text' => 'Link Text (optional)',
-  'form.overlay.email.button' => 'Inser Email',
   
 ));
 
