@@ -16,6 +16,7 @@
 - improved the input validation for urls
 - fixed a bug with flipped pages on the homepage
 - removed the cancel button from the edit info form
+- made it possible to run the panel without mod_rewrite
 
 ## 0.5
 

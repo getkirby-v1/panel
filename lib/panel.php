@@ -83,7 +83,7 @@ class panel extends site {
     paneload::language();
 
     // check for a valid array of user accounts and other correct setups
-    if(!check::installed() || !check::hasAccounts() || check::stillHasDefaultAccount() || check::wrongKirbyVersion() || check::disabledRewrite()) {
+    if(!check::installed() || !check::hasAccounts() || check::stillHasDefaultAccount() || check::wrongKirbyVersion()) {
       require(c::get('root.panel') . '/modals/installation.php');    
       return;
     }

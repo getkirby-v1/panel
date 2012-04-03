@@ -116,10 +116,6 @@ class check {
     return (c::get('version.number') < c::get('panel.min.kirby.version')) ? true : false;
   }
 
-  static function disabledRewrite() {
-    return (c::get('rewrite') == false) ? true : false;
-  }
-
 }
 
 ?>

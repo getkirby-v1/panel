@@ -54,6 +54,10 @@ class paneload extends load {
 
     self::file($root . '/config.php');
     self::file($root . '/config.' . server::get('server_name') . '.php');
+
+    if(c::get('panel.rewrite') === false) {
+      c::set('rewrite', false);
+    }
     
   }
   
