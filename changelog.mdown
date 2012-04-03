@@ -12,6 +12,10 @@
 - added format buttons for textareas
 - added spanish translation
 - fixed a few display bugs in ie8
+- prepared the panel for multi language support
+- improved the input validation for urls
+- fixed a bug with flipped pages on the homepage
+- removed the cancel button from the edit info form
 
 ## 0.5
 
