@@ -4,37 +4,37 @@ l::set(array(
   
   // global 
   'ok' => 'Ok',
-  'cancel' => 'Cancel',
-  'nochanges' => 'Nothing has changed',
+  'cancel' => 'Mégsem',
+  'nochanges' => 'Semmi nem változott',
 
   // header
   'header.title' => 'Kirby',
-  'header.logout' => 'Logout', 
+  'header.logout' => 'Kijelentkezés', 
   
   // subheader
-  'subheader.home' => 'Home',  
-  'subheader.site' => 'Your Site',
-  'subheader.info' => 'Info',
+  'subheader.home' => 'Főoldal',  
+  'subheader.site' => 'Az oldalad',
+  'subheader.info' => 'Infó',
 
   // tabs
-  'tabs.overview' => 'Overview',
-  'tabs.info' => 'Edit Info',
-  'tabs.content' => 'Content',
-  'tabs.files' => 'Files',
+  'tabs.overview' => 'Áttekintés',
+  'tabs.info' => 'Infó szerkesztése',
+  'tabs.content' => 'Tartalom',
+  'tabs.files' => 'Fájlok',
   'tabs.options' => 'URL',
-  'tabs.preview' => 'Preview',
+  'tabs.preview' => 'Előnézet',
   
   // dashboard
-  'dashboard.edit' => 'Edit',
-  'dashboard.content' => 'Content',
-  'dashboard.content.empty' => 'This page has no content',
-  'dashboard.files' => 'Files',
-  'dashboard.template' => 'Template',
-  'dashboard.stats.images' => 'Images', 
-  'dashboard.stats.videos' => 'Videos', 
-  'dashboard.stats.docs' => 'Docs', 
-  'dashboard.stats.sound' => 'Sound', 
-  'dashboard.stats.others' => 'Others', 
+  'dashboard.edit' => 'Szerkeszt',
+  'dashboard.content' => 'Tartalom',
+  'dashboard.content.empty' => 'Ezen az oldalon nincs tartalom.',
+  'dashboard.files' => 'Fájlok',
+  'dashboard.template' => 'Sablon',
+  'dashboard.stats.images' => 'Képek', 
+  'dashboard.stats.videos' => 'Videók', 
+  'dashboard.stats.docs' => 'Dokumentumok', 
+  'dashboard.stats.sound' => 'Hangok', 
+  'dashboard.stats.others' => 'Egyebek', 
 
   // home
   'home.siteinfo' => 'Site info',
