@@ -171,6 +171,7 @@ p {
   background: #222;
   overflow: auto;
   z-index: 1000;
+  min-height: 100%;
 }
 body:before {
   position: fixed;
@@ -195,6 +196,11 @@ body:before {
   color: #fff;
   text-indent: -6000px;
   background: url(../images/home.png) no-repeat left center;
+}
+.menu select.lang {
+  position: absolute;
+  right: 20px;
+  top: 15px;
 }
 
 /* list of pages */
@@ -502,11 +508,10 @@ body:before {
   margin-right: -7px;
 }
 .form .input {
-  font-family: "Monaco", "Courier", monospace;
+  font-family: "Monaco", "Consolas", "Courier", monospace;
   border: 1px solid #ddd;
   padding: 9px 5px;
   font-size: 16px;
-  line-height: 26px;
   width: 100%;
   margin-bottom: 5px;
   background: #f9f9f9;
@@ -518,6 +523,9 @@ body:before {
   -moz-border-radius: 2px;
   border-radius: 2px;
   -webkit-appearance: none;
+}
+.form textarea.input {
+  line-height: 24px;
 }
 .form .field.url .url {
   overflow: hidden;

@@ -102,7 +102,10 @@ class panel extends site {
         break;
     }
 
-    if($panel->isHome) $settings->pages = true;
+    if($panel->isHome) {
+      $settings->pages = true;            
+      $settings->flip  = false;            
+    }
     
     switch($panel->show) {
       case 'logout':

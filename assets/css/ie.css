@@ -1,0 +1,10 @@
+body {
+  background: url(../images/menu.bg.png) repeat-y left top;
+}
+.subpages .back:before {
+  left: -10px;
+  top: -1px;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-right: 11px solid #444;
+}

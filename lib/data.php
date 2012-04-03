@@ -45,7 +45,7 @@ class data {
       'msg'    => l::get('nochanges')
     );
 
-    if(!preg_match('!^[a-z0-9-_]+$!i', $name)) return array(
+    if(str::length($uid) < 1 || !preg_match('!^[a-z0-9-_]+$!i', $name)) return array(
       'status' => 'error',
       'msg'    => l::get('options.errors.characters')
     );
@@ -546,12 +546,7 @@ class data {
   }
   
   static function killCache() {
-    
-    if(c::get('cache.autoupdate'))    return false;
-    if(!is_dir(c::get('root.cache'))) return false;      
-    
     return dir::clean(c::get('root.cache'));
-        
   }
 
   static function findTemplates() {

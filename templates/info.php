@@ -17,7 +17,6 @@ $check  = check::infoIsWritable();
 
     <fieldset class="bottom">
       <div class="buttons">
-        <input class="cancel" type="submit" name="cancel-update-info" value="<?php echo l::get('cancel') ?>" />
         <input type="submit" name="update-info" value="<?php echo l::get('siteinfo.button') ?>" />
       </div>
     </fieldset>
