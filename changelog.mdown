@@ -11,6 +11,7 @@
 - fixed a bug in select and radio form fields
 - added format buttons for textareas
 - added spanish translation
+- fixed a few display bugs in ie8
 
 ## 0.5
 
