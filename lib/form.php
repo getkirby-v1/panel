@@ -5,10 +5,12 @@ if(!defined('KIRBY')) die('Direct access is not allowed');
 
 class form {
 
-  var $fields = array();
-  var $css    = array();
-  var $js     = array();
-  var $data   = array();
+  var $fields   = array();
+  var $css      = array();
+  var $js       = array();
+  var $data     = array();
+  var $required = array();
+  var $errors   = array();
   
   function __construct($settings) {
 
@@ -60,6 +62,17 @@ class form {
       // check for js
       if(file_exists($js))  $this->js[$type]  = $js;
     
+      // check for required fields
+      if(@$field['required'] == true) {
+        $this->required[$name] = $field;
+      }
+
+      // check for fields that need validation
+      if(@$field['validate'] != false) {
+        $this->validate[$name] = $field;
+      }
+      
+      // add the field to the global fields array    
       $this->fields[$name] = $field;
     
     }
@@ -76,10 +89,11 @@ class form {
     $default = (isset($default)) ? $default : false;
     $size    = (isset($size)) ? ' ' . $size : '';
     $value   = (string)get($name, a::get($this->data, $name, $default));
-            
+    $error   = array_key_exists($name, $this->errors) ? ' error' : '';
+
     $output = array();
-    $output[] = '<div class="field ' . $type . $size . '">';
-    $output[] = self::label($label);
+    $output[] = '<div class="field ' . $type . $size . $error . '">';
+    $output[] = self::label($label, $field);
 
     if($type == 'textarea' && isset($buttons) && $buttons == true) {
       $output[] = self::buttons($buttons);
@@ -99,8 +113,9 @@ class form {
       
   }
   
-  function label($var) {
-    return '<label>' . str::ucfirst($var) . '</label>';   
+  function label($var, $field) {
+    $required = @$field['required'] == true ? '<span class="required">*</span>' : '';
+    return '<label>' . str::ucfirst($var) . $required . '</label>';   
   }
 
   function help($text) {

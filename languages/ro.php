@@ -104,8 +104,8 @@ l::set(array(
   'pages.add.success' => 'Pagina a fost creată',
 
   // update page
-  'pages.update.errors.title' => 'Vă rugăm să adăugaţi un titlu',
-    
+  'pages.update.errors' => 'Please fill out all fields correctly',
+      
   // delete page  
   'pages.delete.title' => 'Şterge această pagină',
   'pages.delete.button' => 'Şterge',

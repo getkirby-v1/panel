@@ -104,7 +104,7 @@ l::set(array(
   'pages.add.success' => 'Az oldal létrehozva',
 
   // update page
-  'pages.update.errors.title' => 'Kérlek add meg a címet',
+  'pages.update.errors' => 'Please fill out all fields correctly',
     
   // delete page  
   'pages.delete.title' => 'Az oldal törlése',

@@ -307,16 +307,30 @@ class data {
 
   static function updateContent() {
     
-    global $page;
+    global $panel, $page;
         
-    $file = self::file();    
-    $data = self::fetchData();
+    $file   = self::file();    
+    $data   = self::fetchData();
+    $errors = array();
     
-    if(empty($data['title'])) return array(
-      'status' => 'error',
-      'msg' => l::get('pages.update.errors.title')
-    );
-  
+    foreach($panel->form->required as $key => $field) {
+      if(a::get($data, $key) == '') $errors[$key] = $field;
+    }
+
+    foreach($panel->form->validate as $key => $field) {
+      if(!self::validate($field['validate'], $data[$key])) $errors[$key] = $field;
+    }
+            
+    if(!empty($errors)) {
+
+      $panel->form->errors = $errors;
+
+      return array(
+        'status' => 'error',
+        'msg'    => l::get('pages.update.errors')
+      );  
+    }
+          
     // remove the file without language code    
     if(c::get('lang.support') && c::get('lang.current') == c::get('lang.default')) {
       $filename = $page->contents()->first()->name() . '.txt';
@@ -328,6 +342,40 @@ class data {
                                            
     return self::write($file, $data);
         
+  }
+
+  static function validate($method, $value) {
+    
+    switch($method) {
+      case 'date':
+        return v::date($value);
+        break;      
+      case 'url':
+        return v::url($value);
+        break;
+      case 'email':
+        return v::email($value);
+        break;
+      default:
+        
+        if(is_array($method)) {
+          
+          $match = null;
+          $minlength = $maxlength = 0;
+          
+          extract($method);
+                    
+          if($match && !preg_match($match, $value)) return false;
+          if($minlength && str::length($value) < $minlength) return false;
+          if($maxlength && str::length($value) > $maxlength) return false;
+        
+        }        
+        
+        break;
+    }
+    
+    return true;
+  
   }
 
   static function updateInfo() {
@@ -489,7 +537,6 @@ class data {
   
   }  
 
-
   static function fetchData($template = false, $input=false) {
     
     if(!$input) $input = r::get();
@@ -505,7 +552,7 @@ class data {
     $data = array();
     
     foreach($fields as $key => $value) {
-      $data[$key] = a::get($input, $key);
+      $data[$key] = trim(a::get($input, $key));
     }
     
     return $data;

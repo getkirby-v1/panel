@@ -104,7 +104,7 @@ l::set(array(
   'pages.add.success' => 'sayfaya izin var',
 
   // update page
-  'pages.update.errors.title' => 'Lütfen bir ünvan girin',
+  'pages.update.errors' => 'Please fill out all fields correctly',
     
   // delete page  
   'pages.delete.title' => 'sayfayi sil',

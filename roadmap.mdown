@@ -10,7 +10,6 @@ Then:
 	- Tags/Categories
 	- Autocompletion based on siblings
 
-- kirbytag buttons for texareas
 - the ability to move/copy files between pages
 - the ability to move/copy pages
 - search
@@ -21,10 +20,8 @@ Then:
 	- twitter
 	- browserID
 
-- finish multi-language support
 - user groups and permissions
 - preview mode for edits
 - sorting for mobile devices without drag and drop
-- input validation per field and required fields
 - auto-save with configurable interval
 - full editor documentation

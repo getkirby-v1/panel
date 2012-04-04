@@ -100,7 +100,7 @@ l::set(array(
   'pages.add.success' => 'The page has been created',
 
   // update page
-  'pages.update.errors.title' => 'Please add a title',
+  'pages.update.errors' => 'Please fill out all fields correctly',
     
   // delete page  
   'pages.delete.title' => 'Delete this page',

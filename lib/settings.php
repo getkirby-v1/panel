@@ -80,8 +80,11 @@ class settings extends obj {
       $params['fields'] = array_merge($title, $params['fields']);      
                       
     }
-
+    
+    // the title is always required    
+    $params['fields']['title']['required'] = true;
     return $params;
+
   }
   
 }

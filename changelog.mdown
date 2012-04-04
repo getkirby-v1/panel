@@ -18,6 +18,7 @@
 - removed the cancel button from the edit info form
 - made it possible to run the panel without mod_rewrite
 - added hungarian translation
+- required fields and field validation
 
 ## 0.5
 

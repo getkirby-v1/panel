@@ -488,7 +488,17 @@ body:before {
   font-family: Helvetica, Arial, sans-serif;
 }
 .form .field {
+  position: relative;
   margin-bottom: 20px;
+}
+.form .field.error:before {
+  position: absolute;
+  content: "";
+  width: 18px;
+  height: 14px;
+  top: 42px;
+  left: -27px;
+  background: url(../images/error.png) no-repeat center center;
 }
 .form label {
   font-weight: normal;
@@ -497,6 +507,14 @@ body:before {
   font-weight: bold;
   color: #222;
   padding-bottom: 5px;
+}
+.form label .required {
+  position: relative;
+  display: inline-block;
+  top: 5px;
+  padding-left: 7px;
+  color: #ccc;
+  font-size: 20px;
 }
 .form label.inline {
   font-weight: normal;

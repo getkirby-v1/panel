@@ -104,7 +104,7 @@ l::set(array(
   'pages.add.success' => 'De pagina is gemaakt',
 
   // update page
-  'pages.update.errors.title' => 'AUB een titel toevoegen',
+  'pages.update.errors' => 'Please fill out all fields correctly',
     
   // delete page  
   'pages.delete.title' => 'Verwijder deze pagina',

@@ -3,7 +3,7 @@
 // direct access protection
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
-// set the default panle language
+// set the default panel language
 c::set('panel.language', 'en');
 
 // set the main color for the panel design
