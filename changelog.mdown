@@ -17,6 +17,7 @@
 - fixed a bug with flipped pages on the homepage
 - removed the cancel button from the edit info form
 - made it possible to run the panel without mod_rewrite
+- added hungarian translation
 
 ## 0.5
 
