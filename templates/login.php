@@ -34,7 +34,7 @@ $action = action::login();
   
   <div class="hide">
   <![endif]-->
-  <form action="<?php echo thisURL() ?>" method="post">
+  <form method="post">
     <div class="field text">
       <label><?php echo l::get('login.username') ?></label>
       <input type="text" class="input" id="username" name="username" />

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Author: Dávid Bóta <http://github.com/kukac7> 
+ * Author: Dávid Bóta <http://kukac7.hu> 
  */ 
 
 l::set(array(
