@@ -201,12 +201,12 @@ l::set(array(
   'form.overlay.link.title' => 'Insert Link',
   'form.overlay.link.link' => 'Link',
   'form.overlay.link.text' => 'Link Text (optional)',
-  'form.overlay.link.button' => 'Inser Link',
+  'form.overlay.link.button' => 'Insert Link',
 
   'form.overlay.email.title' => 'Insert Email',
   'form.overlay.email.link' => 'Email Address',
   'form.overlay.email.text' => 'Link Text (optional)',
-  'form.overlay.email.button' => 'Inser Email',
+  'form.overlay.email.button' => 'Insert Email',
   
 ));
 

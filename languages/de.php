@@ -191,22 +191,22 @@ l::set(array(
   'form.buttons.h1' => 'h1',
   'form.buttons.h2' => 'h2',
   'form.buttons.h3' => 'h3',
-  'form.buttons.bold' => 'bold',
-  'form.buttons.bold.sample' => 'bold text',
-  'form.buttons.italic' => 'italic',
-  'form.buttons.italic.sample' => 'italic text',
+  'form.buttons.bold' => 'fett',
+  'form.buttons.bold.sample' => 'fetter text',
+  'form.buttons.italic' => 'kursiv',
+  'form.buttons.italic.sample' => 'kursiver text',
   'form.buttons.link' => 'link',
   'form.buttons.email' => 'email',
 
-  'form.overlay.link.title' => 'Insert Link',
+  'form.overlay.link.title' => 'Link einfügen',
   'form.overlay.link.link' => 'Link',
   'form.overlay.link.text' => 'Link Text (optional)',
-  'form.overlay.link.button' => 'Inser Link',
+  'form.overlay.link.button' => 'Link einfügen',
 
-  'form.overlay.email.title' => 'Insert Email',
-  'form.overlay.email.link' => 'Email Address',
+  'form.overlay.email.title' => 'Email einfügen',
+  'form.overlay.email.link' => 'Email Adresse',
   'form.overlay.email.text' => 'Link Text (optional)',
-  'form.overlay.email.button' => 'Inser Email',
+  'form.overlay.email.button' => 'Email einfügen',
   
 ));
 
