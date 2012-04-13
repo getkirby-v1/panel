@@ -19,6 +19,7 @@
 - made it possible to run the panel without mod_rewrite
 - added hungarian translation
 - required fields and field validation
+- fixed a bug in the account checker
 
 ## 0.5
 
