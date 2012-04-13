@@ -100,8 +100,11 @@ class check {
       'password' => 'adminpassword',
       'language' => 'en'
     ); 
-    
+            
     foreach($files as $file) {
+      
+      if(f::extension($file) != 'php') continue;
+    
       $username = f::name($file);
       $user     = user::load($username);
       $diff     = array_diff($user, $default);
