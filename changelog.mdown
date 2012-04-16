@@ -21,6 +21,7 @@
 - required fields and field validation
 - fixed a bug in the account checker
 - added italian translation
+- fixed a bug with type="url" in the options.php template
 
 ## 0.5
 
