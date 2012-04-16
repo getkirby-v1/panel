@@ -20,6 +20,7 @@
 - added hungarian translation
 - required fields and field validation
 - fixed a bug in the account checker
+- added italian translation
 
 ## 0.5
 
