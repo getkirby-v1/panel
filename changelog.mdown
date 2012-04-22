@@ -2,7 +2,7 @@
 
 ## 0.7
 
-- updated turkish translation
+- fixed a bug in form buttons with multiple textareas per page
 
 ## 0.6
 

@@ -2,8 +2,6 @@ var panel = {
 
   init : function() {
 
-    this.format.init();
-  
     $('.growl').click(function() {
       $(this).remove();
     });
@@ -11,6 +9,8 @@ var panel = {
     $('form').submit(function() {
       $(this).addClass('loading');
     });
+
+    $('.form-buttons').formbuttons();
 
     $('.overlay').not('.hide').find('input').first().focus();
 
@@ -93,60 +93,81 @@ var panel = {
       
     });
         
-  },
-
-  format : {
+  }, 
   
-    init : function() {
+  overlay : {
+    open : function(element) {
+    
+      $('.overlay').hide();
+      var elem = $(element);
       
-      var $this = this;
-
-      $(document).on($.modal.OPEN, function(e, modal) {
-        modal.elm.find('input:first').focus();
-      });
-                  
-      $('.form-buttons').each(function() {
-      
-        $this.bar  = $(this);
-        $this.area = $this.bar.next('textarea');
-            
-        $this.bar.find('a[rel=tag]').click(function() {      
-          var button = $(this);
-          var open   = button.attr('data-tag-open');
-          var close  = button.attr('data-tag-close');
-          var sample = button.attr('data-tag-sample');
-
-          $this.tag(open, close, sample);
-          return false;
-        });  
-  
-      });
-
-      $('.form-overlay').each(function() {
-        var modal = $(this);
-
-        modal.find('input[type=submit]').click(function() {
+      if(!elem.length) return false;
           
-          if($(this).is('.cancel') == false) {
-            switch(modal.attr('id')) {
-              case 'form-modal-link':
-              case 'form-modal-email':
-                $this.link(modal);
-                break;        
-            }
-          }
-
-          $.modal.close();
-          $this.area.focus();
-          return false;
-
-        });
-        
+      var blocker = $('<div class="overlay-blocker"></div>').css({
+        top: 0, right: 0, bottom: 0, left: 0,
+        width: "100%", height: "100%",
+        position: "fixed",
+        zIndex: 1999,
+        background: '#fff',
+        opacity: .9
       });
     
-    },
+      $('body').append(blocker);
+
+      elem.show();
+      elem.find('input:first').focus();
+    
+    }, 
+    close : function() {
+      $('.overlay').hide();
+      $('.overlay-blocker').remove();
+    }
+  }
+    
+};
+
+$(function() {
+  panel.init();
+});
+
+(function($) {
+
+  $.formbuttons = function(bar) {
   
-    tag : function(open, close, sample) {
+    var $this = this;
+    
+    $this.bar  = $(bar);
+    $this.init = function() {
+            
+      $this.area = $this.bar.next('textarea').first();
+            
+      $this.bar.find('a[rel=tag]').click(function() {      
+        var button = $(this);
+        var open   = button.attr('data-tag-open');
+        var close  = button.attr('data-tag-close');
+        var sample = button.attr('data-tag-sample');
+
+        $this.tag(open, close, sample);
+        return false;
+      });  
+      
+      $this.bar.find('a[rel=overlay]').click(function() {
+        var button  = $(this);
+        var id      = button.attr('href');
+        var overlay = $(id);
+        
+        overlay.data('area', $this.area);
+        overlay.data('callback', function() {
+          $this.link(overlay);
+        });
+                        
+        panel.overlay.open(overlay);
+        return false;
+      });
+                            
+    };
+  
+    $this.tag = function(open, close, sample) {
   
       var area = this.area[0];
   
@@ -187,9 +208,9 @@ var panel = {
     
       } 
   
-    },
+    };
   
-    insert : function(text) {
+    $this.insert = function(text) {
       
       var area = this.area[0];
   
@@ -217,9 +238,9 @@ var panel = {
   
       }
   
-    },
+    };
     
-    link : function(modal) {
+    $this.link = function(modal) {
 
       var linkField = modal.find('input[name=link]');
       var textField = modal.find('input[name=text]');
@@ -239,12 +260,38 @@ var panel = {
         return this.insert('(' + tag + ': ' + link + ' text: ' + text + ')');
       }
 
-    }
+    };
+    
+    $this.init();
   
   }
-    
-};
 
-$(function() {
-  panel.init();
-});
+  $.fn.formbuttons = function(options) {
+        
+    $('.form-overlay').each(function() {
+      var overlay = $(this);
+
+      overlay.find('input[type=submit]').click(function() {
+                
+        if($(this).is('.cancel') == false) {
+          overlay.data('callback')();
+        }
+
+        panel.overlay.close();
+        overlay.data('area').focus();
+        return false;
+
+      });
+      
+    });
+
+    return this.each(function() {
+      if(undefined == $(this).data('formbuttons')) {
+        var plugin = new $.formbuttons(this, options);
+        $(this).data('formbuttons', plugin);
+      }
+    });
+
+  }
+  
+})(jQuery);  

@@ -172,8 +172,8 @@ class form {
       'h3'     => '<a href="#h3" rel="tag" data-tag-open="### ">' . l::get('form.buttons.h3') . '</a>',
       'bold'   => '<a href="#bold" rel="tag" data-tag-open="**" data-tag-close="**" data-tag-sample="' . l::get('form.buttons.bold.sample') . '">' . l::get('form.buttons.bold') . '</a>',
       'italic' => '<a href="#italic" rel="tag" data-tag-open="*" data-tag-close="*" data-tag-sample="' . l::get('form.buttons.italic.sample') . '">' . l::get('form.buttons.italic') . '</a>',
-      'link'   => '<a href="#form-modal-link" rel="modal:open">' . l::get('form.buttons.link') . '</a>',
-      'email'  => '<a href="#form-modal-email" rel="modal:open">' . l::get('form.buttons.email') . '</a>',
+      'link'   => '<a href="#form-overlay-link" rel="overlay">' . l::get('form.buttons.link') . '</a>',
+      'email'  => '<a href="#form-overlay-email" rel="overlay">' . l::get('form.buttons.email') . '</a>',
     );
     
     if(is_array($active)) {
