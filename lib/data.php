@@ -603,7 +603,11 @@ class data {
     $templates = array();
 
     if(@$settings->pages['template'] && !$site->isHome) {
-      $templates[] = $settings->pages['template'];
+      if(is_array($settings->pages['template'])) {
+        $templates = $settings->pages['template'];   
+      } else {
+        $templates[] = $settings->pages['template'];
+      }
     } else {
 
       $files = dir::read(c::get('root.site') . '/templates');

@@ -3,6 +3,7 @@
 ## 0.7
 
 - fixed a bug in form buttons with multiple textareas per page
+- you can now define multiple templates for subpages in blueprints
 
 ## 0.6
 
