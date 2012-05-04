@@ -1,0 +1,1 @@
+<input type="checkbox" id="<?php echo html($name) ?>" name="<?php echo html($name) ?>"<?php echo ($value === 'on' || $value === "1") ? 'checked' : ''?>><label for="<?php echo html($name) ?>"> <?php echo $label ?></label><br>
