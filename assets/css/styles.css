@@ -526,6 +526,7 @@ body:before {
   margin-right: -7px;
 }
 .form .input {
+  -webkit-font-smoothing: antialiased;
   font-family: "Monaco", "Consolas", "Courier", monospace;
   border: 1px solid #ddd;
   padding: 9px 5px;

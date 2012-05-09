@@ -1,0 +1,12 @@
+.form .field.multicheckbox ul {
+  overflow: hidden;
+}
+.form .field.multicheckbox ul li {
+  list-style: none;
+  float: left;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.form .field.multicheckbox label.inline input {
+  margin-left: 10px;
+}

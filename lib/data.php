@@ -320,7 +320,7 @@ class data {
     foreach($panel->form->validate as $key => $field) {
       if(!self::validate($field['validate'], $data[$key])) $errors[$key] = $field;
     }
-            
+                          
     if(!empty($errors)) {
 
       $panel->form->errors = $errors;
@@ -552,7 +552,12 @@ class data {
     $data = array();
     
     foreach($fields as $key => $value) {
-      $data[$key] = trim(a::get($input, $key));
+      $v = a::get($input, $key);
+      if(is_array($v)) {
+        $data[$key] = implode(', ', $v);
+      } else {
+        $data[$key] = trim($v);
+      }
     }
     
     return $data;

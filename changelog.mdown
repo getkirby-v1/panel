@@ -4,6 +4,8 @@
 
 - fixed a bug in form buttons with multiple textareas per page
 - you can now define multiple templates for subpages in blueprints
+- new checkbox field by Luzi Humm: https://github.com/lulezi
+- new multicheckbox
 
 ## 0.6
 
