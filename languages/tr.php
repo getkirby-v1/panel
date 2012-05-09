@@ -151,6 +151,7 @@ l::set(array(
   'files.edit.title' => 'dosya düzenlemek',
   'files.edit.filename' => 'dosya ismi (ilavesiz)',
   'files.edit.button' => 'kayit',
+  'files.edit.errors.filename' => 'Please enter a valid filename',
   'files.edit.errors.notfound' => 'dosya bulunmadi',
   'files.edit.errors.exists' => 'dosya ismi var',
   'files.edit.errors.permissions' => 'dosya ismi degismez',

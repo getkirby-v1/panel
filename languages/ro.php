@@ -150,6 +150,7 @@ l::set(array(
   'files.edit.title' => 'Editare fişier',
   'files.edit.filename' => 'Numele fisierului (fara extensie)',
   'files.edit.button' => 'Salvează',
+  'files.edit.errors.filename' => 'Please enter a valid filename',
   'files.edit.errors.notfound' => 'Fişierul nu a putut fi găsit',
   'files.edit.errors.exists' => 'Noul nume există deja',
   'files.edit.errors.permissions' => 'Fişierul nu a putut fi redenumit',

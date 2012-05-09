@@ -150,6 +150,7 @@ l::set(array(
   'files.edit.title' => 'Bewerk Bestand',
   'files.edit.filename' => 'Bestansnaam (zonder extensie)',
   'files.edit.button' => 'Bewaar',
+  'files.edit.errors.filename' => 'Please enter a valid filename',
   'files.edit.errors.notfound' => 'Het bestand kon niet worden gevonden',
   'files.edit.errors.exists' => 'De nieuwe naam bestaat al',
   'files.edit.errors.permissions' => 'Het bestand kon niet worden hernoemd',

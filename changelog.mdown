@@ -6,7 +6,8 @@
 - you can now define multiple templates for subpages in blueprints
 - new checkbox field by Luzi Humm: https://github.com/lulezi
 - new multicheckbox
-- touch support for sortable lists thanks to @robrainfall
+- file meta data is now editable from the Panel
+- touch support for sortable lists on iOS devices. 
 
 ## 0.6
 

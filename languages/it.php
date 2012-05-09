@@ -150,6 +150,7 @@ l::set(array(
   'files.edit.title' => 'Modifica file',
   'files.edit.filename' => 'Nome del file (senza estensione)',
   'files.edit.button' => 'Registra',
+  'files.edit.errors.filename' => 'Please enter a valid filename',
   'files.edit.errors.notfound' => 'Non è stato possibile trovare il file',
   'files.edit.errors.exists' => 'Il nuovo nome esiste già',
   'files.edit.errors.permissions' => 'Non è stato possibile rinominare il file',

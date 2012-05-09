@@ -34,7 +34,13 @@ class form {
     } else {
       $this->data = $page->_;
     }
+    
+    $this->prepare($fields);      
         
+  }
+  
+  function prepare($fields) {
+
     foreach($fields as $name => $field) {
 
       $type = a::get($field, 'type', 'text');
@@ -81,7 +87,7 @@ class form {
       $this->fields[$name] = $field;
     
     }
-        
+  
   }
     
   function field($params) {
@@ -130,7 +136,7 @@ class form {
     $output[] = $this->fieldtemplate($options);
 
     // add the help text if available
-    if(!empty($help)) $output[] = self::help($help);
+    if(!empty($options['help'])) $output[] = self::help($options['help']);
 
     $output[] = '</div>';
     
@@ -164,6 +170,8 @@ class form {
   }
       
   function load() {
+
+    if(empty($this->fields)) return false;
             
     $output[] = '<fieldset>';
             
@@ -243,5 +251,55 @@ class form {
   }
 
 }
+
+
+class fileform extends form {
+  
+  function __construct($settings, $file) {
+
+    global $panel, $page;
+
+    $fields = (array)$settings->filefields;
+
+    $this->data = $file->_;
+  
+    foreach($fields as $key => $field) {
+      
+      // skip unwanted fields
+      if(!in_array($field['type'], array('text', 'textarea'))) {
+        unset($fields[$key]);
+      }
+      
+      // make sure we switch off unavailable features
+      $fields[$key]['buttons']  = false;
+      $fields[$key]['required'] = false;
+      $fields[$key]['validate'] = false;
+      $fields[$key]['help']     = false;
+      $fields[$key]['size']     = false;
+      
+    }
+
+    $this->prepare($fields);      
+        
+  }
+  
+  function load() {
+
+    if(empty($this->fields)) return false;
+            
+    $output[] = '<fieldset class="customfields">';
+            
+    foreach($this->fields AS $field) {
+      $output[] = $this->field($field);
+    }
+    
+    $output[] = '</fieldset>';
+
+    return implode("\n", $output);
+        
+  }
+
+}
+
 
 ?>

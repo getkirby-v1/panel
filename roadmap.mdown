@@ -22,6 +22,5 @@ Then:
 
 - user groups and permissions
 - preview mode for edits
-- sorting for mobile devices without drag and drop
 - auto-save with configurable interval
 - full editor documentation

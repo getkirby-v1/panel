@@ -889,6 +889,11 @@ body:before {
   font-size: 15px;
   border: 0;
 }
+.overlay fieldset.customfields {
+  border-top: 1px dashed #444;
+  padding: 20px 0 0 0;
+  margin: -10px 20px;
+}
 .overlay label {
   display: block;
   color: #888;  
