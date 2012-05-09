@@ -21,6 +21,7 @@
 
 <script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.js"></script>
 <script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.ui.js"></script>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.ui.touch.js"></script>
 <script src="<?php echo c::get('panel.url') ?>/assets/js/panel.js"></script>
 
 <?php if($panel->fancybox): ?>
