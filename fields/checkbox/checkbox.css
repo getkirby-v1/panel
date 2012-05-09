@@ -1,0 +1,7 @@
+.form .field.checkbox label {
+  display: none;
+}
+
+.form .field.checkbox label[for] {
+  display: inline;
+}
