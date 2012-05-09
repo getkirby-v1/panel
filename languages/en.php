@@ -146,6 +146,7 @@ l::set(array(
   'files.edit.title' => 'Edit file',
   'files.edit.filename' => 'Filename (without extension)',
   'files.edit.button' => 'Save',
+  'files.edit.errors.filename' => 'Please enter a valid filename',
   'files.edit.errors.notfound' => 'The file could not be found',
   'files.edit.errors.exists' => 'The new name already exists',
   'files.edit.errors.permissions' => 'The file could not be renamed',

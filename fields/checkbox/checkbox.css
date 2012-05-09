@@ -1,7 +1,6 @@
-.form .field.checkbox label {
-  display: none;
-}
-
-.form .field.checkbox label[for] {
-  display: inline;
+.form .field.checkbox label.inline {
+  display: inline-block;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }

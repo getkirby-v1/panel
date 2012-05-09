@@ -150,6 +150,7 @@ l::set(array(
   'files.edit.title' => 'A fájl szerkesztése',
   'files.edit.filename' => 'Fájlnév (kiterjesztés nélkül)',
   'files.edit.button' => 'Mentés',
+  'files.edit.errors.filename' => 'Please enter a valid filename',
   'files.edit.errors.notfound' => 'A fájl nem található',
   'files.edit.errors.exists' => 'Az új név már létezik',
   'files.edit.errors.permissions' => 'A fájlt nem lehet átnevezni',

@@ -45,11 +45,12 @@ l::set(array(
   'home.edit' => 'uyarlamak',
   'home.warning.title' => 'lüften önce onarmak!',
   'home.warning.permissions.title' => 'giris izni',
-  'home.warning.permissions.text' => 'giris izniniz yok. Lütfen giris izniniz bütün dosyalari icin degistirin“ <br />Bitte ändern sie die Rechte für alle Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
+  'home.warning.permissions.text' => 'giris izniniz yok. Lütfen giris izniniz bütün dosyalari icin degistirin. <br />Lütfen bütün dosyalarnizi degistirin icin <strong>0755</strong> ve dosya´incindeki klasör´de icin <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
-  'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt.<br /><a href="http://getkirby.com/panel/blueprints">dosyayi okuyun nasil blueprints ayarlanir…</a>',
+  'home.warning.blueprints.text' => 'Bu Templates daha Blueprints yapilmamistir.<br /><a href="http://getkirby.com/panel/blueprints">dosyayi okuyun nasil blueprints ayarlanir…</a>',
   'home.warning.thumbs.title' => 'Thumbnails dosya yönetim icin',
-  'home.warning.thumbs.text' => 'Bitte legen sie einen <strong>thumbs</strong> Ordner im Hauptordner ihrer Seite an und setzen sie die Rechte auf <strong>0755</strong>',
+  'home.warning.thumbs.text' => 'Lütfen yeni bir <strong>thumbs</strong> dosya sayfaniz´in anadosyasi icinde yerlestirin ve
+  kullanici hakkini <strong>0755</strong> yapirlandirin.',
 
   // siteinfo
   'siteinfo.button' => 'kayit',
@@ -104,7 +105,7 @@ l::set(array(
   'pages.add.success' => 'sayfaya izin var',
 
   // update page
-  'pages.update.errors' => 'Please fill out all fields correctly',
+  'pages.update.errors' => 'Lütfen bosluklari dogru doldurunuz.',
     
   // delete page  
   'pages.delete.title' => 'sayfayi sil',
@@ -150,6 +151,7 @@ l::set(array(
   'files.edit.title' => 'dosya düzenlemek',
   'files.edit.filename' => 'dosya ismi (ilavesiz)',
   'files.edit.button' => 'kayit',
+  'files.edit.errors.filename' => 'Please enter a valid filename',
   'files.edit.errors.notfound' => 'dosya bulunmadi',
   'files.edit.errors.exists' => 'dosya ismi var',
   'files.edit.errors.permissions' => 'dosya ismi degismez',

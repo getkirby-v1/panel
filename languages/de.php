@@ -146,6 +146,7 @@ l::set(array(
   'files.edit.title' => 'Datei bearbeiten',
   'files.edit.filename' => 'Dateiname (ohne Erweiterung)',
   'files.edit.button' => 'Speichern',
+  'files.edit.errors.filename' => 'Der Dateiname ist ungültig',
   'files.edit.errors.notfound' => 'Die Datei wurde nicht gefunden',
   'files.edit.errors.exists' => 'Der Dateiname besteht bereits',
   'files.edit.errors.permissions' => 'Die Datei konnte nicht umbenannt werden',

@@ -320,7 +320,7 @@ class data {
     foreach($panel->form->validate as $key => $field) {
       if(!self::validate($field['validate'], $data[$key])) $errors[$key] = $field;
     }
-            
+                          
     if(!empty($errors)) {
 
       $panel->form->errors = $errors;
@@ -472,35 +472,48 @@ class data {
 
   static function editFile() {
     
-    global $page;
+    global $panel, $page;
 
     $filename = get('filename');
     $newname  = str::urlify(get('newname'));
-    $file = $page->files()->find($filename);
+    $file     = $page->files()->find($filename);
 
     if(!$file) return array(
       'status' => 'error',
       'msg' => l::get('files.edit.errors.notfound')
     );
+
+    if(str::length($newname) < 1) return array(
+      'status' => 'error',
+      'msg'    => l::get('files.edit.errors.filename')
+    );
     
     $newfilename = $newname . '.' . $file->extension();
     
-    if($newfilename == $file->filename()) return array(
-      'status' => 'success',
-      'msg'    => l::get('nochanges')
-    );
+    if($newfilename != $file->filename()) {
     
-    $newroot = dirname($file->root()) . '/' . $newfilename;
+      $newroot = dirname($file->root()) . '/' . $newfilename;
+  
+      if(file_exists($newroot)) return array(
+        'status' => 'error',
+        'msg'    => l::get('files.edit.errors.exists')
+      );
+    
+      if(!f::move($file->root(), $newroot)) return array(
+        'status' => 'error',
+        'msg'    => l::get('files.edit.errors.permissions')
+      );
 
-    if(file_exists($newroot)) return array(
-      'status' => 'error',
-      'msg'    => l::get('files.edit.errors.exists')
-    );
+      // delete the old meta file
+      $oldmeta = dirname($file->root()) . '/' . $file->filename() . '.txt';
+      f::remove($oldmeta);
+
+    }
     
-    if(!f::move($file->root(), $newroot)) return array(
-      'status' => 'error',
-      'msg'    => l::get('files.edit.errors.permissions')
-    );
+    $destination = dirname($file->root()) . '/' . $newfilename . '.txt';
+    $updateInfo  = self::updateFileinfo($file, $destination);
+
+    if(error($updateInfo)) return $updateInfo;
 
     self::killCache();
             
@@ -510,6 +523,29 @@ class data {
     );
   
   }  
+  
+  static function updateFileinfo($file, $destination) {
+
+    global $panel, $settings;
+
+    $fields = $settings->filefields;
+    $data   = array();
+    $input  = r::data();
+
+    if(empty($fields)) false;
+    
+    foreach($fields as $key => $value) {
+      $v = a::get($input, $key);
+      if(is_array($v)) {
+        $data[$key] = implode(', ', $v);
+      } else {
+        $data[$key] = trim($v);
+      }
+    }
+    
+    return self::write($destination, $data);
+              
+  }
 
   static function deleteFile() {
         
@@ -527,6 +563,10 @@ class data {
       'status' => 'error',
       'msg'    => l::get('files.delete.errors.permissions')
     );
+    
+    // remove the meta file
+    $meta = dirname($file->root()) . '/' . $file->filename() . '.txt';
+    f::remove($meta);
             
     self::killCache();
 
@@ -552,7 +592,12 @@ class data {
     $data = array();
     
     foreach($fields as $key => $value) {
-      $data[$key] = trim(a::get($input, $key));
+      $v = a::get($input, $key);
+      if(is_array($v)) {
+        $data[$key] = implode(', ', $v);
+      } else {
+        $data[$key] = trim($v);
+      }
     }
     
     return $data;
@@ -603,7 +648,11 @@ class data {
     $templates = array();
 
     if(@$settings->pages['template'] && !$site->isHome) {
-      $templates[] = $settings->pages['template'];
+      if(is_array($settings->pages['template'])) {
+        $templates = $settings->pages['template'];   
+      } else {
+        $templates[] = $settings->pages['template'];
+      }
     } else {
 
       $files = dir::read(c::get('root.site') . '/templates');

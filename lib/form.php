@@ -34,7 +34,13 @@ class form {
     } else {
       $this->data = $page->_;
     }
+    
+    $this->prepare($fields);      
         
+  }
+  
+  function prepare($fields) {
+
     foreach($fields as $name => $field) {
 
       $type = a::get($field, 'type', 'text');
@@ -52,10 +58,15 @@ class form {
       $css = $root . '/' . $type . '.css';
       // js file
       $js = $root . '/' . $type . '.js';
+      // config file
+      $config = $root . '/' . $type . '.config.php';
       
-      $field['root'] = $root;      
-      $field['file'] = $file;      
-      $field['name'] = $name;
+      $field['root']   = $root;      
+      $field['file']   = $file;      
+      $field['name']   = $name;
+      $field['config'] = (file_exists($config)) ? $config : false;
+
+      if(!file_exists($field['file'])) die('Field misconfiguration: <strong>' . $type . ' field is broken</strong>');
 
       // check for css
       if(file_exists($css)) $this->css[$type] = $css;
@@ -76,36 +87,56 @@ class form {
       $this->fields[$name] = $field;
     
     }
-    
+  
   }
     
-  function field($field) {
+  function field($params) {
 
     global $panel;
 
-    extract($field);
+    $defaults = array(
+      'label'     => false,
+      'default'   => false,
+      'size'      => false,
+      'autolabel' => true,
+      'buttons'   => false,
+      'config'    => false,
+      'file'      => false,
+      'help'      => false,
+      'type'      => false,
+      'error'     => false,
+      'class'     => false,
+      'required'  => false,
+    );
 
-    // define a size selector  
-    $default = (isset($default)) ? $default : false;
-    $size    = (isset($size)) ? ' ' . $size : '';
-    $value   = (string)get($name, a::get($this->data, $name, $default));
-    $error   = array_key_exists($name, $this->errors) ? ' error' : '';
+    $options = array_merge($defaults, $params);
+    
+    // set the value, which should be placed in the field
+    $options['value'] = (string)get($options['name'], a::get($this->data, $options['name'], $options['default']));
+        
+    // check if this is an error field
+    $options['error'] = array_key_exists($options['name'], $this->errors);
+    
+    // include the field config file, which makes 
+    // it possible to overwrite the default options
+    if($options['config']) require($options['config']);    
 
     $output = array();
-    $output[] = '<div class="field ' . $type . $size . $error . '">';
-    $output[] = self::label($label, $field);
+    $output[] = '<div class="field ' . $this->fieldcss($options) . '">';
 
-    if($type == 'textarea' && isset($buttons) && $buttons == true) {
-      $output[] = self::buttons($buttons);
+    if($options['autolabel']) {
+      $output[] = self::label($options['label'], $options);
     }
-        
-    // load the field template
-    content::start();
-    require($file);
-    $output[] = content::end(true);
+
+    if($options['type'] == 'textarea' && $options['buttons'] == true) {
+      $output[] = self::buttons($options['buttons']);
+    }
+    
+    // load the field template    
+    $output[] = $this->fieldtemplate($options);
 
     // add the help text if available
-    if(!empty($help)) $output[] = self::help($help);
+    if(!empty($options['help'])) $output[] = self::help($options['help']);
 
     $output[] = '</div>';
     
@@ -113,8 +144,23 @@ class form {
       
   }
   
+  function fieldtemplate($params) {
+    content::start();
+    extract($params);
+    require($file);
+    return content::end(true);      
+  }
+  
+  function fieldcss($options) {
+    if($options['type'])  $css[] = $options['type'];
+    if($options['class']) $css[] = $options['class'];
+    if($options['size'])  $css[] = $options['size'];
+    if($options['error']) $css[] = 'error';
+    return implode(' ', $css);
+  }
+  
   function label($var, $field) {
-    $required = @$field['required'] == true ? '<span class="required">*</span>' : '';
+    $required = $field['required'] == true ? '<span class="required">*</span>' : '';
     return '<label>' . str::ucfirst($var) . $required . '</label>';   
   }
 
@@ -124,6 +170,8 @@ class form {
   }
       
   function load() {
+
+    if(empty($this->fields)) return false;
             
     $output[] = '<fieldset>';
             
@@ -172,8 +220,8 @@ class form {
       'h3'     => '<a href="#h3" rel="tag" data-tag-open="### ">' . l::get('form.buttons.h3') . '</a>',
       'bold'   => '<a href="#bold" rel="tag" data-tag-open="**" data-tag-close="**" data-tag-sample="' . l::get('form.buttons.bold.sample') . '">' . l::get('form.buttons.bold') . '</a>',
       'italic' => '<a href="#italic" rel="tag" data-tag-open="*" data-tag-close="*" data-tag-sample="' . l::get('form.buttons.italic.sample') . '">' . l::get('form.buttons.italic') . '</a>',
-      'link'   => '<a href="#form-modal-link" rel="modal:open">' . l::get('form.buttons.link') . '</a>',
-      'email'  => '<a href="#form-modal-email" rel="modal:open">' . l::get('form.buttons.email') . '</a>',
+      'link'   => '<a href="#form-overlay-link" rel="overlay">' . l::get('form.buttons.link') . '</a>',
+      'email'  => '<a href="#form-overlay-email" rel="overlay">' . l::get('form.buttons.email') . '</a>',
     );
     
     if(is_array($active)) {
@@ -203,5 +251,55 @@ class form {
   }
 
 }
+
+
+class fileform extends form {
+  
+  function __construct($settings, $file) {
+
+    global $panel, $page;
+
+    $fields = (array)$settings->filefields;
+
+    $this->data = $file->_;
+  
+    foreach($fields as $key => $field) {
+      
+      // skip unwanted fields
+      if(!in_array($field['type'], array('text', 'textarea'))) {
+        unset($fields[$key]);
+      }
+      
+      // make sure we switch off unavailable features
+      $fields[$key]['buttons']  = false;
+      $fields[$key]['required'] = false;
+      $fields[$key]['validate'] = false;
+      $fields[$key]['help']     = false;
+      $fields[$key]['size']     = false;
+      
+    }
+
+    $this->prepare($fields);      
+        
+  }
+  
+  function load() {
+
+    if(empty($this->fields)) return false;
+            
+    $output[] = '<fieldset class="customfields">';
+            
+    foreach($this->fields AS $field) {
+      $output[] = $this->field($field);
+    }
+    
+    $output[] = '</fieldset>';
+
+    return implode("\n", $output);
+        
+  }
+
+}
+
 
 ?>

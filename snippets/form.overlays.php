@@ -1,6 +1,6 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 
-<div id="form-modal-link" class="form-overlay overlay modal" data-tag="link">
+<div id="form-overlay-link" class="form-overlay overlay modal" data-tag="link">
   <form method="post">
     <fieldset>
       <h3><?php echo l::get('form.overlay.link.title') ?></h3>
@@ -21,7 +21,7 @@
   </form>
 </div>
 
-<div id="form-modal-email" class="form-overlay overlay modal" data-tag="email">
+<div id="form-overlay-email" class="form-overlay overlay modal" data-tag="email">
   <form method="post">
     <fieldset>
       <h3><?php echo l::get('form.overlay.email.title') ?></h3>

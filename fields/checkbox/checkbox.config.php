@@ -1,0 +1,5 @@
+<?php
+
+$options['autolabel'] = false;
+
+?>

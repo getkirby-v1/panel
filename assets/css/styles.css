@@ -526,6 +526,7 @@ body:before {
   margin-right: -7px;
 }
 .form .input {
+  -webkit-font-smoothing: antialiased;
   font-family: "Monaco", "Consolas", "Courier", monospace;
   border: 1px solid #ddd;
   padding: 9px 5px;
@@ -887,6 +888,11 @@ body:before {
   padding: 15px 20px 20px;
   font-size: 15px;
   border: 0;
+}
+.overlay fieldset.customfields {
+  border-top: 1px dashed #444;
+  padding: 20px 0 0 0;
+  margin: -10px 20px;
 }
 .overlay label {
   display: block;
