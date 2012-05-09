@@ -205,5 +205,3 @@ class action {
   }
 
 }
-
-?>

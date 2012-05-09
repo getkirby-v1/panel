@@ -72,8 +72,8 @@ c::set('root.content',  $rootContent);
 c::set('root.panel',    $rootPanel);
 
 // panel version
-c::set('panel.version.string', '0.7');
-c::set('panel.version.number', 0.7);
+c::set('panel.version.string', '0.8');
+c::set('panel.version.number', 0.8);
 c::set('panel.min.kirby.version', 1.08);
 c::set('panel.folder', $folder);
 
@@ -100,5 +100,3 @@ if(c::get('debug')) {
 
 $site = new panel();
 $site->load();
-
-?>

@@ -1,5 +1,9 @@
 #Kirby Panel Changelog
 
+## 0.8
+
+- omitted all ?> 
+
 ## 0.7
 
 - fixed a bug in form buttons with multiple textareas per page

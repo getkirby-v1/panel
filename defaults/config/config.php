@@ -25,6 +25,4 @@ c::set('upload.allowed', array(
 // enable url rewriting for the panel  
 // disable this if you got problems
 // with mod_rewrite 
-c::set('panel.rewrite', true);  
-    
-?>
+c::set('panel.rewrite', true);

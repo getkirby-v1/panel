@@ -32,5 +32,3 @@ function growl($status) {
 function pad($number,$n) {
   return str_pad((int) $number,$n,"0",STR_PAD_LEFT);
 }
-
-?>

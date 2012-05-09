@@ -300,6 +300,3 @@ class fileform extends form {
   }
 
 }
-
-
-?>
