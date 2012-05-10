@@ -3,6 +3,7 @@
 ## 0.8
 
 - omitted all ?> 
+- updated hungarian translation
 
 ## 0.7
 
