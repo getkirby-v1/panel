@@ -16,7 +16,7 @@ class data {
 
     global $page;
 
-    if(!$filename) $filename = get('file');
+    if(!$filename) $filename = base64_decode(get('file'));
     $file = $page->files()->find($filename);
     
     return $file;
