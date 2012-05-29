@@ -5,6 +5,7 @@
 - omitted all ?> 
 - updated hungarian translation
 - fixed a problem with filenames in urls
+- added some fixes for the french translation
 
 ## 0.7
 
