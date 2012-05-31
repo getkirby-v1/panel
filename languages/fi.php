@@ -150,7 +150,7 @@ l::set(array(
   'files.edit.title' => 'Muokkaa tiedostoa',
   'files.edit.filename' => 'Tiedoston nimi (ilman tiedostopäätettä)',
   'files.edit.button' => 'Tallenna',
-  'files.edit.errors.filename' => 'Please enter a valid filename',
+  'files.edit.errors.filename' => 'Syötä sopiva tiedostonimi',
   'files.edit.errors.notfound' => 'Tiedostoa ei löydetty',
   'files.edit.errors.exists' => 'Valitsemasi nimi on jo käytössä',
   'files.edit.errors.permissions' => 'Tiedostoa ei voitu nimetä uudelleen',
