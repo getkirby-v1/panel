@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Author: Felipe Coelho Kussik <http://seufelipe.com.br>
+ * 
+ */
+ 
 l::set(array(
   
   // global 
