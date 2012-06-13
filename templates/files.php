@@ -9,7 +9,7 @@
   
   <ul>
     <?php $n=0; foreach($page->files() as $file): ?>
-    <?php if($file->type() == 'content') continue ?>
+    <?php if($file->type() == 'content' || $file->type() == 'meta') continue ?>
     <li>
       <a target="_blank"<?php if($file->type() == 'image') echo ' rel="image"' ?> title="<?php echo html($file->filename()) ?>" href="<?php echo ourl($file->url()) ?>">
         <span class="preview">

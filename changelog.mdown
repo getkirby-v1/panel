@@ -8,6 +8,7 @@
 - added some fixes for the french translation
 - portuguese translation
 - finish translation
+- more preparation for the multi-lang version
 
 ## 0.7
 

@@ -18,7 +18,7 @@ class data {
 
     if(!$filename) $filename = base64_decode(get('file'));
     $file = $page->files()->find($filename);
-    
+        
     return $file;
         
   }
@@ -505,12 +505,27 @@ class data {
       );
 
       // delete the old meta file
-      $oldmeta = dirname($file->root()) . '/' . $file->filename() . '.txt';
+      if(c::get('lang.support')) {
+
+        // make sure to remove the meta file without language extension        
+        $invalidfile = dirname($file->root()) . '/' . $file->filename() . '.txt';
+        f::remove($invalidfile);
+
+        // remove the translated meta file
+        $oldmeta = dirname($file->root()) . '/' . $file->filename() . '.' . c::get('lang.current') . '.txt';
+      } else {
+        $oldmeta = dirname($file->root()) . '/' . $file->filename() . '.txt';      
+      }
       f::remove($oldmeta);
 
     }
     
-    $destination = dirname($file->root()) . '/' . $newfilename . '.txt';
+    if(c::get('lang.support')) {    
+      $destination = dirname($file->root()) . '/' . $newfilename . '.' . c::get('lang.current') . '.txt';
+    } else {
+      $destination = dirname($file->root()) . '/' . $newfilename . '.txt';
+    }
+  
     $updateInfo  = self::updateFileinfo($file, $destination);
 
     if(error($updateInfo)) return $updateInfo;
@@ -567,6 +582,14 @@ class data {
     // remove the meta file
     $meta = dirname($file->root()) . '/' . $file->filename() . '.txt';
     f::remove($meta);
+    
+    if(c::get('lang.support')) {
+      // delete each translated meta file
+      foreach(c::get('lang.available') as $lang) {
+        $meta = dirname($file->root()) . '/' . $file->filename() . '.' . $lang . '.txt';
+        f::remove($meta);          
+      }
+    }
             
     self::killCache();
 

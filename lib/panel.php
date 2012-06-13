@@ -38,6 +38,9 @@ class panel extends site {
           
       $this->uri->path = new uriPath($path);
 
+      // mark if this is a translated version or the default version
+      (c::get('lang.current') != c::get('lang.default')) ? c::set('lang.translated', true) : c::set('lang.translated', false);
+
     }
 
     // get the first set of pages
