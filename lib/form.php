@@ -34,7 +34,7 @@ class form {
     } else {
       $this->data = $page->_;
     }
-    
+        
     $this->prepare($fields);      
         
   }

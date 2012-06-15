@@ -25,7 +25,7 @@ class action {
     $result = false;
     
     if(get('cancel-add-page')) {
-      go(showurl('dashboard'));
+      go(showurl('content'));
       return false;
     }
     
@@ -43,7 +43,7 @@ class action {
     $result = false;
 
     if(get('cancel-update-content')) {
-      go(showurl('dashboard'));
+      go(showurl('content'));
       return false;
     }
     
@@ -110,13 +110,13 @@ class action {
     $result = false;
 
     if(get('cancel-update-info')) {
-      go(showurl('dashboard'));
+      go(showurl('content'));
       return false;
     }
 
     if(get('update-info')) {
       $result = data::updateInfo();
-      if(success($result)) go();
+      if(success($result)) go(showurl('content'));
       growl($result);
     }
 

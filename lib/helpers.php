@@ -32,3 +32,22 @@ function growl($status) {
 function pad($number,$n) {
   return str_pad((int) $number,$n,"0",STR_PAD_LEFT);
 }
+
+function languageToggle($lang) {
+
+  global $site, $panel;
+  
+  if($panel->isHome) {
+    $newURL = c::get('panel.url') . '/' . $lang;
+  } else {
+    $newURL = $site->pages()->active()->url($lang);
+  }
+  
+  $show = param('show');
+  if(!empty($show)) {
+    $newURL .= '/show:' . $show;
+  }
+
+  return $newURL;
+    
+}
