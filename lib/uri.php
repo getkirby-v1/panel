@@ -13,5 +13,3 @@ class paneluri extends uri {
   }
 
 }
-
-?>

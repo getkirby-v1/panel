@@ -193,5 +193,3 @@ l::set(array(
   'writer.success' => 'Fişierul a fost salvat',
   
 ));
-
-?>

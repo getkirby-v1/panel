@@ -214,5 +214,3 @@ l::set(array(
   'form.overlay.email.button' => 'Insert Email',
   
 ));
-
-?>

@@ -37,12 +37,12 @@
 <body class="<?php echo $panel->uri->path(1) ?> <?php echo browser::css() ?>">
 
 <div class="menu">
-  <h1><a class="home" href="<?php echo c::get('url') . '/' . c::get('lang.current') ?>">Kirby Panel</a></h1>
+  <h1><a class="home" href="<?php echo url() ?>">Kirby Panel</a></h1>
 
   <?php if(c::get('lang.support')): ?>
   <select class="lang" onchange="window.location = this.value">
     <?php foreach(c::get('lang.available') as $lang): ?>  
-    <option value="<?php echo url($panel->uri, $lang) ?>"<?php if($lang == c::get('lang.current')) echo ' selected="selected"' ?>><?php echo str::upper($lang) ?></option>
+    <option value="<?php echo languageToggle($lang) ?>"<?php if($lang == c::get('lang.current')) echo ' selected="selected"' ?>><?php echo str::upper($lang) ?></option>
     <?php endforeach ?>
   </select>
   <?php endif ?>

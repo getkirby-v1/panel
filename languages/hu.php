@@ -1,5 +1,5 @@
 <?php
-
+  
 /*
  * Author: Dávid Bóta <http://kukac7.hu> 
  */ 
@@ -10,16 +10,16 @@ l::set(array(
   'ok' => 'Ok',
   'cancel' => 'Mégsem',
   'nochanges' => 'Nem változott semmi',
-
+  
   // header
   'header.title' => 'Kirby',
   'header.logout' => 'Kijelentkezés', 
   
   // subheader
   'subheader.home' => 'Főoldal',  
-  'subheader.site' => 'Te honlapod',
+  'subheader.site' => 'Honlapod',
   'subheader.info' => 'Infó',
-
+  
   // tabs
   'tabs.overview' => 'Áttekintés',
   'tabs.info' => 'Infó szerkesztése',
@@ -39,7 +39,7 @@ l::set(array(
   'dashboard.stats.docs' => 'Dokomentumok', 
   'dashboard.stats.sound' => 'Hangok', 
   'dashboard.stats.others' => 'Egyebek', 
-
+  
   // home
   'home.siteinfo' => 'Honlap infó',
   'home.edit' => 'Szerkeszt',
@@ -65,7 +65,7 @@ l::set(array(
   // no content available
   'nocontent.title' => 'Nincs tartalom',
   'nocontent.text' => 'Nincs elérhető tartalom ezen az oldalon.',
-    
+  
   // pages
   'pages.title' => 'Látható oldalak',
   'pages.title.home' => 'Oldalak',
@@ -85,7 +85,7 @@ l::set(array(
   'pages.errors.move' => 'Az oldalt nem lehet áthelyezni',
   'pages.errors.sort' => 'Nincs minden oldal rendezve',
   'pages.errors.nosort' => 'Nincs semmi rendezve',
-
+  
   // no subpages allowed
   'nopages.title' => 'Aloldalak',
   'nopages.text' => 'Ennek az oldalnak állítólag nincs aloldala',  
@@ -102,10 +102,10 @@ l::set(array(
   'pages.add.errors.exists' => 'Az oldal ezzel az URL-lel már létezik',
   'pages.add.errors.permissions' => 'A könyvtár nem hozható létre',
   'pages.add.success' => 'Az oldal létrehozva',
-
+  
   // update page
   'pages.update.errors' => 'Please fill out all fields correctly',
-    
+  
   // delete page  
   'pages.delete.title' => 'Az oldal törlése',
   'pages.delete.button' => 'Törlés',
@@ -114,7 +114,7 @@ l::set(array(
   'pages.delete.errors.subpages' => 'Kérlek először az aloldalt töröld.',
   'pages.delete.errors.permissions' => 'Az oldalt nem sikerült eltávolítani',
   'pages.delete.success' => 'Az oldal törölve',
-
+  
   // options
   'options.url' => 'URL',
   'options.button' => 'Mentés',
@@ -127,7 +127,7 @@ l::set(array(
   'options.errors.permissions' => 'A könyvtár tartalma nem mozgatható',
   'options.errors.exists' => 'Az új URL már létezik',
   'options.errors.move' => 'A könyvtár tartalma nem mozgatható',
-
+  
   // files
   'files.title' => 'Fájlok',
   'files.upload' => 'Új fájl feltöltése',
@@ -135,7 +135,7 @@ l::set(array(
   'files.replace' => 'Cserél',
   'files.delete' => 'Törlés',
   'files.empty' => 'Nincs még fájl',
-
+  
   'nofiles.title' => 'Nincs fájl',
   'nofiles.text' => 'Ennek az oldalnak állítólag nincs fájlja',
   
@@ -145,7 +145,7 @@ l::set(array(
   'files.delete.errors.notfound' => 'A fájl nem található',
   'files.delete.errors.permissions' => 'A fájlt nem lehet törölni',
   'files.delete.success' => 'A fájl törölve',
-
+  
   // edit file
   'files.edit.title' => 'A fájl szerkesztése',
   'files.edit.filename' => 'Fájlnév (kiterjesztés nélkül)',
@@ -155,7 +155,7 @@ l::set(array(
   'files.edit.errors.exists' => 'Az új név már létezik',
   'files.edit.errors.permissions' => 'A fájlt nem lehet átnevezni',
   'files.edit.success' => 'A fájl mentve',
-
+  
   // replace file
   'files.replace.title' => 'Fájl cseréje',
   'files.replace.file' => 'Fájl',
@@ -163,12 +163,12 @@ l::set(array(
   'files.replace.button' => 'Cserél',
   'files.replace.errors.notfound' => 'A fájl nem található',
   'files.replace.success' => 'A fájl cserélve',
-
+  
   // upload file
   'files.upload.title' => 'Új fájl feltöltése',
   'files.upload.choose' => 'Kérlek válassz egy fájlt a számítógépről…',
   'files.upload.button' => 'Feltöltés',
-      
+    
   // login  
   'login.button' => 'Belépés',
   'login.username' => 'Felhasználónév',
@@ -186,12 +186,31 @@ l::set(array(
   'upload.errors.invalid-file' => 'A fájltípus nem engedélyezett',
   'upload.errors.move-error' => 'A fájlt nem lehet mozgatni a szerverre',
   'upload.success' => 'A fájl feltöltve',
-
+  
   // writer
   'writer.errors.permissions' => 'A fájl nem írható',
   'writer.errors.write' => 'Az adat nem adható hozzá',
   'writer.success' => 'A fájl elmentve',
   
+  // form buttons
+  'form.buttons.h1' => 'h1',
+  'form.buttons.h2' => 'h2',
+  'form.buttons.h3' => 'h3',
+  'form.buttons.bold' => 'félkövér',
+  'form.buttons.bold.sample' => 'félkövér szöveg',
+  'form.buttons.italic' => 'dölt',
+  'form.buttons.italic.sample' => 'dölt szöveg',
+  'form.buttons.link' => 'link',
+  'form.buttons.email' => 'email',
+  
+  'form.overlay.link.title' => 'Link beillesztése',
+  'form.overlay.link.link' => 'Link',
+  'form.overlay.link.text' => 'Link szöveg (opcionális)',
+  'form.overlay.link.button' => 'Link beillesztése',
+  
+  'form.overlay.email.title' => 'Email beillesztése',
+  'form.overlay.email.link' => 'Email cím',
+  'form.overlay.email.text' => 'Link szöveg (opcionális)',
+  'form.overlay.email.button' => 'Email beillesztése',
+  
 ));
-
-?>

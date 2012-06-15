@@ -21,15 +21,15 @@ l::set(array(
   'subheader.info' => 'Informations',
 
   // tabs
-  'tabs.overview' => 'Vue d\'ensenmble',
-  'tabs.info' => 'Editer vos informations',
+  'tabs.overview' => 'Vue d\'ensemble',
+  'tabs.info' => 'Éditer vos informations',
   'tabs.content' => 'Contenu',
   'tabs.files' => 'Fichiers',
   'tabs.options' => 'URL',
   'tabs.preview' => 'Aperçu',
 
   // dashboard
-  'dashboard.edit' => 'Editer',
+  'dashboard.edit' => 'Éditer',
   'dashboard.content' => 'Contenu',
   'dashboard.content.empty' => 'Cette page ne possède aucun contenu',
   'dashboard.files' => 'Fichiers',
@@ -41,20 +41,20 @@ l::set(array(
   'dashboard.stats.others' => 'Autre', 
 
   // home
-  'home.siteinfo' => 'Informations du site',
-  'home.edit' => 'Editer',
-  'home.warning.title' => 'Réglez le problème d\abord s\'il-vous-plaît!',
+  'home.siteinfo' => 'Informations sur le site',
+  'home.edit' => 'Éditer',
+  'home.warning.title' => 'Veuillez corriger le problème d\'abord !',
   'home.warning.permissions.title' => 'Permissions',
-  'home.warning.permissions.text' => 'Les permissions du dossier de contenu ne sont pas correctement paramétrées. Veuillez s\'il-vous-plaît changer les permissions de tous les dossier pour <strong>0755</strong> et celles de tous les fichiers pour <strong>0666</strong>',
+  'home.warning.permissions.text' => 'Les permissions du dossier de contenu ne sont pas correctement paramétrées. Veuillez changer les permissions de tous les dossier en <strong>0755</strong> et celles de tous les fichiers en <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Fichiers de strucutre',
-  'home.warning.blueprints.text' => 'Aucun fichier de structure n\'est disponible pour le modèle suivant<br /> En savoir plus à propos <a href="http://getkirby.com/panel/blueprints">de l\'installation de fichiers de strcture pour vos modèles</a>',
+  'home.warning.blueprints.text' => 'Aucun fichier de structure n\'est disponible pour le modèle suivant<br /> En savoir plus à propos <a href="http://getkirby.com/panel/blueprints">de l\'installation de fichiers de structure pour vos modèles</a>',
   'home.warning.thumbs.title' => 'Vignettes',
-  'home.warning.thumbs.text' => 'Ajoutez s\'il-vous-plaît un dossier <strong>vignettes</strong> dans le dossier principal de votre site et changer ses permissions pour <strong>0755</strong>',
+  'home.warning.thumbs.text' => 'Ajoutez s\'il-vous-plaît un dossier <strong>thumbs</strong> dans le dossier principal de votre site et changer ses permissions en <strong>0755</strong>',
 
   // siteinfo
   'siteinfo.button' => 'Enregistrer',
-  'siteinfo.errors.title' => 'Ajoutez un titre s\'il-vous-plaît',
-  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> n\'est pas inscriptible. <br />Changez ses permissions puis essayez à nouveau.',
+  'siteinfo.errors.title' => 'Veuillez ajouter un titre',
+  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> n\'est pas modifiable. <br />Changez ses permissions puis essayez à nouveau.',
 
   // content form 
   'content.save' => 'Enregistrer',
@@ -69,11 +69,11 @@ l::set(array(
   // pages
   'pages.title' => 'Pages visibles',
   'pages.title.home' => 'Pages',
-  'pages.home' => 'Acueil',
+  'pages.home' => 'Accueil',
   'pages.sort' => 'Trier',
   'pages.add' => 'Ajouter',
   'pages.delete' => 'Supprimer',
-  'pages.invisible' => 'Sous-pages invisbbles',
+  'pages.invisible' => 'Sous-pages invisibles',
   'pages.invisible.home' => 'Pages invisibles',
   'pages.no.visible' => 'Aucune page visible pour le moment',
   'pages.no.invisible' => 'Aucune page invisible pour le moment',
@@ -96,15 +96,15 @@ l::set(array(
   'pages.add.label.url' => 'URL',
   'pages.add.label.template' => 'Modèle',
   'pages.add.button' => 'Enregistrer',
-  'pages.add.errors.title' => 'Ajoutez un titre s\'il-vous-plaît',
-  'pages.add.errors.url' => 'Ajoutez une URL pour vos pages s\'il-vous-plaît',
-  'pages.add.errors.characters' => 'Utilisez seulement ce type de caractères a-z, 0-9, _, - pour votre URL s\'il-vous-plaît',
+  'pages.add.errors.title' => 'Ajoutez un titre',
+  'pages.add.errors.url' => 'Ajoutez une URL pour votre page',
+  'pages.add.errors.characters' => 'Veuillez vous limiter aux caractères a-z, 0-9, _, - pour votre URL',
   'pages.add.errors.exists' => 'Une page avec cette URL existe déjà',
   'pages.add.errors.permissions' => 'Ce dossier n\'a pas pu être créé',
   'pages.add.success' => 'La page a été créée',
 
   // update page
-  'pages.update.errors' => 'Please fill out all fields correctly',
+  'pages.update.errors' => 'Veuillez remplir correctement tous les champs',
 
   // delete page  
   'pages.delete.title' => 'Supprimer cette page',
@@ -123,7 +123,7 @@ l::set(array(
   'options.error.text' => 'Vous ne pouvez pas changer l\'URL de la page d\'erreur',
   'options.errors.homepage' => 'Vous ne pouvez pas changer l\'URL de la page d\'acceuil',
   'options.errors.errorpage' => 'Vous ne pouvez pas changer l\'URL de la page d\'erreur',
-  'options.errors.characters' => 'Utilisez seulement ce type de caractères a-z, 0-9, _, - s\'il-vous-plaît',
+  'options.errors.characters' => 'Veuillez vous limiter aux caractères a-z, 0-9, _, -',
   'options.errors.permissions' => 'Le dossier de contenu ne peut être déplacé',
   'options.errors.exists' => 'La nouvelle URL existe déjà',
   'options.errors.move' => 'Le dossier de contenu ne peut être déplacé',
@@ -131,7 +131,7 @@ l::set(array(
   // files
   'files.title' => 'Fichier',
   'files.upload' => 'Télécharger un nouveau fichier',
-  'files.edit' => 'Editer',
+  'files.edit' => 'Éditer',
   'files.replace' => 'Remplacer',
   'files.delete' => 'Supprimer',
   'files.empty' => 'Aucun fichier pour le moment',
@@ -140,33 +140,33 @@ l::set(array(
   'nofiles.text' => 'Cette page n\'est pas censée contenir des fichiers',
 
   // delete file
-  'files.delete.title' => 'Supprimer ce fichier',
+  'files.delete.title' => 'Supprimer le fichier',
   'files.delete.button' => 'Supprimer',
   'files.delete.errors.notfound' => 'Le fichier n\'a pas pu être trouvé',
   'files.delete.errors.permissions' => 'Le fichier n\'a pas pu être supprimé',
   'files.delete.success' => 'Le fichier a été supprimé',
 
   // edit file
-  'files.edit.title' => 'Editer le fichier',
+  'files.edit.title' => 'Éditer le fichier',
   'files.edit.filename' => 'Nom du fichier (sans l\'extension)',
   'files.edit.button' => 'Enregistrer',
-  'files.edit.errors.filename' => 'Please enter a valid filename',
+  'files.edit.errors.filename' => 'Veuillez entrer un nom valide',
   'files.edit.errors.notfound' => 'Le fichier n\'a pas pu être trouvé',
   'files.edit.errors.exists' => 'Le nouveau nom existe déjà',
   'files.edit.errors.permissions' => 'Le fichier n\'a pas pu être renommé',
   'files.edit.success' => 'Le fichier a été enregistré',
 
   // replace file
-  'files.replace.title' => 'Remplacer ce fichier',
+  'files.replace.title' => 'Remplacer le fichier',
   'files.replace.file' => 'Fichier',
-  'files.replace.choose' => 'Choisiseez un nouveau fichier sur votre ordinateur s\'il-vous-plaît…',
+  'files.replace.choose' => 'Veuillez choisir un nouveau fichier sur votre ordinateur',
   'files.replace.button' => 'Remplacer',
   'files.replace.errors.notfound' => 'Le fichier n\'a pas pu être trouvé',
   'files.replace.success' => 'Le fichier a été remplacé',
 
   // upload file
   'files.upload.title' => 'Télécharger un nouveau fichier',
-  'files.upload.choose' => 'Choisissez un fichier sur votre ordinateur…',
+  'files.upload.choose' => 'Veuillez choisir un fichier sur votre ordinateur',
   'files.upload.button' => 'Télécharger',
 
   // login  
@@ -174,9 +174,9 @@ l::set(array(
   'login.username' => 'Nom d\'utilisateur',
   'login.password' => 'Mot de passe',
   'login.error' => 'Nom d\'utilisateur ou mot de passe incorrects',
-  'login.success' => 'Vous êtes maintenant connectés',
+  'login.success' => 'Vous êtes maintenant connecté',
   'login.error.browser.title' => 'Vous utilisez un navigateur trop ancien',
-  'login.error.browser.text' => 'Veuillez s\'il-vous-plaît utiliser la dernière version de Google Chrome, Firefox, Safari ou Internet Explorer.',
+  'login.error.browser.text' => 'Veuillez utiliser la dernière version de Google Chrome, Firefox, Safari ou Internet Explorer.',
 
   // upload
   'upload.errors.missing-file' => 'Le fichier n\'a pas pu être trouvé',
@@ -196,22 +196,22 @@ l::set(array(
   'form.buttons.h1' => 'h1',
   'form.buttons.h2' => 'h2',
   'form.buttons.h3' => 'h3',
-  'form.buttons.bold' => 'bold',
-  'form.buttons.bold.sample' => 'bold text',
-  'form.buttons.italic' => 'italic',
-  'form.buttons.italic.sample' => 'italic text',
-  'form.buttons.link' => 'link',
+  'form.buttons.bold' => 'gras',
+  'form.buttons.bold.sample' => 'texte gras',
+  'form.buttons.italic' => 'italique',
+  'form.buttons.italic.sample' => 'texte italique',
+  'form.buttons.link' => 'lien',
   'form.buttons.email' => 'email',
 
-  'form.overlay.link.title' => 'Insert Link',
-  'form.overlay.link.link' => 'Link',
-  'form.overlay.link.text' => 'Link Text (optional)',
-  'form.overlay.link.button' => 'Inser Link',
+  'form.overlay.link.title' => 'Insérer un lien',
+  'form.overlay.link.link' => 'Lien',
+  'form.overlay.link.text' => 'Texte du lien (optionnel)',
+  'form.overlay.link.button' => 'Insérer le lien',
 
-  'form.overlay.email.title' => 'Insert Email',
-  'form.overlay.email.link' => 'Email Address',
-  'form.overlay.email.text' => 'Link Text (optional)',
-  'form.overlay.email.button' => 'Inser Email',
+  'form.overlay.email.title' => 'Insérer une adresse email',
+  'form.overlay.email.link' => 'Adresse email',
+  'form.overlay.email.text' => 'Texte du lien (optionnel)',
+  'form.overlay.email.button' => 'Insérer l\'adresse email',
   
 ));
 
