@@ -88,3 +88,5 @@ class settings extends obj {
   }
   
 }
+
+?>

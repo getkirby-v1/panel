@@ -1,15 +1,5 @@
 #Kirby Panel Changelog
 
-## 0.8
-
-- omitted all ?> 
-- updated hungarian translation
-- fixed a problem with filenames in urls
-- added some fixes for the french translation
-- portuguese translation
-- finish translation
-- added full support for the latest multi-language preview
-
 ## 0.7
 
 - fixed a bug in form buttons with multiple textareas per page

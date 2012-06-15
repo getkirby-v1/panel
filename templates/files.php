@@ -9,7 +9,7 @@
   
   <ul>
     <?php $n=0; foreach($page->files() as $file): ?>
-    <?php if($file->type() == 'content' || $file->type() == 'meta') continue ?>
+    <?php if($file->type() == 'content') continue ?>
     <li>
       <a target="_blank"<?php if($file->type() == 'image') echo ' rel="image"' ?> title="<?php echo html($file->filename()) ?>" href="<?php echo ourl($file->url()) ?>">
         <span class="preview">
@@ -36,9 +36,9 @@
       </a>
 
       <div class="filemenu">
-        <a href="<?php echo dourl('files', 'edit-file') ?>/?file=<?php echo base64_encode($file->filename()) ?>"><?php echo l::get('files.edit') ?></a>
-        <a href="<?php echo dourl('files', 'replace-file') ?>/?file=<?php echo base64_encode($file->filename()) ?>"><?php echo l::get('files.replace') ?></a>
-        <a href="<?php echo dourl('files', 'delete-file') ?>/?file=<?php echo base64_encode($file->filename()) ?>"><?php echo l::get('files.delete') ?></a>
+        <a href="<?php echo dourl('files', 'edit-file') ?>/?file=<?php echo $file->filename() ?>"><?php echo l::get('files.edit') ?></a>
+        <a href="<?php echo dourl('files', 'replace-file') ?>/?file=<?php echo $file->filename() ?>"><?php echo l::get('files.replace') ?></a>
+        <a href="<?php echo dourl('files', 'delete-file') ?>/?file=<?php echo $file->filename() ?>"><?php echo l::get('files.delete') ?></a>
       </div>
     </li>
     <?php $n++; endforeach ?>
