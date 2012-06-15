@@ -38,7 +38,7 @@ function languageToggle($lang) {
   global $site, $panel;
   
   if($panel->isHome) {
-    $newURL = c::get('panel.url') . '/' . $lang;
+    $newURL = url(false, $lang);
   } else {
     $newURL = $site->pages()->active()->url($lang);
   }

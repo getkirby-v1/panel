@@ -37,7 +37,7 @@
 <body class="<?php echo $panel->uri->path(1) ?> <?php echo browser::css() ?>">
 
 <div class="menu">
-  <h1><a class="home" href="<?php echo c::get('url') . '/' . c::get('lang.current') ?>">Kirby Panel</a></h1>
+  <h1><a class="home" href="<?php echo url() ?>">Kirby Panel</a></h1>
 
   <?php if(c::get('lang.support')): ?>
   <select class="lang" onchange="window.location = this.value">
