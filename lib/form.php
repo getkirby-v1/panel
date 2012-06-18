@@ -161,7 +161,8 @@ class form {
   
   function label($var, $field) {
     $required = $field['required'] == true ? '<span class="required">*</span>' : '';
-    return '<label>' . str::ucfirst($var) . $required . '</label>';   
+    $lang = (c::get('lang.support')) ? '<small>' . c::get('lang.current') . '</small>' : '';
+    return '<label>' . str::ucfirst($var) . $lang . $required . '</label>';   
   }
 
   function help($text) {
