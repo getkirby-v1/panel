@@ -160,14 +160,45 @@ class form {
   }
   
   function label($var, $field) {
+    
+    $text = self::multilangtext($var, $field['name']);
+            
     $required = $field['required'] == true ? '<span class="required">*</span>' : '';
     $lang = (c::get('lang.support')) ? '<small>' . c::get('lang.current') . '</small>' : '';
-    return '<label>' . str::ucfirst($var) . $lang . $required . '</label>';   
+    return '<label>' . str::ucfirst($text) . $lang . $required . '</label>';   
   }
 
   function help($text) {
+
+    $text = self::multilangtext($text, false);
+
     if(empty($text)) return false;
     return '<p class="description"><span>' . htmlspecialchars($text) . '</span></p>';
+  }
+
+  function multilangtext($array, $default=false) {
+    
+    // multi-lang labels
+    if(is_array($array)) {
+
+      global $panel;
+      
+      // desired label
+      $text = a::get($array, $panel->user()->language());
+
+      // fallback
+      if(empty($text)) $text = a::get($array, c::get('panel.language'));
+      
+      // last resort
+      if(empty($text)) $text = $default;
+      
+      return $text;
+                              
+    } else {
+      return $array;
+    }
+    
+      
   }
       
   function load() {

@@ -13,6 +13,9 @@
 - changed the default config for the panel. 
 - added auto subfolder detection
 - moved htaccess rules to the main kirby htaccess file
+- added multi-language form labels
+- added current language indicators to form labels
+- improved the upgrade dialog 
 
 ## 0.7
 

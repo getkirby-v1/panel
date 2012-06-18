@@ -155,6 +155,10 @@ language: en
 
 You are running an old version of the Kirby core. 
 Please upgrade to the latest version to make the panel work. 
+<br />
+<br />
+Minimum requirement: <a href="http://getkirby.com/downloads"><strong>Kirby CMS <?php echo c::get('panel.min.kirby.version') ?></strong></a><br />
+Your Version: <strong>Kirby CMS <?php echo c::get('version.number') ?></strong>
 
 <?php endif ?>
 
