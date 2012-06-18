@@ -9,6 +9,7 @@
 - portuguese translation
 - finish translation
 - added full support for the latest multi-language preview
+- fixed a stupid bug, which broke blueprints
 
 ## 0.7
 
