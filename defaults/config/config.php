@@ -21,8 +21,3 @@ c::set('upload.allowed', array(
   'application/gzip',
   'application/zip',
 ));
-
-// enable url rewriting for the panel  
-// disable this if you got problems
-// with mod_rewrite 
-c::set('panel.rewrite', true);

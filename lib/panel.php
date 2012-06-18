@@ -10,18 +10,22 @@ class panel extends site {
     s::start();
         
     c::set('home.keepurl', true);
-    
-    // auto-detect the url if it is not set
-    if(!c::get('url')) c::set('url', c::get('scheme') . server::get('http_host'));
-    
+
+    $this->urlSetup();
+                
+    c::set('panel.url', c::get('url'));
+                        
     // setup the thumb plugin
     c::set('thumb.cache.root', c::get('root') . '/thumbs');
-    c::set('thumb.cache.url',  c::get('url')  . '/thumbs');
+    c::set('thumb.cache.url',  dirname(c::get('url'))  . '/thumbs');
 
-    c::set('url', c::get('url') . '/' . c::get('panel.folder'));
-
-    // remove the panel folder name from the uri
-    c::set('subfolder', ltrim(c::get('subfolder') . '/' . c::get('panel.folder'), '/'));
+    // set the rewrite mode
+    $rewrite = c::get('rewrite');
+    $config  = c::get();
+    
+    if(isset($config['panel.rewrite'])) $rewrite = $config['panel.rewrite'];
+    
+    c::set('panel.rewrite', $rewrite);
 
     // attach the uri after caching
     $this->uri = new paneluri();

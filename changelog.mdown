@@ -10,6 +10,9 @@
 - finish translation
 - added full support for the latest multi-language preview
 - fixed a stupid bug, which broke blueprints
+- changed the default config for the panel. 
+- added auto subfolder detection
+- moved htaccess rules to the main kirby htaccess file
 
 ## 0.7
 

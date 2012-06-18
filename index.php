@@ -79,10 +79,6 @@ c::set('panel.folder', $folder);
 
 paneload::lib();
 paneload::config();
-
-// set the admin url
-c::set('panel.url',    c::get('url') . '/' . $folder);
-
 paneload::parsers();
 
 // switch on errors
