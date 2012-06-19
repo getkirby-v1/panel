@@ -21,6 +21,10 @@ The Kirby Panel requires Kirby CMS 1.1 or newer.
 
 Add the panel folder to the root directory of your Kirby-flavoured site. Open http://yourdomain.com/panel in your browser and follow the installation instructions. 
 
+## Older Kirby CMS Versions
+
+If you are upgrading from older Kirby CMS versions, please make sure to get the latest .htaccess file in the main directory of your site. This will also contain new rewrite rules for the Panel.
+
 ## Docs
 
 <http://getkirby.com/panel>  
