@@ -8,7 +8,7 @@ class data {
   static function childByUID($uid) {
 
     global $page, $pages, $site;
-    return (!$site->uri->path(1)) ? $pages->find($uid) : $page->children()->find($uid);
+    return (!$site->uri->path(1)) ? $pages->findBy('uid', $uid) : $page->children()->findBy('uid', $uid);
   
   }
 
@@ -160,7 +160,7 @@ class data {
     );
 
     $dirname = dirname($p->root()) . '/' . $num . '-' . $p->uid();
-        
+            
     if(!dir::move($p->root(), $dirname)) return array(
       'status' => 'error',
       'msg'    => l::get('pages.errors.move')
@@ -201,7 +201,7 @@ class data {
         if(error($sort)) $errors[] = $sort;      
               
       }
-
+                  
     } 
         
     if(!empty($invisible)) {

@@ -16,6 +16,7 @@
 - added multi-language form labels
 - added current language indicators to form labels
 - improved the upgrade dialog 
+- fixed a sorting bug for translated pages
 
 ## 0.7
 
