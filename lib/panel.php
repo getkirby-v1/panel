@@ -56,7 +56,7 @@ class panel extends site {
     // get the first set of pages
     $this->rootPages();
     // get the additional site info from content/site.txt
-    $this->siteInfo();
+    $this->info();
                                   
   }
   
