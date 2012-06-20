@@ -35,12 +35,21 @@ class panel extends site {
       $path  = $this->uri->path->toArray();
       $first = array_shift($path);
   
-      if(!in_array($first, c::get('lang.available', array()))) $first = c::get('lang.default');
+      if(!in_array($first, c::get('lang.available', array()))) {
+        if(empty($first)) {
+          $first = c::get('lang.default');
+        } else {
+          go(c::get('panel.url'));
+        }
+      }
       
       // set the current language
       c::set('lang.current', $first);
           
       $this->uri->path = new uriPath($path);
+
+      // mark if this is a translated version or the default version
+      (c::get('lang.current') != c::get('lang.default')) ? c::set('lang.translated', true) : c::set('lang.translated', false);
 
     }
 
@@ -171,5 +180,3 @@ class panel extends site {
   }
     
 }
-
-?>

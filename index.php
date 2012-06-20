@@ -96,5 +96,3 @@ if(c::get('debug')) {
 
 $site = new panel();
 $site->load();
-
-?>

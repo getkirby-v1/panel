@@ -77,5 +77,3 @@ class paneload extends load {
   }
   
 }
-
-?>

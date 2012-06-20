@@ -158,5 +158,3 @@ class user extends obj {
   }
 
 }
-
-?>
