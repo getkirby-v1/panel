@@ -1,5 +1,23 @@
 #Kirby Panel Changelog
 
+## 0.8
+
+- omitted all ?> 
+- updated hungarian translation
+- fixed a problem with filenames in urls
+- added some fixes for the french translation
+- portuguese translation
+- finish translation
+- added full support for the latest multi-language preview
+- fixed a stupid bug, which broke blueprints
+- changed the default config for the panel. 
+- added auto subfolder detection
+- moved htaccess rules to the main kirby htaccess file
+- added multi-language form labels
+- added current language indicators to form labels
+- improved the upgrade dialog 
+- fixed a sorting bug for translated pages
+
 ## 0.7
 
 - fixed a bug in form buttons with multiple textareas per page

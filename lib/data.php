@@ -8,7 +8,7 @@ class data {
   static function childByUID($uid) {
 
     global $page, $pages, $site;
-    return (!$site->uri->path(1)) ? $pages->find($uid) : $page->children()->find($uid);
+    return (!$site->uri->path(1)) ? $pages->findBy('uid', $uid) : $page->children()->findBy('uid', $uid);
   
   }
 
@@ -16,9 +16,9 @@ class data {
 
     global $page;
 
-    if(!$filename) $filename = get('file');
+    if(!$filename) $filename = base64_decode(get('file'));
     $file = $page->files()->find($filename);
-    
+        
     return $file;
         
   }
@@ -40,10 +40,12 @@ class data {
     $uid  = get('uid');
     $name = ($page->num()) ? $page->num() . '-' . $uid : $uid;
 
-    if($name == $page->dirname()) return array(
-      'status' => 'success',
-      'msg'    => l::get('nochanges')
-    );
+    if(!c::get('lang.translated')) {
+      if($name == $page->dirname()) return array(
+        'status' => 'success',
+        'msg'    => l::get('nochanges')
+      );
+    }
 
     if(str::length($uid) < 1 || !preg_match('!^[a-z0-9-_]+$!i', $name)) return array(
       'status' => 'error',
@@ -57,13 +59,13 @@ class data {
       'status' => 'error',
       'msg'    => l::get('options.errors.permissions')
     );
-    
-    if(is_dir($newRoot)) return array(
+                
+    if($newRoot != $oldRoot && is_dir($newRoot)) return array(
       'status' => 'error',
       'msg'    => l::get('options.errors.exists')
     );
     
-    $siblings = $page->siblings();
+    $siblings = $page->siblings()->not($page->uid());
     $check    = ($siblings) ? $siblings->find($uid) : false;
     
     if($check) return array(    
@@ -71,17 +73,51 @@ class data {
       'msg'    => l::get('options.errors.exists')
     );
     
-    $move = dir::move($oldRoot, $newRoot);
-    
-    if(!$move) return array(
-      'status' => 'error',
-      'msg'    => l::get('options.errors.move')
-    );
-    
-    $url = str_replace('/' . $page->uid() . '/', '/' . $uid . '/', thisURL());
+    // don't change the dirname but change the URL-key instead
+    if(c::get('lang.translated')) {
+      
+      $data = array();
+      
+      global $settings;
+                  
+      foreach($settings->fields as $key => $field) {
+        $data[$key] = $page->{$key};
+      }
+      
+      $data['URL-key'] = $uid;
+      
+      $file  = $page->root() . '/' . $page->intendedTemplate() . '.' . c::get('lang.current') . '.' . c::get('content.file.extension', 'txt');
+      $write = data::write($file, $data);                  
+      
+      if(error($write)) return $write;
+                                                
+    } else {
+        
+      $move = dir::move($oldRoot, $newRoot);
 
-    self::killCache();
+      if(!$move) return array(
+        'status' => 'error',
+        'msg'    => l::get('options.errors.move')
+      );
+
+    }
+    
+    $page->root          = $newRoot;
+    $page->uid           = $uid;
+    $page->translatedUID = $uid;
+    $page->uri           = ($page->parent()) ? $page->parent()->uri() . '/' . $page->translatedUID : $page->translatedUID;
+    $page->translatedURI = ($page->parent()) ? $page->parent()->translatedURI() . '/' . $page->translatedUID : $page->translatedUID;
+    $page->dirname       = $name;
+    $page->diruri        = page::parseDirURI($page->root);
             
+    if(c::get('lang.support')) {            
+      $url = url($page->translatedURI() . '/show:options');
+    } else {
+      $url = url($page->uri() . '/show:options');    
+    }
+    
+    self::killCache();
+                    
     go($url);
                     
   }
@@ -124,7 +160,7 @@ class data {
     );
 
     $dirname = dirname($p->root()) . '/' . $num . '-' . $p->uid();
-        
+            
     if(!dir::move($p->root(), $dirname)) return array(
       'status' => 'error',
       'msg'    => l::get('pages.errors.move')
@@ -165,7 +201,7 @@ class data {
         if(error($sort)) $errors[] = $sort;      
               
       }
-
+                  
     } 
         
     if(!empty($invisible)) {
@@ -280,7 +316,7 @@ class data {
     if(c::get('lang.support')) {
       
       foreach(c::get('lang.available') as $lang) {
-        $file  = $dir . '/' . $tpl . '.' . $lang . '.txt';
+        $file  = $dir . '/' . $tpl . '.' . $lang . '.' . c::get('content.file.extension', 'txt');
         $write = data::write($file, $data);        
         if(error($write)) return $write;
       }    
@@ -288,7 +324,7 @@ class data {
     } else {
 
       // write the default file
-      $file  = $dir . '/' . $tpl . '.txt';
+      $file  = $dir . '/' . $tpl . '.' . c::get('content.file.extension', 'txt');
       $write = data::write($file, $data);        
   
       if(error($write)) return $write;
@@ -332,10 +368,29 @@ class data {
     }
           
     // remove the file without language code    
-    if(c::get('lang.support') && c::get('lang.current') == c::get('lang.default')) {
-      $filename = $page->contents()->first()->name() . '.txt';
-      $remove = $page->root() . '/' . $filename;
-      if(file_exists($remove)) f::remove($remove);
+    if(c::get('lang.translated')) {
+      
+      // check for an untranslated file
+      $untranslated = $page->root() . '/' . $page->intendedTemplate . '.' . c::get('content.file.extension', 'txt');
+      
+      // check if the default file exitst
+      $defaultfile = $page->root() . '/' . $page->intendedTemplate . '.' . c::get('lang.default') . '.' . c::get('content.file.extension', 'txt');
+
+      if(file_exists($untranslated)) {
+        if(file_exists($defaultfile)) {      
+          // remove the untranslated file if there's already a fallback file
+          f::remove($untranslated);
+        } else {
+          // rename the untranslated file to become the fallback file                    
+          f::move($untranslated, $defaultfile);          
+        }
+      }
+
+      // make sure to pass on the URL Key      
+      if($page->url_key != '') {
+        $data['URL-key'] = $page->url_key;      
+      }
+
     }
 
     self::killCache();
@@ -381,9 +436,9 @@ class data {
   static function updateInfo() {
     
     if(c::get('lang.support')) {
-      $file = c::get('root.content') . '/site.' . c::get('lang.current') . '.txt';    
+      $file = c::get('root.content') . '/site.' . c::get('lang.current') . '.' . c::get('content.file.extension', 'txt');    
     } else {
-      $file = c::get('root.content') . '/site.txt';        
+      $file = c::get('root.content') . '/site.' . c::get('content.file.extension', 'txt');        
     }
     $keys = self::siteData();
     $data = array();
@@ -399,7 +454,7 @@ class data {
   
     // remove the file without language code    
     if(c::get('lang.support') && c::get('lang.current') == c::get('lang.default')) {
-      $remove = c::get('root.content') . '/site.txt';
+      $remove = c::get('root.content') . '/site.' . c::get('content.file.extension', 'txt');
       if(file_exists($remove)) f::remove($remove);
     }
 
@@ -423,9 +478,9 @@ class data {
     global $page;
 
     if(c::get('lang.support')) {
-      $filename = $page->contents()->first()->name() . '.' . c::get('lang.current') . '.txt';
+      $filename = $page->intendedTemplate . '.' . c::get('lang.current') . '.' . c::get('content.file.extension', 'txt');
     } else {
-      $filename = $page->contents()->first()->name() . '.txt';    
+      $filename = $page->intendedTemplate . '.' . c::get('content.file.extension', 'txt');    
     }
 
     return $page->root() . '/' . $filename;  
@@ -505,12 +560,33 @@ class data {
       );
 
       // delete the old meta file
-      $oldmeta = dirname($file->root()) . '/' . $file->filename() . '.txt';
+      if(c::get('lang.support')) {
+
+        // make sure to remove the meta file without language extension        
+        $invalidfile = dirname($file->root()) . '/' . $file->filename() . '.' . c::get('content.file.extension', 'txt');
+        f::remove($invalidfile);
+
+        // remove the translated meta file
+        $oldmeta = dirname($file->root()) . '/' . $file->filename() . '.' . c::get('lang.current') . '.' . c::get('content.file.extension', 'txt');
+      } else {
+        $oldmeta = dirname($file->root()) . '/' . $file->filename() . '.' . c::get('content.file.extension', 'txt');      
+      }
       f::remove($oldmeta);
 
     }
     
-    $destination = dirname($file->root()) . '/' . $newfilename . '.txt';
+    if(c::get('lang.support')) {    
+
+      // delete the untranslated file
+      $delete = dirname($file->root()) . '/' . $newfilename . '.' . c::get('content.file.extension', 'txt');
+      f::remove($delete);
+      
+      // set the translated file      
+      $destination = dirname($file->root()) . '/' . $newfilename . '.' . c::get('lang.current') . '.' . c::get('content.file.extension', 'txt');
+    } else {
+      $destination = dirname($file->root()) . '/' . $newfilename . '.' . c::get('content.file.extension', 'txt');
+    }
+  
     $updateInfo  = self::updateFileinfo($file, $destination);
 
     if(error($updateInfo)) return $updateInfo;
@@ -565,8 +641,16 @@ class data {
     );
     
     // remove the meta file
-    $meta = dirname($file->root()) . '/' . $file->filename() . '.txt';
+    $meta = dirname($file->root()) . '/' . $file->filename() . '.' . c::get('content.file.extension', 'txt');
     f::remove($meta);
+    
+    if(c::get('lang.support')) {
+      // delete each translated meta file
+      foreach(c::get('lang.available') as $lang) {
+        $meta = dirname($file->root()) . '/' . $file->filename() . '.' . $lang . '.' . c::get('content.file.extension', 'txt');
+        f::remove($meta);          
+      }
+    }
             
     self::killCache();
 
@@ -696,5 +780,3 @@ class data {
   }
 
 }
-
-?>

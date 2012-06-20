@@ -119,6 +119,8 @@ class check {
     return (c::get('version.number') < c::get('panel.min.kirby.version')) ? true : false;
   }
 
-}
+  static function wrongPanelVersion() {
+    return (c::get('panel.version.number') < c::get('panel.min.version')) ? true : false;
+  }
 
-?>
+}

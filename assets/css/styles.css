@@ -187,12 +187,13 @@ body:before {
 
 .menu h1 {
   border-bottom: 2px solid #fff;
-  margin: 0 20px;
+  margin: 0 20px 0 20px;
   height: 50px;
 }
 .menu h1 a.home {
   display: block;
   height: 50px;
+  margin-right: 70px;
   color: #fff;
   text-indent: -6000px;
   background: url(../images/home.png) no-repeat left center;
@@ -508,12 +509,20 @@ body:before {
   color: #222;
   padding-bottom: 5px;
 }
+.form label small {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 11px;
+  padding-left: 7px;
+  color: #999;
+}
 .form label .required {
   position: relative;
   display: inline-block;
-  top: 5px;
+  top: 6px;
   padding-left: 7px;
-  color: #ccc;
+  color: #999;
+  font-weight: normal;
   font-size: 20px;
 }
 .form label.inline {
@@ -899,6 +908,13 @@ body:before {
   color: #888;  
   line-height: 20px;
   margin-bottom: 5px;
+}
+.overlay label small {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 11px;
+  padding-left: 7px;
+  color: #555;
 }
 .overlay label em {
   color: #fff;
