@@ -11,6 +11,7 @@ class form {
   var $data     = array();
   var $required = array();
   var $errors   = array();
+  var $validate = array();
   
   function __construct($settings) {
 

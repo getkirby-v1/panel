@@ -368,7 +368,7 @@ class data {
     }
           
     // remove the file without language code    
-    if(c::get('lang.translated')) {
+    if(c::get('lang.support')) {
       
       // check for an untranslated file
       $untranslated = $page->root() . '/' . $page->intendedTemplate . '.' . c::get('content.file.extension', 'txt');
@@ -386,9 +386,13 @@ class data {
         }
       }
 
-      // make sure to pass on the URL Key      
-      if($page->url_key != '') {
-        $data['URL-key'] = $page->url_key;      
+      if(c::get('lang.translated')) {
+
+        // make sure to pass on the URL Key      
+        if($page->url_key != '') {
+          $data['URL-key'] = $page->url_key;      
+        }
+
       }
 
     }
