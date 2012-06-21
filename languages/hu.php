@@ -47,7 +47,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Jogosultságok',
   'home.warning.permissions.text' => 'A tartalmi könyvtár jogosultsága nincs beállítva. Kérlek változtasd meg a jogosultságot az összes mappán <strong>0755</strong>-re és az összes fájlon <strong>0666</strong>-ra',
   'home.warning.blueprints.title' => 'Blueprint-ek',
-  'home.warning.blueprints.text' => 'A sablonon nincsenek elérhető blueprint-ek<br /> Olvass utána, <a href="http://getkirby.com/panel/blueprints">hogy kell a blueprint-t telepíteni a sablonodba</a>',
+  'home.warning.blueprints.text' => 'A sablonon nincsenek elérhető blueprint-ek<br /> Olvass utána, <a href="http://getkirby.com/docs/panel/blueprints">hogy kell a blueprint-t telepíteni a sablonodba</a>',
   'home.warning.thumbs.title' => 'Bélyegképek',
   'home.warning.thumbs.text' => 'Kérlek add hozzá a <strong>thumbs</strong> könyvtárat a honlapod fő könyvtárához és állítsd a jogosultságot <strong>0755</strong>-re',
   

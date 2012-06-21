@@ -43,7 +43,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Permissions',
   'home.warning.permissions.text' => 'The permissions in your content directory are not set properly. Please change the permissions for all folders to <strong>0755</strong> and for all files to <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
-  'home.warning.blueprints.text' => 'There are no blueprints available for the following templates<br /> Read more about <a href="http://getkirby.com/panel/blueprints">how to install blueprints for your templates</a>',
+  'home.warning.blueprints.text' => 'There are no blueprints available for the following templates<br /> Read more about <a href="http://getkirby.com/docs/panel/blueprints">how to install blueprints for your templates</a>',
   'home.warning.thumbs.title' => 'Thumbnails',
   'home.warning.thumbs.text' => 'Please add a <strong>thumbs</strong> directory to the main directory of your site and change its permissions to <strong>0755</strong>',
   

@@ -47,7 +47,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Permisiuni',
   'home.warning.permissions.text' => 'Permisiunile din registrul de conţinut nu sunt setate corect. Vă rugăm să scimbaţi permisiunile pentru toate dosarele în <strong>0755</strong> şi pentru toate fişierele în <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
-  'home.warning.blueprints.text' => 'Nu există blueprints disponibile pentru modelele următoares<br /> Citeşte mai multe despre <a href="http://getkirby.com/panel/blueprints">cum să instezi blueprints pentru modele</a>',
+  'home.warning.blueprints.text' => 'Nu există blueprints disponibile pentru modelele următoares<br /> Citeşte mai multe despre <a href="http://getkirby.com/docs/panel/blueprints">cum să instezi blueprints pentru modele</a>',
   'home.warning.thumbs.title' => 'Thumbnails',
   'home.warning.thumbs.text' => 'Vă rugăm să adăugaţi un <strong>thumbs</strong> folder in directorul principal al site-ului dvs. şi să modificaţi permisiunile în <strong>0755</strong>',
   

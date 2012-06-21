@@ -47,7 +47,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Permisos',
   'home.warning.permissions.text' => 'Los permisos del directorio de contenido no han sido establecidos correctamente. Por favor, cambia los permisos de todas las carpetas a <strong>0755</strong> y de todos los archivos a <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Modelos',
-  'home.warning.blueprints.text' => 'No hay modelos disponibles para las plantillas siguientes <br /> Para más información acerca de<a href="http://getkirby.com/panel/blueprints">como instalar modelos para tus plantillas</a>',
+  'home.warning.blueprints.text' => 'No hay modelos disponibles para las plantillas siguientes <br /> Para más información acerca de<a href="http://getkirby.com/docs/panel/blueprints">como instalar modelos para tus plantillas</a>',
   'home.warning.thumbs.title' => 'Miniaturas',
   'home.warning.thumbs.text' => 'Por favor añade un directorio <strong>thumbs</strong> al directorio raíz de tu sitio y cambia sus permisos a <strong>0755</strong>',
   

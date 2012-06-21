@@ -47,7 +47,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Permissions',
   'home.warning.permissions.text' => 'Les permissions du dossier de contenu ne sont pas correctement paramétrées. Veuillez changer les permissions de tous les dossier en <strong>0755</strong> et celles de tous les fichiers en <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Fichiers de strucutre',
-  'home.warning.blueprints.text' => 'Aucun fichier de structure n\'est disponible pour le modèle suivant<br /> En savoir plus à propos <a href="http://getkirby.com/panel/blueprints">de l\'installation de fichiers de structure pour vos modèles</a>',
+  'home.warning.blueprints.text' => 'Aucun fichier de structure n\'est disponible pour le modèle suivant<br /> En savoir plus à propos <a href="http://getkirby.com/docs/panel/blueprints">de l\'installation de fichiers de structure pour vos modèles</a>',
   'home.warning.thumbs.title' => 'Vignettes',
   'home.warning.thumbs.text' => 'Ajoutez s\'il-vous-plaît un dossier <strong>thumbs</strong> dans le dossier principal de votre site et changer ses permissions en <strong>0755</strong>',
 

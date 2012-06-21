@@ -47,7 +47,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Permessi',
   'home.warning.permissions.text' => 'I permessi nella directory dei contenuti non sono impostati correttamente. Imposta i permessi di tutte le cartelle su <strong>0755</strong> e di tutti i file su <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Schemi',
-  'home.warning.blueprints.text' => 'Non vi sono schemi disponibili per i seguenti modelli<br /> Maggiori informazioni su <a href="http://getkirby.com/panel/blueprints">come installare gli schemi per i modelli</a>',
+  'home.warning.blueprints.text' => 'Non vi sono schemi disponibili per i seguenti modelli<br /> Maggiori informazioni su <a href="http://getkirby.com/docs/panel/blueprints">come installare gli schemi per i modelli</a>',
   'home.warning.thumbs.title' => 'Miniature',
   'home.warning.thumbs.text' => 'Aggiungi una directory <strong>thumbs</strong> alla directory principale del tuo sito e imposta i relativi permessi su <strong>0755</strong>',
   
