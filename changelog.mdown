@@ -1,5 +1,9 @@
 #Kirby Panel Changelog
 
+## 0.9
+
+- fixed a broken link in the panel warning dialog
+
 ## 0.8
 
 - omitted all ?> 
