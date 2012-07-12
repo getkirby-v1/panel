@@ -4,6 +4,8 @@
 
 - fixed a broken link in the panel warning dialog
 - first responsive version draft
+- configurable thumb root
+- improved thumb plugin 
 
 ## 0.8
 
