@@ -12,11 +12,12 @@ $action = action::login();
 <title><?php echo html($site->title()) ?></title>
 
 <meta charset="utf-8" />
-<meta name="viewport" id="viewport" content="width=device-width; initial-scale=1.0; user-scalable=1;" />
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="robots" content="noindex,nofollow,noarchive" />
 
-<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/styles.css" media="all" type="text/css" />
-<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/login.css" media="all" type="text/css" />
+<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/screen.css" />
+<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/login.css" />
+<link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/login.mobile.css" media="only screen and (max-width: 500px)" />
 
 <?php if(c::get('panel.color') && c::get('panel.color') != 'red') snippet('colors') ?>
 

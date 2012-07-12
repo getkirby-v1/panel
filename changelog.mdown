@@ -3,6 +3,7 @@
 ## 0.9
 
 - fixed a broken link in the panel warning dialog
+- first responsive version draft
 
 ## 0.8
 

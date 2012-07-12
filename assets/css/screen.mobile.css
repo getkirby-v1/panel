@@ -1,0 +1,79 @@
+body {
+  margin-left: 0;
+}
+body:before {
+  display: none;
+}
+.menu {
+  position: relative;
+  width: auto;
+  padding-bottom: 20px;
+}
+.menu select.lang {
+  position: absolute;
+  left: 70px;
+  right: auto;
+}
+
+.logout {
+  position: absolute;
+  right: 20px;
+  color: #fff;
+  background: none;
+  z-index: 2999;  
+  font-size: 14px;
+}
+
+.content {
+  position: static;
+  margin: 0 20px 20px;
+  padding-bottom: 40px;
+}
+
+.form-buttons {
+  overflow: hidden;
+}
+.form-buttons li {
+  float: left;
+  display: block;
+  margin-right: 1px;
+}
+.form-buttons a {
+  display: block;
+  background: #222;
+  color: #fff;
+  padding: 1px 7px;
+  font-size: 12px;
+  border-radius: 0 !important;
+}
+
+
+.overlay {
+  position: absolute;
+}
+.overlay.modal {
+  position: absolute;
+  display: none;
+  top: -5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: 0;
+  width: 100%;
+}
+.overlay form {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+  min-height: 100%;
+  border-radius: 0;
+}
+
+
+.files li {
+  width: 100%;
+  float: none;
+}
+

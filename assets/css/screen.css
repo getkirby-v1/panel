@@ -4,8 +4,10 @@
 }
 html {
   height: 101%;
+  overflow-y: scroll;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
 }
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -97,10 +99,11 @@ p {
 .header h2 small:last-child {
   display: none;
 }
-.header .logout {
+
+.logout {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 40px;
   font-weight: bold;
   background: #fff;
   font-size: 15px;
@@ -657,6 +660,7 @@ body:before {
 .form-buttons li {
   display: inline-block;
   margin-right: -3px;
+  margin-bottom: 1px;
 }
 .form-buttons a {
   display: block;
@@ -942,7 +946,7 @@ body:before {
   -webkit-appearance: none;
 }
 .overlay input[type=file] {
-  width: 350px;
+  width: 96%;
   padding: 7px;
   margin-top: 10px;
 }
