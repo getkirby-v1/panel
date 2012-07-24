@@ -47,7 +47,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Bevoegdheden',
   'home.warning.permissions.text' => 'De bevoegdheden in uw content map zijn niet juist toegekend. Verander alstublieft de bevoegdheden voor alle mappen naar  <strong>0755</strong> en voor alle bestanden naar <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blauwdrukken',
-  'home.warning.blueprints.text' => 'Er zijn geen blauwdrukken aanwezig voor de volgende sjablonen<br /> Lees meer over <a href="http://getkirby.com/panel/blueprints">how to install blueprints for your templates</a>',
+  'home.warning.blueprints.text' => 'Er zijn geen blauwdrukken aanwezig voor de volgende sjablonen<br /> Lees meer over <a href="http://getkirby.com/docs/panel/blueprints">how to install blueprints for your templates</a>',
   'home.warning.thumbs.title' => 'Thumbnails',
   'home.warning.thumbs.text' => 'Voeg een <strong>thumbs</strong> map toe in de hoofd map van uw site en verander de bevoegdheden ervan naar <strong>0755</strong>',
   

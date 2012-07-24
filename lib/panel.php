@@ -9,11 +9,7 @@ class panel extends site {
 
     s::start();
         
-    c::set('home.keepurl', true);
-
     $this->urlSetup();
-                
-    c::set('panel.url', c::get('url'));
                         
     // setup the thumb plugin
     c::set('thumb.cache.root', c::get('root') . '/thumbs');
@@ -179,5 +175,29 @@ class panel extends site {
     return new pages($breadcrumb);
       
   }
+
+  function urlSetup() {
+
+    c::set('home.keepurl', true);
+
+    parent::urlSetup();
+
+    $url         = c::get('url');
+    $panelFolder = c::get('panel.folder');
+    $subfolder   = c::get('subfolder');
     
+    // add the panel folder to the subfolder
+    if($subfolder && !preg_match('!' . preg_quote($panelFolder) . '$!i', $subfolder)) $subfolder .= '/' . $panelFolder;
+        
+    // check if the url already contains the subfolder      
+    // so it's not included twice
+    if(!preg_match('!' . preg_quote($panelFolder) . '$!i', $url)) $url .= '/' . $panelFolder;
+    
+    // make sure everyting is added to the config    
+    c::set('subfolder', $subfolder);
+    c::set('panel.url', $url);
+    c::set('url', $url);
+    
+  }
+
 }

@@ -47,7 +47,7 @@ l::set(array(
   'home.warning.permissions.title' => 'giris izni',
   'home.warning.permissions.text' => 'giris izniniz yok. Lütfen giris izniniz bütün dosyalari icin degistirin. <br />Lütfen bütün dosyalarnizi degistirin icin <strong>0755</strong> ve dosya´incindeki klasör´de icin <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
-  'home.warning.blueprints.text' => 'Bu Templates daha Blueprints yapilmamistir.<br /><a href="http://getkirby.com/panel/blueprints">dosyayi okuyun nasil blueprints ayarlanir…</a>',
+  'home.warning.blueprints.text' => 'Bu Templates daha Blueprints yapilmamistir.<br /><a href="http://getkirby.com/docs/panel/blueprints">dosyayi okuyun nasil blueprints ayarlanir…</a>',
   'home.warning.thumbs.title' => 'Thumbnails dosya yönetim icin',
   'home.warning.thumbs.text' => 'Lütfen yeni bir <strong>thumbs</strong> dosya sayfaniz´in anadosyasi icinde yerlestirin ve
   kullanici hakkini <strong>0755</strong> yapirlandirin.',

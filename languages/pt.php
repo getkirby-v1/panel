@@ -48,7 +48,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Permissões',
   'home.warning.permissions.text' => 'As permissões da sua pasta de conteúdo não estão corretas. Por favor, altere as permissões de todas as pastas para <strong>0755</strong> e para todos os arquivos para <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Projetos',
-  'home.warning.blueprints.text' => 'Não existem projetos disponíveis para estes modelos<br /> Leia mais sobre <a href="http://getkirby.com/panel/blueprints">como definir projetos para os seus modelos</a>',
+  'home.warning.blueprints.text' => 'Não existem projetos disponíveis para estes modelos<br /> Leia mais sobre <a href="http://getkirby.com/docs/panel/blueprints">como definir projetos para os seus modelos</a>',
   'home.warning.thumbs.title' => 'Miniaturas',
   'home.warning.thumbs.text' => 'Por favor, adicione a pasta <strong>thumbs</strong> na pasta principal do seu site e altere suas permissões para <strong>0755</strong>',
   

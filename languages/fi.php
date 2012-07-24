@@ -47,7 +47,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Oikeudet',
   'home.warning.permissions.text' => 'Content-hakemiston kirjoitusoikeuksia ei ole asetettu oikealla tavalla. Vaihda kaikkien hakemistojen kirjoitusoikeuksiksi <strong>0755</strong> ja tiedostojen kirjoitusoikeuksiksi <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Suunnitelmat',
-  'home.warning.blueprints.text' => 'Seuraaville sivupohjille ei ole saatavilla suunnitelmia<br /> Lue lisää <a href="http://getkirby.com/panel/blueprints">suunnitelmien asentamisesta</a>',
+  'home.warning.blueprints.text' => 'Seuraaville sivupohjille ei ole saatavilla suunnitelmia<br /> Lue lisää <a href="http://getkirby.com/docs/panel/blueprints">suunnitelmien asentamisesta</a>',
   'home.warning.thumbs.title' => 'Näytekuvat',
   'home.warning.thumbs.text' => 'Lisää hakemisto <strong>thumbs</strong> sivustosi päähakemistoon ja vaihda sen kirjoitusoikeudeksi <strong>0755</strong>',
   

@@ -43,7 +43,7 @@ l::set(array(
   'home.warning.permissions.title' => 'Zugriffsrechte',
   'home.warning.permissions.text' => 'Die Zugriffsrechte in ihrem Inhaltsverzeichnis sind nicht richtig gesetzt. <br />Bitte ändern sie die Rechte für alle Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
-  'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt. <br /><a href="http://getkirby.com/panel/blueprints">Lesen sie mehr darüber, wie man Blueprints installiert…</a>',
+  'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt. <br /><a href="http://getkirby.com/docs/panel/blueprints">Lesen sie mehr darüber, wie man Blueprints installiert…</a>',
   'home.warning.thumbs.title' => 'Thumbnails für die Dateiverwaltung',
   'home.warning.thumbs.text' => 'Bitte legen sie einen <strong>thumbs</strong> Ordner im Hauptordner ihrer Seite an und setzen sie die Rechte auf <strong>0755</strong>',
 
