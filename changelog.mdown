@@ -6,6 +6,9 @@
 - first responsive version draft
 - configurable thumb root
 - improved thumb plugin 
+- fixed a compatibility issue with Apache on Win where : as param separator in URLs is not allowed
+- fixed a bug in the uri class
+- fixed a link in the default account config file
 
 ## 0.8
 

@@ -45,7 +45,7 @@ function languageToggle($lang) {
   
   $show = param('show');
   if(!empty($show)) {
-    $newURL .= '/show:' . $show;
+    $newURL .= '/show' . c::get('uri.param.separator') . $show;
   }
 
   return $newURL;
