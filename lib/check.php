@@ -40,7 +40,7 @@ class check {
   
   static function thumbsAreWritable() {
     $thumbs = c::get('root') . '/thumbs';
-    return (is_dir($thumbs) && is_writable($thumbs)) ? true : false;    
+    return (is_dir($thumbs) && is_writable($thumbs)) ? true : false;
   }
   
   static function infoIsWritable() {
