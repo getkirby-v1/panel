@@ -44,6 +44,11 @@ class form {
 
     foreach($fields as $name => $field) {
 
+      // check if the field has a defined uservar attribute -> no type declaration needed
+      if(isset($field["uservar"])) {
+	      $field["type"] = "uservar";
+      }
+      
       $type = a::get($field, 'type', 'text');
       // custom field root      
       $root = c::get('root.site') . '/' . c::get('panel.folder') . '/fields/' . $type;
