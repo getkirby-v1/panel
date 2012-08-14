@@ -5,7 +5,7 @@ if(!defined('KIRBY')) die('Direct access is not allowed');
 
 class action {
 
-  function login() {
+  static function login() {
     
     global $panel;
     
@@ -20,7 +20,7 @@ class action {
     
   }
 
-  function addContent() {
+  static function addContent() {
 
     $result = false;
     
@@ -38,7 +38,7 @@ class action {
   
   }
 
-  function updateContent() {
+  static function updateContent() {
 
     $result = false;
 
@@ -57,7 +57,7 @@ class action {
 
   }
   
-  function deleteContent() {
+  static function deleteContent() {
 
     $result = false;
     
@@ -75,7 +75,7 @@ class action {
   
   }
 
-  function sortPages($flip=false) {
+  static function sortPages($flip=false) {
   
     if(get('sort-action') == 'cancel') {
       go(showurl('dashboard'));
@@ -93,7 +93,7 @@ class action {
     
   }
 
-  function updateURL() {
+  static function updateURL() {
     
     $result = false;
 
@@ -105,7 +105,7 @@ class action {
   
   }
   
-  function updateSiteinfo() {
+  static function updateSiteinfo() {
 
     $result = false;
 
@@ -124,7 +124,7 @@ class action {
       
   }
 
-  function uploadFile() {
+  static function uploadFile() {
 
     $result = false;
     
@@ -142,7 +142,7 @@ class action {
 
   }
 
-  function editFile() {
+  static function editFile() {
   
     $result = false;
     
@@ -160,7 +160,7 @@ class action {
   
   }
 
-  function replaceFile() {
+  static function replaceFile() {
 
     $result = false;
     
@@ -182,7 +182,7 @@ class action {
   
   }
 
-  function deleteFile() {
+  static function deleteFile() {
   
     $result = false;
     
