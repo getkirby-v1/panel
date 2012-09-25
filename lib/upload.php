@@ -24,7 +24,7 @@ class upload {
 		$error     = a::get($file, 'error');
 		$size      = a::get($file, 'size');
 		$msg       = false;
-		$extension = self::mime_to_extension($type, 'jpg');
+		$extension = self::mime_to_extension($type, f::extension($name));
 
 		// convert the filename to a save name
 		$fname = ($sanitize) ? f::safe_name(f::name($name)) : f::name($name);

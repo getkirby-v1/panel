@@ -10,6 +10,8 @@
 - fixed a bug in the uri class
 - fixed a link in the default account config file
 - fixed static bugs in PHP 5.4
+- added multi-language label support for checkbox fields
+- fixed a bug in the upload plugin
 
 ## 0.8
 
