@@ -6,7 +6,7 @@
 
 <div class="dashboard">
 
-  <?php if(!empty($check)): ?>
+  <?php if(!empty($check) && c::get('panel.check', true) !== false): ?>
   
   <div class="warning">
 

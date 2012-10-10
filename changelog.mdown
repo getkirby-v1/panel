@@ -12,6 +12,7 @@
 - fixed static bugs in PHP 5.4
 - added multi-language label support for checkbox fields
 - fixed a bug in the upload plugin
+- added a panel.check config var, which makes it possible to hide the panel error message on the homepage
 
 ## 0.8
 
