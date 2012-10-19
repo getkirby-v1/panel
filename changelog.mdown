@@ -1,5 +1,9 @@
 #Kirby Panel Changelog
 
+## 1.0
+
+- fixed a bug in the check class, which didn't recognize site info files with different extensions than txt. (Thanks to Sven Hanssen for the fix)
+
 ## 0.9
 
 - fixed a broken link in the panel warning dialog
