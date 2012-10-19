@@ -2,6 +2,7 @@
 
 ## 1.0
 
+- fixed the z-index for the logout link
 - fixed a bug in the check class, which didn't recognize site info files with different extensions than txt. (Thanks to Sven Hanssen for the fix)
 
 ## 0.9

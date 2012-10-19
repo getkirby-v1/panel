@@ -20,7 +20,7 @@ body:before {
   right: 20px;
   color: #fff;
   background: none;
-  z-index: 2999;  
+  z-index: 1000;
   font-size: 14px;
 }
 
