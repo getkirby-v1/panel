@@ -4,6 +4,7 @@
 
 - fixed the z-index for the logout link
 - fixed a bug in the check class, which didn't recognize site info files with different extensions than txt. (Thanks to Sven Hanssen for the fix)
+- missing titles for pages don't break the sidebar layout anymore
 
 ## 0.9
 
