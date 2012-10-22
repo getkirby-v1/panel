@@ -44,6 +44,11 @@ class form {
 
     foreach($fields as $name => $field) {
 
+      // check if the field has a defined uservar attribute -> no type declaration needed
+      if(isset($field["uservar"])) {
+	      $field["type"] = "uservar";
+      }
+      
       $type = a::get($field, 'type', 'text');
       // custom field root      
       $root = c::get('root.site') . '/' . c::get('panel.folder') . '/fields/' . $type;
@@ -112,8 +117,16 @@ class form {
 
     $options = array_merge($defaults, $params);
     
+    // get all uservars from SESSION
+    foreach($_SESSION as $session) {
+      foreach($session as $name => $uservar) {
+	      $uservars[$name] = $uservar;
+      }
+    }
+    
     // set the value, which should be placed in the field
-    $options['value'] = (string)get($options['name'], a::get($this->data, $options['name'], $options['default']));
+    $defaultvar = preg_replace('#{{user\.(.+?)}}#e', '$uservars["\1"]', $options['default']);
+    $options['value'] = (string)get($options['name'], a::get($this->data, $options['name'], $defaultvar));
         
     // check if this is an error field
     $options['error'] = array_key_exists($options['name'], $this->errors);
