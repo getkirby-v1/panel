@@ -60,9 +60,13 @@ $rootSite    = $root . '/site';
 $rootContent = $root . '/content';
 $rootPanel   = $root . '/' . $folder;
 
+
+
 // include kirby
 require_once($rootKirby . '/lib/kirby.php');
 require_once($rootPanel . '/lib/load.php');
+
+
 
 // set the root
 c::set('root',          $root);
@@ -76,6 +80,8 @@ c::set('panel.version.string', '0.8.1');
 c::set('panel.version.number', 0.81);
 c::set('panel.min.kirby.version', 1.1);
 c::set('panel.folder', $folder);
+
+
 
 paneload::lib();
 paneload::config();

@@ -152,7 +152,8 @@ class panel extends site {
     // set the template file;
     $panel->templateFile = $panel->show . '.php';
     $panel->templateRoot = c::get('root.panel') . '/templates';
-    
+
+
     content::start();
 
     if($panel->user->isLoggedIn()) {
