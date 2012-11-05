@@ -45,13 +45,18 @@ class check {
   
   static function infoIsWritable() {
     
+    $extension = 'txt';
+    if(c::get('content.file.extension')) {
+      $extension = c::get('content.file.extension');
+    }
+    
     if(c::get('lang.support')) {
-      $file = c::get('root.content') . '/site.' . c::get('lang.current') . '.txt';
+      $file = c::get('root.content') . '/site.' . c::get('lang.current') . '.' . $extension;
       if(!file_exists($file)) {
         return (!is_writable(dirname($file))) ? false : true;
       }
     } else {
-      $file = c::get('root.content') . '/site.txt';      
+      $file = c::get('root.content') . '/site.' . $extension;      
     }
     
     return (is_writable($file)) ? true : false;
