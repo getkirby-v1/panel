@@ -35,8 +35,8 @@ class settings extends obj {
     
     }
     
-    if(isset($settings->pages['limit'])) {
-      $this->limit = intval($settings->pages['limit']);
+    if(isset($this->pages['limit'])) {
+      $this->limit = intval($this->pages['limit']);
     }
     
   }
