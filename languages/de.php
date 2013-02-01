@@ -41,16 +41,16 @@ l::set(array(
   'home.edit' => 'Bearbeiten',
   'home.warning.title' => 'Bitte zuerst beheben!',
   'home.warning.permissions.title' => 'Zugriffsrechte',
-  'home.warning.permissions.text' => 'Die Zugriffsrechte in ihrem Inhaltsverzeichnis sind nicht richtig gesetzt. <br />Bitte ändern sie die Rechte für alle Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
+  'home.warning.permissions.text' => 'Die Zugriffsrechte in Ihrem Inhaltsverzeichnis sind nicht richtig gesetzt. <br />Bitte ändern Sie die Rechte für alle Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
   'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt. <br /><a href="http://getkirby.com/docs/panel/blueprints">Lesen sie mehr darüber, wie man Blueprints installiert…</a>',
   'home.warning.thumbs.title' => 'Thumbnails für die Dateiverwaltung',
-  'home.warning.thumbs.text' => 'Bitte legen sie einen <strong>thumbs</strong> Ordner im Hauptordner ihrer Seite an und setzen sie die Rechte auf <strong>0755</strong>',
+  'home.warning.thumbs.text' => 'Bitte legen Sie einen <strong>thumbs</strong> Ordner im Hauptordner Ihrer Seite an und setzen Sie die Rechte auf <strong>0755</strong>',
 
   // siteinfo
   'siteinfo.button' => 'Speichern',
   'siteinfo.errors.title' => 'Bitte geben Sie einen Titel ein',
-  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> ist nicht beschreibbar. <br />Bitte ändern Sie die Zugriffsrechte und versuchen sie es erneut.',
+  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> ist nicht beschreibbar. <br />Bitte ändern Sie die Zugriffsrechte und versuchen Sie es erneut.',
 
   // content form 
   'content.save' => 'Speichern',
