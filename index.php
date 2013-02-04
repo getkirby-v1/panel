@@ -72,8 +72,8 @@ c::set('root.content',  $rootContent);
 c::set('root.panel',    $rootPanel);
 
 // panel version
-c::set('panel.version.string', '0.9.1');
-c::set('panel.version.number', 0.91);
+c::set('panel.version.string', '0.9.2');
+c::set('panel.version.number', 0.92);
 c::set('panel.min.kirby.version', 1.11);
 c::set('panel.folder', $folder);
 

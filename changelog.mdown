@@ -1,5 +1,11 @@
 #Kirby Panel Changelog
 
+## 0.92
+
+- fixed a bug in the changeNum method which broke sorting
+- improved the css for textareas
+- language updates for german, english and dutch
+
 ## 0.91
 
 - fixed the z-index for the logout link

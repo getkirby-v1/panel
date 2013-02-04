@@ -45,7 +45,7 @@ l::set(array(
   'home.warning.blueprints.title' => 'Blueprints',
   'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt. <br /><a href="http://getkirby.com/docs/panel/blueprints">Lesen sie mehr darüber, wie man Blueprints installiert…</a>',
   'home.warning.thumbs.title' => 'Thumbnails für die Dateiverwaltung',
-  'home.warning.thumbs.text' => 'Bitte legen sie einen <strong>thumbs</strong> Ordner im Hauptordner ihrer Seite an und setzen sie die Rechte auf <strong>0755</strong>',
+  'home.warning.thumbs.text' => 'Bitte legen sie einen <strong>thumbs</strong> Ordner im Hauptordner ihrer Kirby-Seite an und setzen sie die Rechte auf <strong>0755</strong>',
 
   // siteinfo
   'siteinfo.button' => 'Speichern',

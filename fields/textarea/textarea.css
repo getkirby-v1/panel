@@ -2,6 +2,7 @@
   line-height: 21px;
   color: #222;
   margin-bottom: -3px;
+  resize: vertical;
 }
 .form .textarea.medium textarea {
   height: 150px;

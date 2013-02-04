@@ -45,7 +45,7 @@ l::set(array(
   'home.warning.blueprints.title' => 'Blueprints',
   'home.warning.blueprints.text' => 'There are no blueprints available for the following templates<br /> Read more about <a href="http://getkirby.com/docs/panel/blueprints">how to install blueprints for your templates</a>',
   'home.warning.thumbs.title' => 'Thumbnails',
-  'home.warning.thumbs.text' => 'Please add a <strong>thumbs</strong> directory to the main directory of your site and change its permissions to <strong>0755</strong>',
+  'home.warning.thumbs.text' => 'Please add a <strong>thumbs</strong> directory to the main directory of your installation and change its permissions to <strong>0755</strong>',
   
   // siteinfo
   'siteinfo.button' => 'Save',

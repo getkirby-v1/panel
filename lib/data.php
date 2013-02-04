@@ -154,7 +154,7 @@ class data {
       'msg'    => l::get('pages.errors.notfound')
     );
 
-    if($num == $p->num()) return array(
+    if($num === $p->num()) return array(
       'status' => 'success',
       'msg'    => l::get('nochanges')
     );

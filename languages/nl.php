@@ -2,6 +2,7 @@
 
 /* 
  * author: Nils Hendriks <http://www.nirusu.me>
+ * updated: Jesper van Haaren <http://jesper.co>
  */
 
 l::set(array(
@@ -21,7 +22,7 @@ l::set(array(
   'subheader.info' => 'Info',
 
   // tabs
-  'tabs.overview' => 'Overview',
+  'tabs.overview' => 'Overzicht',
   'tabs.info' => 'Bewerk Info',
   'tabs.content' => 'Inhoud',
   'tabs.files' => 'Bestanden',
@@ -35,7 +36,7 @@ l::set(array(
   'dashboard.files' => 'Bestanden',
   'dashboard.template' => 'Sjabloon',
   'dashboard.stats.images' => 'Afbeeldingen', 
-  'dashboard.stats.videos' => 'Videos', 
+  'dashboard.stats.videos' => 'Video\'s', 
   'dashboard.stats.docs' => 'Documenten', 
   'dashboard.stats.sound' => 'Geluid', 
   'dashboard.stats.others' => 'Anders', 
@@ -104,7 +105,7 @@ l::set(array(
   'pages.add.success' => 'De pagina is gemaakt',
 
   // update page
-  'pages.update.errors' => 'Please fill out all fields correctly',
+  'pages.update.errors' => 'Vul AUB alle velden correct in',
     
   // delete page  
   'pages.delete.title' => 'Verwijder deze pagina',
@@ -150,7 +151,7 @@ l::set(array(
   'files.edit.title' => 'Bewerk Bestand',
   'files.edit.filename' => 'Bestansnaam (zonder extensie)',
   'files.edit.button' => 'Bewaar',
-  'files.edit.errors.filename' => 'Please enter a valid filename',
+  'files.edit.errors.filename' => 'Vul AUB een geldige bestandsnaam in',
   'files.edit.errors.notfound' => 'Het bestand kon niet worden gevonden',
   'files.edit.errors.exists' => 'De nieuwe naam bestaat al',
   'files.edit.errors.permissions' => 'Het bestand kon niet worden hernoemd',
@@ -203,14 +204,14 @@ l::set(array(
   'form.buttons.link' => 'link',
   'form.buttons.email' => 'email',
 
-  'form.overlay.link.title' => 'Insert Link',
+  'form.overlay.link.title' => 'Voeg link toe',
   'form.overlay.link.link' => 'Link',
-  'form.overlay.link.text' => 'Link Text (optional)',
-  'form.overlay.link.button' => 'Inser Link',
+  'form.overlay.link.text' => 'Link Tekst (optioneel)',
+  'form.overlay.link.button' => 'Voeg link toe',
 
-  'form.overlay.email.title' => 'Insert Email',
-  'form.overlay.email.link' => 'Email Address',
-  'form.overlay.email.text' => 'Link Text (optional)',
-  'form.overlay.email.button' => 'Inser Email',
+  'form.overlay.email.title' => 'Voeg email toe',
+  'form.overlay.email.link' => 'Email Adres',
+  'form.overlay.email.text' => 'Link Tekst (optioneel)',
+  'form.overlay.email.button' => 'Voeg email toe',
     
 ));
