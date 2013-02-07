@@ -3,6 +3,7 @@
 ## 0.93
 
 - polish translation
+- fixes for the hungarian translation
 
 ## 0.92
 
