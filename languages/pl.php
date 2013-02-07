@@ -1,5 +1,9 @@
 <?php
 
+/* 
+ * author: Peter Blazejewicz <https://github.com/peterblazejewicz>
+ */
+
 l::set(array(
   
   // global 
