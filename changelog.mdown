@@ -1,5 +1,9 @@
 #Kirby Panel Changelog
 
+## 0.93
+
+- polish translation
+
 ## 0.92
 
 - fixed a bug in the changeNum method which broke sorting
