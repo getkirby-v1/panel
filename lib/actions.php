@@ -31,7 +31,7 @@ class action {
     
     if(get('add-page')) {
       $result = data::addContent();
-      if(success($result)) go($result['url'] . '/show:content');
+      if(success($result)) go($result['url'] . '/show' . c::get('uri.param.separator') . 'content');
     }
     
     return $result;
