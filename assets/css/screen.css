@@ -733,7 +733,7 @@ body:before {
   display: block;
   width: 150px;
   height: 150px;
-  background: #222;
+  background: #222 url(../images/loader.black.gif) no-repeat center;
   float: left;
   margin: 10px 20px 10px 0;
   line-height: 0;
