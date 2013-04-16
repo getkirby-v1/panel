@@ -4,6 +4,7 @@
 
 - polish translation
 - fixes for the hungarian translation
+- new thai translation
 
 ## 0.92
 
