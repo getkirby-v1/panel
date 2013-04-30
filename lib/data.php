@@ -745,6 +745,9 @@ class data {
 
       $files = dir::read(c::get('root.site') . '/templates');
       
+      // filter out ignored templates
+      $files = array_diff($files, c::get('template.file.ignore', array()));
+      
       foreach($files as $file) {
 
         $name = f::name($file);
