@@ -95,7 +95,7 @@ l::set(array(
   'pages.add.errors.title' => 'Please add a title',
   'pages.add.errors.url' => 'Please add a URL for your page',
   'pages.add.errors.characters' => 'Please only use the following characters a-z, 0-9, _, - for the URL',
-  'pages.add.errors.exists' => 'A page with that url already exists',
+  'pages.add.errors.exists' => 'A page with that URL already exists',
   'pages.add.errors.permissions' => 'The directory could not be created',
   'pages.add.success' => 'The page has been created',
 
