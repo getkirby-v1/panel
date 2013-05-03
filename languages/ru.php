@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Author: Vadim Makeev <http://pepelsbey.net>
+ */
+
 l::set(array(
   
   // global 
