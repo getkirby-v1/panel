@@ -255,6 +255,14 @@ class form {
       'italic' => '<a href="#italic" rel="tag" data-tag-open="*" data-tag-close="*" data-tag-sample="' . l::get('form.buttons.italic.sample') . '">' . l::get('form.buttons.italic') . '</a>',
       'link'   => '<a href="#form-overlay-link" rel="overlay">' . l::get('form.buttons.link') . '</a>',
       'email'  => '<a href="#form-overlay-email" rel="overlay">' . l::get('form.buttons.email') . '</a>',
+      'blockquote' => '<a href="#blockquote" rel="tag" data-tag-open="    ">' . l::get('form.buttons.blockquote') . '</a>',
+      'code'       => '<a href="#code" rel="tag" data-tag-open="`" data-tag-close="`">' . l::get('form.buttons.code') . '</a>',
+      'hr'         => '<a href="#hr" rel="tag" data-tag-open="****">' . l::get('form.buttons.hr') . '</a>',
+      'ul'         => '<a href="#ul" rel="tag" data-tag-open="- ">' . l::get('form.buttons.ul') . '</a>',
+      'ol'         => '<a href="#ol" rel="tag" data-tag-open="1. ">' . l::get('form.buttons.ol') . '</a>',
+      'youtube'    => '<a href="#form-overlay-youtube" rel="overlay">' . l::get('form.buttons.youtube') . '</a>',
+      'vimeo'      => '<a href="#form-overlay-vimeo" rel="overlay">' . l::get('form.buttons.vimeo') . '</a>',
+      'image'      => '<a href="#form-overlay-image" rel="overlay">' . l::get('form.buttons.image') . '</a>',
     );
     
     if(is_array($active)) {
