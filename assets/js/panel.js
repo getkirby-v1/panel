@@ -241,25 +241,124 @@ $(function() {
     };
     
     $this.link = function(modal) {
-
-      var linkField = modal.find('input[name=link]');
-      var textField = modal.find('input[name=text]');
-      
       var tag  = modal.attr('data-tag');
-      var link = $.trim(linkField.val());     
-      var text = $.trim(textField.val());     
-
-      linkField.val('');
-      textField.val('');
-
-      if(!link.length) return this.insert('');
+    
+	  if (tag == 'link' || tag == 'email') {
+        var linkField = modal.find('input[name=link]');
+        var textField = modal.find('input[name=text]');
       
-      if(!text.length || text == link) {
-        return this.insert('<' + link + '>');
-      } else {
-        return this.insert('(' + tag + ': ' + link + ' text: ' + text + ')');
-      }
+        var link = $.trim(linkField.val());     
+        var text = $.trim(textField.val());     
 
+        linkField.val('');
+        textField.val('');
+
+        if(!link.length) return this.insert('');
+        
+        if(!text.length || text == link) {
+          return this.insert('<' + link + '>');
+        } else {
+          return this.insert('(' + tag + ': ' + link + ' text: ' + text + ')');
+        }
+	  } else if (tag == 'youtube' || tag == 'vimeo') {
+		var widthField = modal.find('input[name=width]');
+        var heightField = modal.find('input[name=height]');
+		var linkField = modal.find('input[name=link]');
+        
+        var width = $.trim(widthField.val());     
+        var height = $.trim(heightField.val());    
+        var videolink = $.trim(linkField.val()); 
+		
+		// Link Validation
+        if(!videolink.length) return this.insert('');
+		
+		var youtubeRegex = /^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?(?=.*v=((\w|-){11}))(?:\S+)?$/;
+		if (!videolink.match(youtubeRegex) && tag == 'youtube') return this.insert('');
+		
+		var vimeoRegex = /^(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(clip\:)?(\d+).*$/;
+		if (!videolink.match(vimeoRegex) && tag == 'vimeo') return this.insert('');
+        
+		// Width & Height Validation
+	    var intRegex = /^\d{0,4}/;
+	    
+	    var insertLink = '(' + tag + ': ' + videolink;
+	    if (width.length) {
+          if (intRegex.test(width)) {
+	        insertLink = insertLink + ' width: ' + width;
+		  }
+	    }
+	    if (height.length) {
+		  if (intRegex.test(height)) {
+	        insertLink = insertLink + ' height: ' + height;
+		  }
+	    }
+	    insertLink = insertLink + ')'
+        
+		// Reset inputs
+        widthField.val('');
+        heightField.val('');
+        linkField.val('');
+	  
+        return this.insert(insertLink);
+		
+	  } else if (tag == 'image') {
+		  
+        var imageField = modal.find('select[name=image]');
+        var widthField = modal.find('input[name=width]');
+        var heightField = modal.find('input[name=height]');
+        var altField = modal.find('input[name=alt]');
+        var linkField = modal.find('input[name=link]');
+        var classField = modal.find('input[name=class]');
+      
+        var image = $.trim(imageField.val());  
+        var width = $.trim(widthField.val());  
+        var height = $.trim(heightField.val());  
+        var alt = $.trim(altField.val());  
+        var imagelink = $.trim(linkField.val());  
+        var imageclass = $.trim(classField.val());  
+        
+		if(!image.length || image == '0') return this.insert('');
+		
+		var intRegex = /^\d{0,4}/;
+	    
+	    var insertLink = '(' + tag + ': ' + image;
+	    if (width.length) {
+          if (intRegex.test(width)) {
+	        insertLink = insertLink + ' width: ' + width;
+		  }
+	    }
+	    if (height.length) {
+		  if (intRegex.test(height)) {
+	        insertLink = insertLink + ' height: ' + height;
+		  }
+	    }
+	    if (alt.length) {
+		  if (intRegex.test(alt)) {
+	        insertLink = insertLink + ' alt: ' + alt;
+		  }
+	    }
+	    if (imagelink.length) {
+		  if (intRegex.test(imagelink)) {
+	        insertLink = insertLink + ' link: ' + imagelink;
+		  }
+	    }
+	    if (imageclass.length) {
+		  if (intRegex.test(imageclass)) {
+	        insertLink = insertLink + ' class: ' + imageclass;
+		  }
+	    }
+	    insertLink = insertLink + ')'
+        
+		// Reset inputs
+        imageField.val('0');
+        widthField.val('');
+        heightField.val('');
+        altField.val('');
+        linkField.val('');
+        classField.val('');
+	  
+        return this.insert(insertLink);
+	  }
     };
     
     $this.init();
