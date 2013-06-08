@@ -61,7 +61,7 @@ class upload {
 		// try to change the permissions for the destination
 		@chmod(dirname($destination), 0777);
 		
-		if(!@copy($tmp_name, $destination)) return array(
+		if(!@move_uploaded_file($tmp_name, $destination)) return array(
 			'status' => 'error',
 			'msg'    => l::get('upload.errors.move-error', 'The file could not be moved to the server'),
 		);
