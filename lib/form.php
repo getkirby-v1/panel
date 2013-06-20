@@ -146,10 +146,7 @@ class form {
   }
   
   function fieldtemplate($params) {
-    content::start();
-    extract($params);
-    require($file);
-    return content::end(true);      
+    return tpl::loadFile($params['file'], $params, true);
   }
   
   function fieldcss($options) {
