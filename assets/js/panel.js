@@ -88,11 +88,22 @@ var panel = {
           a.removeClass('less');
           break;
       }
-          
+        
       return false;
       
     });
-        
+    
+    $(document).on('keypress', function(event){
+      if (event.ctrlKey || event.metaKey) {
+        switch (String.fromCharCode(event.which).toLowerCase()) {
+          case 's':
+            event.preventDefault();
+            $('input[type*="submit"]').click();
+            break;
+        }     
+      }
+    });
+      
   }, 
   
   overlay : {
