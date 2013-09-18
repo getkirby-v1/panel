@@ -79,8 +79,8 @@ l::set(array(
   'pages.show.less' => 'weniger anzeigen',
   'pages.errors.notfound' => 'Die Seite wurde nicht gefunden',
   'pages.errors.move' => 'Die Seite konnte nicht verschoben werden',
-  'pages.errors.sort' => 'Es konnte nicht alle Seiten sortiert werden',
-  'pages.errors.nosort' => 'Es gibt nicht zu sortieren',
+  'pages.errors.sort' => 'Es konnten nicht alle Seiten sortiert werden',
+  'pages.errors.nosort' => 'Es gibt nichts zu sortieren',
 
   // no subpages allowed
   'nopages.title' => 'Unterseiten',
