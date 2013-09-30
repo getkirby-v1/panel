@@ -96,10 +96,20 @@ var panel = {
     $(document).on('keypress', function(event){
       if (event.ctrlKey || event.metaKey) {
         switch (String.fromCharCode(event.which).toLowerCase()) {
+          case 'n':
+            event.preventDefault();
+            document.location = $('a.button.add').attr("href");
+            break;
+          case 'o':
+            event.preventDefault();
+            // $('.preview a').click();
+            window.open($('.preview a').attr("href"));
+            break;
           case 's':
             event.preventDefault();
             $('input[type*="submit"]').click();
             break;
+        
         }     
       }
     });
