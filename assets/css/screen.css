@@ -658,14 +658,19 @@ body:before {
 .form-buttons {
   margin-bottom: 10px;
 }
-.form-buttons li {
+.form-buttons li,
+.hallotoolbar span {
   display: inline-block;
   margin-right: -3px;
   margin-bottom: 1px;
 }
-.form-buttons a {
+.form-buttons a,
+.hallotoolbar button {
   display: block;
   background: #222;
+  border:0 none;
+  font-size:1em;
+  line-height: 22px;
   color: #fff;
   padding: 1px 10px;
 }
@@ -673,15 +678,16 @@ body:before {
   color: #fff;
   background: #333;
 }
-.form-buttons li:first-child a {
+.form-buttons li:first-child a,
+.hallotoolbar button.first {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.form-buttons li:last-child a {
+.form-buttons li:last-child a,
+.hallotoolbar button.last {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-
 
 /* file manager */
 .files {

@@ -20,9 +20,13 @@
 <link rel="stylesheet" href="<?php echo c::get('panel.url') ?>/assets/css/ie.css" />
 <![endif]-->
 
-<script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.js"></script>
-<script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.ui.js"></script>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.min.js"></script>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.ui.min.js"></script>
 <script src="<?php echo c::get('panel.url') ?>/assets/js/jquery.ui.touch.js"></script>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/rangy-core.js"></script>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/showdown.js"></script>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/to-markdown.js"></script>
+<script src="<?php echo c::get('panel.url') ?>/assets/js/hallo.js"></script>
 <script src="<?php echo c::get('panel.url') ?>/assets/js/panel.js"></script>
 
 <?php if($panel->fancybox): ?>

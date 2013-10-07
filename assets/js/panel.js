@@ -93,6 +93,7 @@ var panel = {
       
     });
     
+    /** CUSTOM SHORTKEY **/
     $(document).on('keypress', function(event){
       if (event.ctrlKey || event.metaKey) {
         switch (String.fromCharCode(event.which).toLowerCase()) {
@@ -109,12 +110,73 @@ var panel = {
             event.preventDefault();
             $('input[type*="submit"]').click();
             break;
-        
         }     
       }
     });
-      
-  }, 
+    
+    /** WYSIWYG “Hallo” **/
+    var converter = new Showdown.converter();
+    
+    $('.field.textarea.large .input').each(function(index, el) {
+
+      $(this).after(function() {
+        $textarea = $(this);
+        $overlay = $( "<div></div>" );
+        $overlay
+          .addClass(this.className)
+          .height( $(this).height() )
+          .css({
+            'overflow-y':'auto',
+            'position'  :'absolute',
+            'top'       :$(this).position().top,
+            'left'       :$(this).position().left
+          })
+          .html( converter.makeHtml( $(this).html() ) )
+          .hallo({
+            plugins: {
+              'halloheadings': {formatBlocks:["p", "h3", "h4", "h5"]},
+              'halloformat': {},
+              'hallolists': {},
+              'hallolink':{}
+            },
+            toolbar: 'halloToolbarFixed',
+          })
+          .bind('halloactivated', function(event, data) { // on focus
+            // console.log("Hallo activated");
+            $(this).prev('.form-buttons').css("visibility","hidden");
+
+            $('.hallotoolbar:not(.clean)').each(function() {
+              var n = $('.ui-button', this).length;
+              $('.ui-button', this).each(function(i){
+                var $this = $(this);
+                var title = $this.attr('title');
+                $('.ui-button-text',$this).html(title);
+                if( i==0 ) $this.addClass('first');
+                if( i==n-1 ) $this.addClass('last');
+                $this.parents('.hallotoolbar').addClass('clean');
+              });
+            });
+
+          })
+          .bind('hallomodified', function(event, data) {
+            // console.log("Hallo modified");
+            var html = $overlay.html().split("\n").map($.trim).filter(function(line) { 
+              return line != "";
+            }).join("\n");
+            $textarea.html( toMarkdown(html) );
+
+          })
+          .bind('hallodeactivated', function(event, data) { // on leave focus
+            // console.log("Hallo deactivated");
+          })
+          .hallo({editable: true});
+
+        return $overlay;
+
+      });
+
+    });
+  },
   
   overlay : {
     open : function(element) {
