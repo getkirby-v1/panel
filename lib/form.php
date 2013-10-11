@@ -256,7 +256,7 @@ class form {
       'h6'     => '<a href="#h6" rel="tag" data-tag-open="###### ">' . l::get('form.buttons.h6') . '</a>',
       'p'      => '<a href="#p" rel="tag" data-tag-open="">' . l::get('form.buttons.p') . '</a>',
       'bold'   => '<a href="#bold" rel="tag" data-tag-open="**" data-tag-close="**" data-tag-sample="' . l::get('form.buttons.bold.sample') . '">' . l::get('form.buttons.bold') . '</a>',
-      'italic' => '<a href="#italic" rel="tag" data-tag-open="*" data-tag-close="*" data-tag-sample="' . l::get('form.buttons.italic.sample') . '">' . l::get('form.buttons.italic') . '</a>',
+      'italic' => '<a href="#italic" rel="tag" data-tag-open="_" data-tag-close="_" data-tag-sample="' . l::get('form.buttons.italic.sample') . '">' . l::get('form.buttons.italic') . '</a>',
       'link'   => '<a href="#form-overlay-link" rel="overlay">' . l::get('form.buttons.link') . '</a>',
       'email'  => '<a href="#form-overlay-email" rel="overlay">' . l::get('form.buttons.email') . '</a>',
     );
