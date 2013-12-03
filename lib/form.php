@@ -75,12 +75,12 @@ class form {
       if(file_exists($js))  $this->js[$type]  = $js;
     
       // check for required fields
-      if(@$field['required'] == true) {
+      if(a::get($field, 'required', false) == true) {
         $this->required[$name] = $field;
       }
 
       // check for fields that need validation
-      if(@$field['validate'] != false) {
+      if(a::get($field, 'validate', false) != false) {
         $this->validate[$name] = $field;
       }
       
