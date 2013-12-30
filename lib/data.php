@@ -683,7 +683,7 @@ class data {
       $v = a::get($input, $key);
       if(is_array($v)) {
         $data[$key] = implode(', ', $v);
-      } else {
+      } else if($v) {
         $data[$key] = trim($v);
       }
     }
