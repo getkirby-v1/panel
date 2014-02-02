@@ -79,8 +79,8 @@ l::set(array(
   'pages.show.less' => 'weniger anzeigen',
   'pages.errors.notfound' => 'Die Seite wurde nicht gefunden',
   'pages.errors.move' => 'Die Seite konnte nicht verschoben werden',
-  'pages.errors.sort' => 'Es konnte nicht alle Seiten sortiert werden',
-  'pages.errors.nosort' => 'Es gibt nicht zu sortieren',
+  'pages.errors.sort' => 'Es konnten nicht alle Seiten sortiert werden',
+  'pages.errors.nosort' => 'Es gibt nichts zu sortieren',
 
   // no subpages allowed
   'nopages.title' => 'Unterseiten',
@@ -155,14 +155,14 @@ l::set(array(
   // replace file
   'files.replace.title' => 'Diese Datei ersetzen',
   'files.replace.file' => 'Datei',
-  'files.replace.choose' => 'Bitte wählen Sie einen Datei von Ihrem Computer…',
+  'files.replace.choose' => 'Bitte wählen Sie eine Datei von Ihrem Computer…',
   'files.replace.button' => 'Ersetzen',
   'files.replace.errors.notfound' => 'Die Datei wurde nicht gefunden',
   'files.replace.success' => 'Die Datei wurde ersetzt.',
 
   // upload file
   'files.upload.title' => 'Neue Datei hochladen',
-  'files.upload.choose' => 'Bitte wählen Sie einen Datei von Ihrem Computer…',
+  'files.upload.choose' => 'Bitte wählen Sie eine Datei von Ihrem Computer…',
   'files.upload.button' => 'Hochladen',
       
   // login  
