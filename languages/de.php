@@ -41,16 +41,16 @@ l::set(array(
   'home.edit' => 'Bearbeiten',
   'home.warning.title' => 'Bitte zuerst beheben!',
   'home.warning.permissions.title' => 'Zugriffsrechte',
-  'home.warning.permissions.text' => 'Die Zugriffsrechte in ihrem Inhaltsverzeichnis sind nicht richtig gesetzt. <br />Bitte ändern sie die Rechte für alle Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
+  'home.warning.permissions.text' => 'Die Zugriffsrechte in Ihrem Inhaltsverzeichnis sind nicht richtig gesetzt. <br />Bitte ändern Sie die Rechte für alle Ordner in <strong>0755</strong> und für alle Dateien in <strong>0666</strong>',
   'home.warning.blueprints.title' => 'Blueprints',
-  'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt. <br /><a href="http://getkirby.com/docs/panel/blueprints">Lesen sie mehr darüber, wie man Blueprints installiert…</a>',
+  'home.warning.blueprints.text' => 'Für folgende Templates wurden noch keine Blueprints angelegt. <br /><a href="http://getkirby.com/docs/panel/blueprints">Lesen Sie mehr darüber, wie man Blueprints installiert…</a>',
   'home.warning.thumbs.title' => 'Thumbnails für die Dateiverwaltung',
-  'home.warning.thumbs.text' => 'Bitte legen sie einen <strong>thumbs</strong> Ordner im Hauptordner ihrer Kirby-Seite an und setzen sie die Rechte auf <strong>0755</strong>',
+  'home.warning.thumbs.text' => 'Bitte legen Sie einen <strong>thumbs</strong> Ordner im Hauptordner Ihrer Kirby-Seite an und setzen Sie die Rechte auf <strong>0755</strong>',
 
   // siteinfo
   'siteinfo.button' => 'Speichern',
   'siteinfo.errors.title' => 'Bitte geben Sie einen Titel ein',
-  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> ist nicht beschreibbar. <br />Bitte ändern Sie die Zugriffsrechte und versuchen sie es erneut.',
+  'siteinfo.errors.permissions' => '<strong>content/site.txt</strong> ist nicht beschreibbar. <br />Bitte ändern Sie die Zugriffsrechte und versuchen Sie es erneut.',
 
   // content form 
   'content.save' => 'Speichern',
@@ -79,8 +79,8 @@ l::set(array(
   'pages.show.less' => 'weniger anzeigen',
   'pages.errors.notfound' => 'Die Seite wurde nicht gefunden',
   'pages.errors.move' => 'Die Seite konnte nicht verschoben werden',
-  'pages.errors.sort' => 'Es konnte nicht alle Seiten sortiert werden',
-  'pages.errors.nosort' => 'Es gibt nicht zu sortieren',
+  'pages.errors.sort' => 'Es konnten nicht alle Seiten sortiert werden',
+  'pages.errors.nosort' => 'Es gibt nichts zu sortieren',
 
   // no subpages allowed
   'nopages.title' => 'Unterseiten',
@@ -155,14 +155,14 @@ l::set(array(
   // replace file
   'files.replace.title' => 'Diese Datei ersetzen',
   'files.replace.file' => 'Datei',
-  'files.replace.choose' => 'Bitte wählen Sie einen Datei von Ihrem Computer…',
+  'files.replace.choose' => 'Bitte wählen Sie eine Datei von Ihrem Computer…',
   'files.replace.button' => 'Ersetzen',
   'files.replace.errors.notfound' => 'Die Datei wurde nicht gefunden',
   'files.replace.success' => 'Die Datei wurde ersetzt.',
 
   // upload file
   'files.upload.title' => 'Neue Datei hochladen',
-  'files.upload.choose' => 'Bitte wählen Sie einen Datei von Ihrem Computer…',
+  'files.upload.choose' => 'Bitte wählen Sie eine Datei von Ihrem Computer…',
   'files.upload.button' => 'Hochladen',
       
   // login  
