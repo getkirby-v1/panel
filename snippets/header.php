@@ -37,12 +37,20 @@
 
 <body class="<?php echo $panel->uri->path(1) ?> <?php echo browser::css() ?>">
 
+<!-- include all overlay snippets -->
+<?php snippet('pages.add') ?>
+<?php snippet('pages.delete') ?>
+<?php snippet('files.upload') ?>
+<?php snippet('files.edit') ?>
+<?php snippet('files.replace') ?>
+<?php snippet('files.delete') ?>
+
 <div class="menu">
   <h1><a class="home" href="<?php echo url() ?>">Kirby Panel</a></h1>
 
   <?php if(c::get('lang.support')): ?>
   <select class="lang" onchange="window.location = this.value">
-    <?php foreach(c::get('lang.available') as $lang): ?>  
+    <?php foreach(c::get('lang.available') as $lang): ?>
     <option value="<?php echo languageToggle($lang) ?>"<?php if($lang == c::get('lang.current')) echo ' selected="selected"' ?>><?php echo str::upper($lang) ?></option>
     <?php endforeach ?>
   </select>
@@ -56,36 +64,36 @@
 <div class="content">
 
   <div class="header<?php if($panel->isHome) echo ' home' ?>">
-    
+
     <?php if($panel->isHome): ?>
     <h2>
       <?php if($panel->show == 'info'): ?>
       <a href="<?php echo url() ?>"><?php echo l::get('subheader.site') ?></a> <small>&rarr;</small> <a href="<?php echo showurl('info') ?>"><?php echo l::get('subheader.info') ?></a>
       <?php else: ?>
-      <a href="<?php echo url() ?>"><?php echo l::get('subheader.site') ?></a>    
+      <a href="<?php echo url() ?>"><?php echo l::get('subheader.site') ?></a>
       <?php endif ?>
     </h2>
     <?php else: ?>
     <h2>
       <?php foreach($site->breadcrumb() as $l): ?>
       <a<?php if($l->isActive()) echo ' class="active"' ?> href="<?php echo $l->url() ?>"><?php echo $l->title() ?></a> <small>&rarr;</small>
-      <?php endforeach ?> 
+      <?php endforeach ?>
     </h2>
     <?php endif ?>
-      
+
   </div>
 
-  <?php if(!$panel->isHome): ?>    
+  <?php if(!$panel->isHome): ?>
   <ul class="bar submenu">
-    <li><a<?php echo $panel->show == 'content' ?   ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>  
-    <li><a<?php echo $panel->show == 'files'   ?   ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?></a></li>  
-    <li><a<?php echo $panel->show == 'options' ?   ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>  
-    <li class="preview"><a target="_blank" href="<?php echo ourl($page->url()) ?>"><?php echo l::get('tabs.preview') ?></a></li>  
+    <li><a<?php echo $panel->show == 'content' ?   ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>
+    <li><a<?php echo $panel->show == 'files'   ?   ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?></a></li>
+    <li><a<?php echo $panel->show == 'options' ?   ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>
+    <li class="preview"><a target="_blank" href="<?php echo ourl($page->url()) ?>"><?php echo l::get('tabs.preview') ?></a></li>
   </ul>
   <?php else: ?>
   <ul class="bar submenu">
-    <li><a<?php echo $panel->show != 'info' ? ' class="active"' : '' ?> href="<?php echo url() ?>"><?php echo l::get('tabs.overview') ?></a></li>  
-    <li><a<?php echo $panel->show == 'info' ? ' class="active"' : '' ?> href="<?php echo showurl('info') ?>"><?php echo l::get('tabs.info') ?></a></li>  
-    <li class="preview"><a title="<?php echo l::get('tabs.preview') ?>" target="_blank" href="<?php echo ourl() ?>"><?php echo l::get('tabs.preview') ?></a></li>  
-  </ul>  
+    <li><a<?php echo $panel->show != 'info' ? ' class="active"' : '' ?> href="<?php echo url() ?>"><?php echo l::get('tabs.overview') ?></a></li>
+    <li><a<?php echo $panel->show == 'info' ? ' class="active"' : '' ?> href="<?php echo showurl('info') ?>"><?php echo l::get('tabs.info') ?></a></li>
+    <li class="preview"><a title="<?php echo l::get('tabs.preview') ?>" target="_blank" href="<?php echo ourl() ?>"><?php echo l::get('tabs.preview') ?></a></li>
+  </ul>
   <?php endif ?>
