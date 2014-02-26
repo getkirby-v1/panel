@@ -51,11 +51,6 @@
     
 </div>
 
-<?php snippet('files.upload') ?>
-<?php snippet('files.edit') ?>
-<?php snippet('files.replace') ?>
-<?php snippet('files.delete') ?>
-
 <?php else: ?>
 <div class="files">
 <h3><?php echo l::get('nofiles.title') ?></h3>
