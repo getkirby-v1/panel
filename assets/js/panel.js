@@ -244,10 +244,12 @@ $(function() {
 
       var linkField = modal.find('input[name=link]');
       var textField = modal.find('input[name=text]');
+      var targetField = modal.find('input[name=target]');
       
       var tag  = modal.attr('data-tag');
       var link = $.trim(linkField.val());     
-      var text = $.trim(textField.val());     
+      var text = $.trim(textField.val());  
+      var blank = targetField.attr('checked') == 'checked' ? true : false;    
 
       linkField.val('');
       textField.val('');
@@ -255,8 +257,10 @@ $(function() {
       if(!link.length) return this.insert('');
       
       if(!text.length || text == link) {
+        if( blank ) return this.insert('(' + tag + ': ' + link + ' popup: yes)');
         return this.insert('<' + link + '>');
       } else {
+      	if( blank ) return this.insert('(' + tag + ': ' + link + ' text: ' + text + ' popup: yes)');
         return this.insert('(' + tag + ': ' + link + ' text: ' + text + ')');
       }
 
