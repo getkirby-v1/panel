@@ -37,6 +37,13 @@
 
 <body class="<?php echo $panel->uri->path(1) ?> <?php echo browser::css() ?>">
 
+<?php snippet('pages.add') ?>
+<?php snippet('pages.delete') ?>
+<?php snippet('files.upload') ?>
+<?php snippet('files.edit') ?>
+<?php snippet('files.replace') ?>
+<?php snippet('files.delete') ?>
+
 <div class="menu">
   <h1><a class="home" href="<?php echo url() ?>">Kirby Panel</a></h1>
 
