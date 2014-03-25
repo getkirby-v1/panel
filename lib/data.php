@@ -315,11 +315,9 @@ class data {
 
     if(c::get('lang.support')) {
       
-      foreach(c::get('lang.available') as $lang) {
-        $file  = $dir . '/' . $tpl . '.' . $lang . '.' . c::get('content.file.extension', 'txt');
-        $write = data::write($file, $data);        
-        if(error($write)) return $write;
-      }    
+      $file  = $dir . '/' . $tpl . '.' . c::get('lang.default') . '.' . c::get('content.file.extension', 'txt');
+      $write = data::write($file, $data);        
+      if(error($write)) return $write;
     
     } else {
 
