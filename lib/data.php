@@ -712,6 +712,7 @@ class data {
     }
     @chmod(basename($file), 0666);
     $write = f::write($file, $result);
+    @touch(dirname($file));
       
     if(!$write || !file_exists($file)) return array(
       'status' => 'error',
