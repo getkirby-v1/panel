@@ -21,3 +21,6 @@ c::set('upload.allowed', array(
   'application/gzip',
   'application/zip',
 ));
+
+// ignore template files
+c::set('template.file.ignore', array());

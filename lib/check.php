@@ -62,6 +62,9 @@ class check {
     $templates  = dir::read(c::get('root.templates'));
     $blueprints = dir::read(c::get('root.site') . '/' . c::get('panel.folder') . '/blueprints');
 
+    // filter out ignored templates
+    $templates = array_diff($templates, c::get('template.file.ignore', array()));
+
     return array_diff($templates, $blueprints);
         
   }
