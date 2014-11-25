@@ -1,5 +1,7 @@
 #Kirby Panel
 
+**This is the repository for the old Kirby 1 panel. Please visit http://github.com/getkirby/panel for the latest version of Kirby 2's panel**
+
 The Kirby Panel is a open-source interface for your Kirby installation.
 
 ## What the heck is Kirby?
