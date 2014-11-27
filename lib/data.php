@@ -706,9 +706,11 @@ class data {
       $k = str::urlify($k);
       $k = str::ucfirst(str_replace('-', '_', $k));
       if(in_array($k, $keys) || empty($k)) continue;
-      $keys[] = $k;     
-      $result .= $break . $k . ': ' . trim($v);
-      $break = "\n\n----\n\n";    
+      $keys[] = $k;
+      // normalize line endings to LF
+      $v = trim(preg_replace('{\r\n?}', "\n", $v));
+      $result .= $break . $k . ': ' . $v;
+      $break = "\n\n----\n\n";
     }
     @chmod(basename($file), 0666);
     $write = f::write($file, $result);
