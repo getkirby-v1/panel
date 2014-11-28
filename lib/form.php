@@ -166,7 +166,7 @@ class form {
             
     $required = $field['required'] == true ? '<span class="required">*</span>' : '';
     $lang = (c::get('lang.support')) ? '<small>' . c::get('lang.current') . '</small>' : '';
-    return '<label>' . str::ucfirst($text) . $lang . $required . '</label>';   
+    return '<label for="field-' . html($field['name']) . '">' . str::ucfirst($text) . $lang . $required . '</label>';
   }
 
   function help($text) {
