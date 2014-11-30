@@ -1,6 +1,6 @@
 <?php if(!defined('KIRBY')) die('Direct access is not allowed') ?>
 <?php if($settings->pages): ?>
-<?php 
+<?php
 
 $children = ($panel->isHome) ? $pages : $page->children();
 $action   = action::sortPages($settings->flip);
@@ -32,28 +32,25 @@ $action   = action::sortPages($settings->flip);
 
   </div>
 
-  <?php 
-  
+  <?php
+
   snippet('pages.list', array(
-    'type'     => 'visible', 
+    'type'     => 'visible',
     'headline' => ($panel->isHome) ? l::get('pages.title.home') : l::get('pages.title'),
     'children' => $children
-  )); 
-  
+  ));
+
   snippet('pages.list', array(
-    'type'     => 'invisible', 
+    'type'     => 'invisible',
     'headline' => ($panel->isHome) ? l::get('pages.invisible.home') : l::get('pages.invisible'),
     'children' => $children
-  )); 
+  ));
 
   ?>
 
   </form>
-  
-</div>
 
-<?php snippet('pages.add') ?>
-<?php snippet('pages.delete') ?>
+</div>
 
 <?php else: ?>
 <div class="subpages">
