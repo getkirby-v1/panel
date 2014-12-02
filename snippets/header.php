@@ -37,6 +37,9 @@
 
 <body class="<?php echo $panel->uri->path(1) ?> <?php echo browser::css() ?>">
 
+<?php snippet('pages.add') ?>
+<?php snippet('pages.delete') ?>
+
 <div class="menu">
   <h1><a class="home" href="<?php echo url() ?>">Kirby Panel</a></h1>
 
