@@ -92,6 +92,29 @@ var panel = {
       return false;
       
     });
+
+
+    /** CUSTOM SHORTKEY **/
+    $(document).on('keypress', function(event){
+      if (event.ctrlKey || event.metaKey) {
+        switch (String.fromCharCode(event.which).toLowerCase()) {
+          case 'n':
+            event.preventDefault();
+            document.location = $('a.button.add').attr("href");
+            break;
+          case 'o':
+            event.preventDefault();
+            // $('.preview a').click();
+            window.open($('.preview a').attr("href"));
+            break;
+          case 's':
+            event.preventDefault();
+            $('input[type*="submit"]').click();
+            break;
+        
+        }     
+      }
+    });
         
   }, 
   
@@ -186,21 +209,67 @@ $(function() {
     
       // Moz + Webkit
       } else if(area.selectionStart || area.selectionStart == '0') {
-  
         var start  = area.selectionStart;
         var end    = area.selectionEnd;
         var scroll = area.scrollTop;
         var value  = area.value; 
         var text   = value.substring(start, end);
-  
-        if(!text) text = sample;
-  
-        var tag = open + text + close;
-  
-        area.value = value.substring(0, start) + tag + value.substring(end, value.length);
-        area.focus();
+        var tag;
+
+        if( sample ) {
+
+          if( text ) {
+
+            // limit over markdown
+            var remove = 0;
+            if( text.substr(0, open.length) == open )
+            {
+              text = text.substring(open.length);
+              remove++;
+            }
+
+            if( text.substr(text.length-close.length,text.length) == close )
+            {
+              text = text.substring(0,text.length-close.length);
+              remove++;
+            }
+
+            if( value.substring(start - open.length,start) == open )
+            {
+              start = start - open.length;
+              remove++;
+            }
+
+            if( value.substring(end,end + close.length) == close )
+            {
+              end = end + close.length;
+              remove++;
+            }
+
+            tag = remove==2 || remove==4 ? text : open + text + close;
+
+
+
+          } else {
+            tag = open + sample + close;  
+          }
+
+          area.value = value.substring(0, start) + tag + value.substring(end, value.length);
+        
+        } else {
+
+          var startline = value.substring(0, start).regexLastIndexOf(/\r|\n/) + 1;
     
-        var cursor = start + tag.length;
+          var tag = open;
+          
+          area.value = value.substring(0, startline) + tag + value.substring(startline, value.length).replace(/#+(\s)?/,'');
+
+        }
+        
+        area.focus();
+
+        var cursor = startline ? startline : start;
+            cursor += tag.length;
   
         area.selectionStart = cursor;
         area.selectionEnd   = cursor;
@@ -295,3 +364,21 @@ $(function() {
   }
   
 })(jQuery);  
+
+
+String.prototype.regexLastIndexOf = function(regex, startpos) {
+    regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
+    if(typeof (startpos) == "undefined") {
+        startpos = this.length;
+    } else if(startpos < 0) {
+        startpos = 0;
+    }
+    var stringToWorkWith = this.substring(0, startpos + 1);
+    var lastIndexOf = -1;
+    var nextStop = 0;
+    while((result = regex.exec(stringToWorkWith)) != null) {
+        lastIndexOf = result.index;
+        regex.lastIndex = ++nextStop;
+    }
+    return lastIndexOf;
+}
