@@ -202,6 +202,7 @@ l::set(array(
   'form.overlay.link.title' => 'Insert Link',
   'form.overlay.link.link' => 'Link',
   'form.overlay.link.text' => 'Link Text (optional)',
+  'form.overlay.link.target' => 'Open link in new window (optional)',
   'form.overlay.link.button' => 'Insert Link',
 
   'form.overlay.email.title' => 'Insert Email',

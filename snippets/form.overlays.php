@@ -13,6 +13,9 @@
         <label><?php echo l::get('form.overlay.link.text') ?></label>
         <input type="text" name="text" class="input" />      
       </div>  
+      <div class="field">
+        <label><input type="checkbox" name="target" /> <?php echo l::get('form.overlay.link.target') ?></label>
+      </div>  
       <div class="buttons">
         <input type="submit" name="ok" value="<?php echo l::get('form.overlay.link.button') ?>" />
         <input class="cancel" type="submit" value="<?php echo l::get('cancel') ?>" />

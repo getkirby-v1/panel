@@ -192,4 +192,26 @@ l::set(array(
   'writer.errors.write' => 'No se han podido añadir los datos',
   'writer.success' => 'El archivo ha sido guardado',
   
+  // form buttons
+  'form.buttons.h1' => 'h1',
+  'form.buttons.h2' => 'h2',
+  'form.buttons.h3' => 'h3',
+  'form.buttons.bold' => 'negrita',
+  'form.buttons.bold.sample' => 'texto en negrita',
+  'form.buttons.italic' => 'cursiva',
+  'form.buttons.italic.sample' => 'texto en cursiva',
+  'form.buttons.link' => 'enlace',
+  'form.buttons.email' => 'email',
+
+  'form.overlay.link.title' => 'Insertar enlace',
+  'form.overlay.link.link' => 'Enlace',
+  'form.overlay.link.text' => 'Texto de enlace (opcional)',
+  'form.overlay.link.target' => 'Abrir enlace en nueva ventana (opcional)',
+  'form.overlay.link.button' => 'Insertar enlace',
+
+  'form.overlay.email.title' => 'Insertar email',
+  'form.overlay.email.link' => 'Dirección de correo electrónico',
+  'form.overlay.email.text' => 'Texto de enlace (opcional)',
+  'form.overlay.email.button' => 'Insertar email',
+  
 ));
