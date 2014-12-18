@@ -5,7 +5,7 @@ if(!defined('KIRBY')) die('Direct access is not allowed');
 
 class upload {
 
-	function file($field, $destination, $params=array()) {
+	static function file($field, $destination, $params=array()) {
 
 		$allowed   = a::get($params, 'allowed', c::get('upload.allowed', array('image/jpeg', 'image/png', 'image/gif')) );
 		$maxsize   = a::get($params, 'maxsize', c::get('upload.maxsize', self::max_size()) );
@@ -80,7 +80,7 @@ class upload {
 		);
 	}
 
-	function max_size() {
+	static function max_size() {
 		$val  = ini_get('post_max_size');
 		$val  = trim($val);
 		$last = strtolower($val[strlen($val)-1]);
@@ -95,7 +95,7 @@ class upload {
 		return $val;
 	}
 		
-	function mime_to_extension($mime, $default='') {
+	static function mime_to_extension($mime, $default='') {
 		$types = array(
 			'image/jpeg' => 'jpg', 
 			'image/pjpeg' => 'jpg',
