@@ -1,30 +1,3 @@
-#Kirby Panel
+#Kirby 1 Panel
 
-**This is the repository for the old Kirby 1 panel. Please visit http://github.com/getkirby/panel for the latest version of Kirby 2's panel**
-
-The Kirby Panel is a open-source interface for your Kirby installation.
-
-## What the heck is Kirby?
-
-Kirby is a file-based CMS.   
-Easy to setup, easy to use, flexible as hell.
-
-<http://getkirby.com>
-
-Follow @getkirby on Twitter for updates: <http://twitter.com/getkirby>
-
-## Requirements
-
-The Kirby Panel requires Kirby CMS 1.1 or newer.  
-
-## Installation
-
-Add the panel folder to the root directory of your Kirby-flavoured site. Open http://yourdomain.com/panel in your browser and follow the installation instructions. 
-
-## Older Kirby CMS Versions
-
-If you are upgrading from older Kirby CMS versions, please make sure to get the latest .htaccess file in the main directory of your site. This will also contain new rewrite rules for the Panel.
-
-## Docs
-
-<http://getkirby.com/panel>  
+**Deprecated! Please visit http://github.com/getkirby**
